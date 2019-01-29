@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/26 14:38
  */
 public class RedisTest {
@@ -222,7 +222,7 @@ public class RedisTest {
 
      如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。
 
-     本操作的值限制在 64 位(bit)有符号数字表示之内。
+     本操作的值限制在 64 位(byteopt)有符号数字表示之内。
 
      这是一个针对字符串的操作，因为 Redis 没有专用的整数类型，所以 key 内储存的字符串被解释为十进制 64 位有符号整数来执行 INCR 操作。
 

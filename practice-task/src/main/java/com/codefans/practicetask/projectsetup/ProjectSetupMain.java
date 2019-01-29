@@ -48,7 +48,7 @@ public class ProjectSetupMain implements PropertyKeyConstants {
 
     public void initProperties() throws IOException {
 
-        projectRootDir = "D:\\letvProjects\\SCF";
+        projectRootDir = "/githubForSourcetree";
         propertyFileName = "setup.properties";
 
         InputStream is = ProjectSetupMain.class.getResourceAsStream(propertyFileName);

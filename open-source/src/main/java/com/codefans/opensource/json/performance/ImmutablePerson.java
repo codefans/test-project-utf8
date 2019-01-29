@@ -1,6 +1,6 @@
 package com.codefans.opensource.json.performance;
 
-import com.dslplatform.json.*;
+//import com.dslplatform.json.*;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class ImmutablePerson {
         this.age = age;
     }
 
-    @CompiledJson
+//    @CompiledJson
     public static final class DTO {
         public String firstName;
         public String lastName;
@@ -46,32 +46,35 @@ public class ImmutablePerson {
     }
 
     //this class also implements DSL-JSON Configuration... which is registered after code-gen one
-    @JsonConverter(target = ImmutablePerson.class)
-    public static class PersonJsonBuilder implements Configuration {
-        private static JsonReader.ReadObject<DTO> READER;
-        private static JsonWriter.WriteObject<DTO> WRITER;
+//    @JsonConverter(target = ImmutablePerson.class)
+//    public static class PersonJsonBuilder implements Configuration {
+//        private static JsonReader.ReadObject<DTO> READER;
+//        private static JsonWriter.WriteObject<DTO> WRITER;
+//
+//        public void configure(DslJson json) {
+//            //this means code-gen classes have already been registered and can be looked up
+//            READER = json.tryFindReader(DTO.class);
+//            WRITER = json.tryFindWriter(DTO.class);
+//        }
+//
+//        public static final JsonReader.ReadObject<ImmutablePerson> JSON_READER = new JsonReader.ReadObject<ImmutablePerson>() {
+//            public ImmutablePerson read(JsonReader reader) throws IOException {
+//                DTO dto = READER.read(reader);
+//                return new ImmutablePerson(dto);
+//            }
+//        };
+//        public static final JsonWriter.WriteObject<ImmutablePerson> JSON_WRITER = new JsonWriter.WriteObject<ImmutablePerson>() {
+//            public void write(JsonWriter writer, ImmutablePerson value) {
+//                if (value == null) {
+//                    writer.writeNull();
+//                } else {
+//                    WRITER.write(writer, value.toDto());
+//                }
+//            }
+//        };
+//    }
 
-        public void configure(DslJson json) {
-            //this means code-gen classes have already been registered and can be looked up
-            READER = json.tryFindReader(DTO.class);
-            WRITER = json.tryFindWriter(DTO.class);
-        }
 
-        public static final JsonReader.ReadObject<ImmutablePerson> JSON_READER = new JsonReader.ReadObject<ImmutablePerson>() {
-            public ImmutablePerson read(JsonReader reader) throws IOException {
-                DTO dto = READER.read(reader);
-                return new ImmutablePerson(dto);
-            }
-        };
-        public static final JsonWriter.WriteObject<ImmutablePerson> JSON_WRITER = new JsonWriter.WriteObject<ImmutablePerson>() {
-            public void write(JsonWriter writer, ImmutablePerson value) {
-                if (value == null) {
-                    writer.writeNull();
-                } else {
-                    WRITER.write(writer, value.toDto());
-                }
-            }
-        };
-    }
+
 
 }

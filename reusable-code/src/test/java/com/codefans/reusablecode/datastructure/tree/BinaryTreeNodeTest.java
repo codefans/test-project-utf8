@@ -15,6 +15,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * @author: caishengzhi
  * @date: 2017-09-28 10:38
+ * 1.前序遍历
+ * 2.中序遍历
+ * 3.后序遍历
+ * 4.按层级遍历
+ * 5.翻转二叉树(左右子树互换)
+ * 6.统计叶子节点数量
  **/
 public class BinaryTreeNodeTest {
 
@@ -41,7 +47,6 @@ public class BinaryTreeNodeTest {
 
     /**
      * 10, 4, 9, 5, 3, 11,
-     *
      */
     @Test
     public void invertBinaryTree() {
@@ -50,7 +55,7 @@ public class BinaryTreeNodeTest {
     }
 
     /**
-     * 翻转二叉树：即左右子数对换
+     * 翻转二叉树：即左右子树对换
      * @param root
      * @return
      */
@@ -69,6 +74,10 @@ public class BinaryTreeNodeTest {
         return root;
     }
 
+    /**
+     * 前序遍历
+     * @param binaryTreeNode
+     */
     public void iterateLeft(BinaryTreeNode binaryTreeNode) {
         BinaryTreeNode node = binaryTreeNode;
         BinaryTreeNode left = null;
@@ -81,6 +90,10 @@ public class BinaryTreeNodeTest {
         }
     }
 
+    /**
+     * 后序遍历
+     * @param binaryTreeNode
+     */
     public void iterateRight(BinaryTreeNode binaryTreeNode) {
         BinaryTreeNode node = binaryTreeNode;
         while(node != null) {
@@ -96,6 +109,7 @@ public class BinaryTreeNodeTest {
      *   / \  /
      *  11 3 5
      * @param node
+     * 按层级遍历
      */
     public void iterateByLevel(BinaryTreeNode node) {
 
