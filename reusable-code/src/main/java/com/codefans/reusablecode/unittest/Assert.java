@@ -1,4 +1,4 @@
-package com.codefans.reusablecode;
+package com.codefans.reusablecode.unittest;
 
 import java.io.File;
 import java.io.FileNotFoundException;
