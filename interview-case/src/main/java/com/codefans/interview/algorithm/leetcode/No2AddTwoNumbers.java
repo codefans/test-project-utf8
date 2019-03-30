@@ -1,5 +1,7 @@
 package com.codefans.interview.algorithm.leetcode;
 
+import com.codefans.interview.datastructure.LinkedNode;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,22 +24,22 @@ import java.io.InputStreamReader;
 
 public class No2AddTwoNumbers {
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode resNode = null;
+    public LinkedNode addTwoNumbers(LinkedNode l1, LinkedNode l2) {
+        LinkedNode resNode = null;
         int upStep = 0;
         if(l1 != null && l2 != null) {
             int tmp = l1.val + l2.val;
             if(tmp >= 10) {
-                resNode = new ListNode(tmp%10);
+                resNode = new LinkedNode(tmp%10);
                 upStep = tmp/10;
             } else {
-                resNode = new ListNode(tmp);
+                resNode = new LinkedNode(tmp);
             }
         }
-        ListNode nextNode01 = l1.next;
-        ListNode nextNode02 = l2.next;
-        ListNode nextNode = resNode;
-        ListNode next = null;
+        LinkedNode nextNode01 = l1.next;
+        LinkedNode nextNode02 = l2.next;
+        LinkedNode nextNode = resNode;
+        LinkedNode next = null;
 
         while(nextNode01 != null || nextNode02 != null) {
 
@@ -45,10 +47,10 @@ public class No2AddTwoNumbers {
                 int tmp = nextNode01.val + nextNode02.val + upStep;
                 upStep = 0;
                 if(tmp >= 10) {
-                    next = new ListNode(tmp%10);
+                    next = new LinkedNode(tmp%10);
                     upStep = tmp/10;
                 } else {
-                    next = new ListNode(tmp);
+                    next = new LinkedNode(tmp);
                 }
                 nextNode01 = nextNode01.next;
                 nextNode02 = nextNode02.next;
@@ -56,10 +58,10 @@ public class No2AddTwoNumbers {
                 int tmp = nextNode01.val + upStep;
                 upStep = 0;
                 if(tmp >= 10) {
-                    next = new ListNode(tmp%10);
+                    next = new LinkedNode(tmp%10);
                     upStep = tmp/10;
                 } else {
-                    next = new ListNode(tmp);
+                    next = new LinkedNode(tmp);
                 }
 
                 nextNode01 = nextNode01.next;
@@ -67,10 +69,10 @@ public class No2AddTwoNumbers {
                 int tmp = nextNode02.val + upStep;
                 upStep = 0;
                 if(tmp >= 10) {
-                    next = new ListNode(tmp%10);
+                    next = new LinkedNode(tmp%10);
                     upStep = tmp/10;
                 } else {
-                    next = new ListNode(tmp);
+                    next = new LinkedNode(tmp);
                 }
                 nextNode02 = nextNode02.next;
             } else {
@@ -80,7 +82,7 @@ public class No2AddTwoNumbers {
             nextNode = nextNode.next;
         }
         if(upStep > 0) {
-            nextNode.next = new ListNode(upStep);
+            nextNode.next = new LinkedNode(upStep);
         }
         nextNode = resNode;
         return nextNode;
@@ -102,21 +104,21 @@ public class No2AddTwoNumbers {
         return output;
     }
 
-    public static ListNode stringToListNode(String input) {
+    public static LinkedNode stringToListNode(String input) {
         // Generate array from the input
         int[] nodeValues = stringToIntegerArray(input);
 
         // Now convert that list into linked list
-        ListNode dummyRoot = new ListNode(0);
-        ListNode ptr = dummyRoot;
+        LinkedNode dummyRoot = new LinkedNode(0);
+        LinkedNode ptr = dummyRoot;
         for(int item : nodeValues) {
-            ptr.next = new ListNode(item);
+            ptr.next = new LinkedNode(item);
             ptr = ptr.next;
         }
         return dummyRoot.next;
     }
 
-    public static String listNodeToString(ListNode node) {
+    public static String listNodeToString(LinkedNode node) {
         if (node == null) {
             return "[]";
         }
@@ -138,11 +140,11 @@ public class No2AddTwoNumbers {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            ListNode l1 = stringToListNode(line);
+            LinkedNode l1 = stringToListNode(line);
             line = in.readLine();
-            ListNode l2 = stringToListNode(line);
+            LinkedNode l2 = stringToListNode(line);
 
-            ListNode ret = addTwoNumbers(l1, l2);
+            LinkedNode ret = addTwoNumbers(l1, l2);
 
             String out = listNodeToString(ret);
 
