@@ -1,7 +1,5 @@
 package com.codefans.interview.algorithm.special;
 
-import com.codefans.interview.algorithm.leetcode.ListNode;
-
 import java.util.Iterator;
 import java.util.Stack;
 
