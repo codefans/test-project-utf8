@@ -1,7 +1,11 @@
 package stream;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -26,7 +30,13 @@ public class ListStreamTest {
 
         List<String> subList = list.stream().filter(
                 string -> Integer.parseInt(string) >= 333
-        ).collect(Collectors.toList());
+        ).map((e)->{
+            if(e.equals("444")) {
+                return "444_aaa";
+            } else {
+                return e;
+            }
+        }).collect(Collectors.toList());
 
         this.print(list);
         this.print(subList);
