@@ -11,6 +11,15 @@ public class ByteMain {
         bitMain.test();
     }
 
+
+    public void test() {
+
+        this.divisionConvertToBitAnd();
+        this.swap();
+
+
+    }
+
     /**
      * HashMap中定位槽的方法:
      * static int indexFor(int h, int length) {
@@ -19,7 +28,7 @@ public class ByteMain {
      *
      * 其中只有length为2的幂时,h&(length-1)才会等于h%length
      */
-    public void test() {
+    public void divisionConvertToBitAnd() {
 
         System.out.println("5%2=" + 5%2);
         System.out.println("(5 & (2 - 1))=" + (5 & (2 - 1)));
@@ -33,8 +42,49 @@ public class ByteMain {
         System.out.println("23%16=" + 23%16);
         System.out.println("(23 & (16 - 1))=" + (23 & (16 - 1)));
 
+    }
+
+    public void swap() {
+
+        this.swapIntUsingNoTemp();
+        this.swapIntUsingByteMove();
 
     }
 
+    public void swapIntUsingNoTemp() {
+
+        System.out.println("swapIntUsingNoTemp:");
+
+        int a = 3;
+        int b = 5;
+
+        System.out.println("a=" + a);
+        System.out.println("b=" + b);
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println("a=" + a);
+        System.out.println("b=" + b);
+    }
+
+    public void swapIntUsingByteMove() {
+
+        System.out.println("swapIntUsingByteMove:");
+
+        int a = 3;
+        int b = 5;
+
+        System.out.println("a=" + a);
+        System.out.println("b=" + b);
+
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+
+        System.out.println("a=" + a);
+        System.out.println("b=" + b);
+    }
 
 }
