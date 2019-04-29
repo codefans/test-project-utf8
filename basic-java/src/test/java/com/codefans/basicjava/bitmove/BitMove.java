@@ -3,7 +3,7 @@ package com.codefans.basicjava.bitmove;
 import org.junit.Test;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2017-09-29 17:40
  */
 

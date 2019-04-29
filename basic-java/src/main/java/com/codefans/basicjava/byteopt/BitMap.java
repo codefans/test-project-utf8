@@ -22,7 +22,9 @@ public class BitMap {
         long arrayIndex = num >> 6; //这里的6是由num的类型决定的, 如果num是int类型, 则不是6而是5.
 
         // num%64得到在byte[index]的位置, 63对应的16进制数为0x3f.(取后6位)
-        long position = num & 0x3f;
+//        long position = num & 0x3f;
+        //直接写成63也行
+        long position = num & 63;
 
         //将1左移position后，那个位置自然就是1，然后和以前的数据做|，这样，那个位置就替换成1了。
         datas[(int)arrayIndex] |= 1 << position;
@@ -33,10 +35,16 @@ public class BitMap {
         long arrayIndex = num >> 6;
 
         // num%64得到在datas[index]的位置
-        long position = num & 0x3f;
+//        long position = num & 0x3f;
+        //直接写成63也行
+        long position = num & 63;
 
         //将1左移position后，那个位置自然就是1，然后和以前的数据做&，判断是否为0即可
         return (datas[(int)arrayIndex] & (1 << position)) !=0;
+        /**
+         * 不等于0,不代表等于1。所以下面这种写法是不对的。
+         */
+//        return (datas[(int)arrayIndex] & (1 << position)) == 1;
     }
 
     public void clear(long num){
@@ -44,7 +52,9 @@ public class BitMap {
         long arrayIndex = num >> 6;
 
         // num%64得到在byte[index]的位置
-        long position = num & 0x3f;
+//        long position = num & 0x3f;
+        //直接写成63也行
+        long position = num & 63;
 
         //将1左移position后，那个位置自然就是1，然后对取反，再与当前值做&，即可清除当前的位置了.
         datas[(int)arrayIndex] &= ~(1 << position);
