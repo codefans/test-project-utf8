@@ -16,7 +16,8 @@ public class ListStreamTest {
 
     public static void main(String[] args) {
         ListStreamTest listStreamTest = new ListStreamTest();
-        listStreamTest.test();
+//        listStreamTest.test();
+        listStreamTest.findOne();
     }
 
     public void test() {
@@ -40,6 +41,23 @@ public class ListStreamTest {
 
         this.print(list);
         this.print(subList);
+
+    }
+
+    public void findOne() {
+
+        List<String> list = new ArrayList<String>();
+        list.add("111");
+        list.add("222");
+        list.add("333");
+        list.add("444");
+        list.add("555");
+
+        String str3 = list.stream().filter(
+                string -> Integer.parseInt(string) >= 333
+        ).iterator().next();
+        System.out.println(str3);
+
 
     }
 
