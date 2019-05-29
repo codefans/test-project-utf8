@@ -12,6 +12,8 @@ import java.util.TimeZone;
 public class TimePointUtil {
 
     private static final String PATTERN_YYYYMMDDHHMMSS = "yyyy-MM-dd HH:mm:ss";
+
+    private static final String PATTERN_YYYYMMDD = "yyyy-MM-dd";
     /**
      * 5分钟
      */
@@ -54,14 +56,14 @@ public class TimePointUtil {
 
     public static ReviewTimePoint timePointGenerate(Date date) {
         ReviewTimePoint reviewTimePoint = new ReviewTimePoint();
-        reviewTimePoint.setFiveMinute(parseHHHHMMDDHHMMSS(addMinutes(date, FIVE_MINUTE)));
-        reviewTimePoint.setThirtyMinute(parseHHHHMMDDHHMMSS(addMinutes(date, THIRTY_MINUTE)));
-        reviewTimePoint.setTwelveHour(parseHHHHMMDDHHMMSS(addHours(date, TWELVE_HOUR)));
-        reviewTimePoint.setOneDay(parseHHHHMMDDHHMMSS(addDays(date, ONE_DAY)));
-        reviewTimePoint.setTwoDay(parseHHHHMMDDHHMMSS(addDays(date, TWO_DAY)));
-        reviewTimePoint.setFourDay(parseHHHHMMDDHHMMSS(addDays(date, FOUR_DAY)));
-        reviewTimePoint.setSevenDay(parseHHHHMMDDHHMMSS(addDays(date, SEVEN_DAY)));
-        reviewTimePoint.setFifteenDay(parseHHHHMMDDHHMMSS(addDays(date, FIFTEEN_DAY)));
+        reviewTimePoint.setFiveMinute(parseYYYYMMDDHHMMSS(addMinutes(date, FIVE_MINUTE)));
+        reviewTimePoint.setThirtyMinute(parseYYYYMMDDHHMMSS(addMinutes(date, THIRTY_MINUTE)));
+        reviewTimePoint.setTwelveHour(parseYYYYMMDDHHMMSS(addHours(date, TWELVE_HOUR)));
+        reviewTimePoint.setOneDay(parseYYYYMMDD(addDays(date, ONE_DAY)));
+        reviewTimePoint.setTwoDay(parseYYYYMMDD(addDays(date, TWO_DAY)));
+        reviewTimePoint.setFourDay(parseYYYYMMDD(addDays(date, FOUR_DAY)));
+        reviewTimePoint.setSevenDay(parseYYYYMMDD(addDays(date, SEVEN_DAY)));
+        reviewTimePoint.setFifteenDay(parseYYYYMMDD(addDays(date, FIFTEEN_DAY)));
         return reviewTimePoint;
     }
 
@@ -85,8 +87,13 @@ public class TimePointUtil {
         return calendar.getTime();
     }
 
-    public static String parseHHHHMMDDHHMMSS(Date date) {
+    public static String parseYYYYMMDDHHMMSS(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_YYYYMMDDHHMMSS);
+        return sdf.format(date);
+    }
+
+    public static String parseYYYYMMDD(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_YYYYMMDD);
         return sdf.format(date);
     }
 

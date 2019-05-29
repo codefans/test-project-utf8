@@ -14,7 +14,8 @@ public class TimePointUtilTest {
     public void timePointGenerateTest() {
 
         ReviewTimePoint reviewTimePoint = TimePointUtil.timePointGenerate(new Date());
-        System.out.println(reviewTimePoint);
+//        System.out.println(reviewTimePoint);
+        System.out.println(reviewTimePoint.print());
 
     }
 

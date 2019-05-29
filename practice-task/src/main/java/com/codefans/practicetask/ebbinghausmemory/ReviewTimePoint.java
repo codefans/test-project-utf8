@@ -112,6 +112,17 @@ public class ReviewTimePoint {
         this.fifteenDay = fifteenDay;
     }
 
+    public String print() {
+        return "" + fiveMinute + "\n" +
+                "" + thirtyMinute + "\n" +
+                "" + twelveHour + "\n" +
+                "" + oneDay + "\n" +
+                "" + twoDay + "\n" +
+                "" + fourDay + "\n" +
+                "" + sevenDay + "\n" +
+                "" + fifteenDay + "\n";
+    }
+
     @Override
     public String toString() {
         return "ReviewTimePoint{" +
