@@ -1,5 +1,7 @@
 package com.codefans.reusablecode.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -8,6 +10,9 @@ import java.util.Date;
  */
 
 public class DateUtils {
+
+    private static final String PATTERN_YYYYMMDDHHMMSS = "yyyy-MM-dd HH:mm:ss";
+    private static final String PATTERN_YYYYMMDD = "yyyy-MM-dd";
 
     /**
      * 获取精确到秒的时间戳
@@ -24,6 +29,31 @@ public class DateUtils {
         } else {
             return 0;
         }
+    }
+
+    public static Date formatYYYYMMDDHHMMSS(String dateStr) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_YYYYMMDDHHMMSS);
+        return sdf.parse(dateStr);
+    }
+
+    /**
+     * 计算endDate-beginDate间隔的天数
+     * @param endDate
+     * @param beginDate
+     * @return
+     */
+    public static long minus(String endDate, String beginDate) throws ParseException {
+        return minus(formatYYYYMMDDHHMMSS(endDate), formatYYYYMMDDHHMMSS(beginDate));
+    }
+
+    /**
+     * 计算endDate-beginDate间隔的天数
+     * @param endDate
+     * @param beginDate
+     * @return
+     */
+    public static long minus(Date endDate, Date beginDate) {
+        return (endDate.getTime()-beginDate.getTime())/(24*60*60*1000);
     }
 
 }
