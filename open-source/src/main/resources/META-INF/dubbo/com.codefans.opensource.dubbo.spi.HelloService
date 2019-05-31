@@ -1,0 +1,2 @@
+helloService = com.codefans.opensource.dubbo.spi.HelloServiceImpl
+hiService = com.codefans.opensource.dubbo.spi.HiServiceImpl
