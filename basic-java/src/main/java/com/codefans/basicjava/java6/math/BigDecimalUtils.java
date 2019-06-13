@@ -3,7 +3,7 @@ package com.codefans.basicjava.java6.math;
 import java.math.BigDecimal;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-08-11 11:05
  */
 public class BigDecimalUtils {
@@ -14,12 +14,18 @@ public class BigDecimalUtils {
     public BigDecimal divide(BigDecimal num01, BigDecimal num02, int scale) {
         return num01.divide(num02, scale, BigDecimal.ROUND_HALF_UP);
     }
+    public BigDecimal divideWithoutRound(BigDecimal num01, BigDecimal num02) {
+        return num01.divide(num02);
+    }
 
     public BigDecimal multiply(BigDecimal num01, BigDecimal num02) {
         return multiply(num01, num02, 2);
     }
     public BigDecimal multiply(BigDecimal num01, BigDecimal num02, int scale) {
         return num01.multiply(num02).setScale(scale, BigDecimal.ROUND_HALF_UP);
+    }
+    public BigDecimal multiplyWithoutRound(BigDecimal num01, BigDecimal num02) {
+        return num01.multiply(num02);
     }
 
     public BigDecimal add(BigDecimal num01, BigDecimal num02) {
@@ -28,12 +34,18 @@ public class BigDecimalUtils {
     public BigDecimal add(BigDecimal num01, BigDecimal num02, int scale) {
         return num01.add(num02).setScale(scale, BigDecimal.ROUND_HALF_UP);
     }
+    public BigDecimal addWithoutRound(BigDecimal num01, BigDecimal num02) {
+        return num01.add(num02);
+    }
 
     public BigDecimal subtract(BigDecimal num01, BigDecimal num02) {
         return subtract(num01, num02, 2);
     }
     public BigDecimal subtract(BigDecimal num01, BigDecimal num02, int scale) {
         return num01.subtract(num02).setScale(scale, BigDecimal.ROUND_HALF_UP);
+    }
+    public BigDecimal subtractWithoutRound(BigDecimal num01, BigDecimal num02) {
+        return num01.subtract(num02);
     }
 
     public BigDecimal setScale(BigDecimal num, int scale) {
