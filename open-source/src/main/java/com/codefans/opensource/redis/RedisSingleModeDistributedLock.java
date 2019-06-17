@@ -13,6 +13,9 @@ public class RedisSingleModeDistributedLock implements RedisDistributedLock {
 
     private JedisSingleClient redisSigleClient;
 
+    public RedisSingleModeDistributedLock(JedisSingleClient redisSigleClient) {
+        this.redisSigleClient = redisSigleClient;
+    }
     /**
      *
      * @param key
