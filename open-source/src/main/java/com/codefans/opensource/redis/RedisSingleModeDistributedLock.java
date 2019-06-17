@@ -6,7 +6,7 @@ package com.codefans.opensource.redis;
  * 单节点模式实现分布式锁
  * 注释：
  *    由于单节点模式，redis只有一个，且redis又是单线程，所以多个客户端的命令都得一个一个执行，就不会有并发的问题。
- * 但是如果是集群模式，集群间复制数据、或者主从切换、或者故障转移，新机器可能没有这个key，
+ * 但是如果是集群模式，虽然相同的key会路由到同一台redis里，但是集群间复制数据、或者主从切换、或者故障转移，新机器可能没有这个key，
  * 原来已经获取到的锁，也可能再次被其他客户端获取。所以集群模式下，需要配合乐观锁，才是最完善的解决方案。
  */
 public class RedisSingleModeDistributedLock implements RedisDistributedLock {
