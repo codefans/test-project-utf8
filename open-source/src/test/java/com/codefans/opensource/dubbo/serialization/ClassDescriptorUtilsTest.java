@@ -12,12 +12,19 @@ import java.io.ObjectStreamClass;
  */
 public class ClassDescriptorUtilsTest {
 
+    /**
+     * @TODO 如何读取类描述信息 - 2019-06-28
+     */
     @Test
     public void readClassDescriptorTest() {
 
         try {
 
             String fullClassName = "com.codefans.opensource.dubbo.serialization.java.ClassDescriptorUtils";
+
+            ClassDescriptorUtils classDescriptorUtils = new ClassDescriptorUtils();
+            Class cls = Class.forName(fullClassName);
+
             ObjectStreamClass objectStreamClass = ClassDescriptorUtils.readClassDescriptor(fullClassName);
             System.out.println("result=" + JSON.toJSONString(objectStreamClass));
 
