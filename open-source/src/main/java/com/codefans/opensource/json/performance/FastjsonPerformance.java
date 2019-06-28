@@ -17,5 +17,11 @@ public class FastjsonPerformance extends AbstractRuntimePerformance {
 
     }
 
+    public void toBean() {
 
+    }
+
+    public void toJson() {
+
+    }
 }

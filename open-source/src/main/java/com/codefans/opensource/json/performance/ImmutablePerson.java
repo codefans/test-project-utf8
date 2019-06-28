@@ -5,7 +5,7 @@ package com.codefans.opensource.json.performance;
 import java.io.IOException;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/8 23:20
  */
 public class ImmutablePerson {
