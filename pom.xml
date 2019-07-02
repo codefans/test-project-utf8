@@ -260,6 +260,11 @@
                 <artifactId>rocketmq-remoting</artifactId>
                 <version>${rocketmq.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-tools</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
 
             <!-- json open source -->
             <dependency>
