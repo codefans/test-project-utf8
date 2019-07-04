@@ -5,6 +5,7 @@ import com.codefans.basicjava.concurrent.threadpool.ParamRunnable;
 import com.codefans.basicjava.dto.ResultDto;
 import org.junit.Test;
 
+import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -71,7 +72,7 @@ public class ThreadPoolExecutorTest {
              */
             int maximumPoolSize = 4;
             /**
-             * 保持活动时间
+             * 保持活动时间,时间单位由另一个TimeUnit参数设置
              * 如果池中当前有多于 corePoolSize 的线程，则这些多出的线程在空闲时间超过 keepAliveTime 时将会终止（参见 getKeepAliveTime(java.util.concurrent.TimeUnit)）。
              * 这提供了当池处于非活动状态时减少资源消耗的方法。
              * 如果池后来变得更为活动，则可以创建新的线程。
@@ -88,7 +89,7 @@ public class ThreadPoolExecutorTest {
             /**
              * 用于保存任务的队列,当任务数大于corePoolSize时，任务会被放到队列中
              */
-            BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<Runnable>(30);
+            BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<Runnable>(5);
             /**
              * 创建新线程
              * 使用 ThreadFactory 创建新线程。通过提供不同的 ThreadFactory，可以改变线程的名称、线程组、优先级、守护进程状态，等等
@@ -107,22 +108,25 @@ public class ThreadPoolExecutorTest {
 
             poolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
 //            executorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
-            int taskNums = 10;
+            int taskNums = 20;
             ResultDto result = null;
             List<Future<ResultDto>> resList = new ArrayList<Future<ResultDto>>();
+            Future<ResultDto> returnFuture = null;
             int poolSize = 0;
 
             for(int i = 0; i < taskNums; i ++) {
                 try {
                     result = new ResultDto();
-//                    Future<ResultDto> future = poolExecutor.submit(new ParamRunnable(result), result);
-//                    resList.add(future);
+                    Future<ResultDto> future = poolExecutor.submit(new ParamRunnable(result), result);
+                    resList.add(future);
 
-                    poolExecutor.execute(new ParamRunnable(result));
+//                    poolExecutor.execute(new ParamRunnable(result));
 //                    executorService.submit(new ParamRunnable(result));
 
 //                    poolSize = executorService.getPoolSize();
 //                    System.out.println("poolSize:" + poolSize);
+
+                    System.out.println("task count:" + (i+1));
 
                 } catch (Exception e) {
                     e.printStackTrace();

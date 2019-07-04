@@ -1,7 +1,7 @@
 package com.codefans.basicjava.dto;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2017-09-29 16:06
  */
 
