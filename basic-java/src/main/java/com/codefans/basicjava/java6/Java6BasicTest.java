@@ -2,8 +2,10 @@ package com.codefans.basicjava.java6;
 
 import org.junit.Test;
 
+import java.util.Date;
+
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/22 11:39
  */
 public class Java6BasicTest {
@@ -26,4 +28,16 @@ public class Java6BasicTest {
         sb.append("world");
         System.out.println("changeValue-->" + sb.toString());
     }
+
+    @Test
+    public void forTest() {
+
+        for(;;) {
+
+            System.out.println("time:" + new Date());
+        }
+
+    }
+
+
 }

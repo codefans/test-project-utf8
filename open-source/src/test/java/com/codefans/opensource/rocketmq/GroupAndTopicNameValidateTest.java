@@ -4,6 +4,9 @@ import com.codefans.opensource.rocketmq.client.Validators;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.junit.Test;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
+
 /**
  * @author: codefans
  * @date: 2019-06-04 16:16:40
@@ -43,6 +46,12 @@ public class GroupAndTopicNameValidateTest {
         } catch (MQClientException e) {
             e.printStackTrace();
         }
+
+        RuntimeMXBean runtime = ManagementFactory.getRuntimeMXBean();
+        String name = runtime.getName(); // format: "pid@hostname"
+        System.out.println("name=" + name);
+        System.out.println("pid=" + Integer.parseInt(name.substring(0, name.indexOf('@'))));
+
 
     }
 
