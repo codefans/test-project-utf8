@@ -11,7 +11,7 @@ import org.apache.pdfbox.rendering.PDFRenderer;
 
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-11-04 10:46
  */
 
@@ -21,12 +21,16 @@ public class Pdf2Images {
      * jpeg的图片要比png图片小很多
      */
     private static final String DEFAULT_IMG_SUFFIX = "jpeg";
+    /**
+     * dpi, 图像每英寸长度内的像素点数
+     * DPI（Dots Per Inch，每英寸点数）是一个量度单位，用于点阵数码影像，指每一英寸长度中，取样、可显示或输出点的数目。
+     */
     private static final int DEFAULT_DPI = 300;
 
     public static void main(String[] args) {
-        String rootPath = "C:\\Users\\Administrator\\Downloads";
+        String rootPath = "/Users/caishengzhi/Downloads/pdf-images";
 //        pdf2img(rootPath + File.separator + "违法记分制度-不同分值对应不同措施.pdf", rootPath + File.separator + "违法记分制度-不同分值对应不同措施.png");
-        pdf2Image(rootPath + File.separator + "违法记分制度-不同分值对应不同措施.pdf", rootPath, "PNG", 300);
+        pdf2Image(rootPath + File.separator + "巴厘岛海景房实景(1)(1).pdf", rootPath, "PNG", 300);
     }
 
     public static void pdf2img(String pdfFilePath, String imgFilePath) {
