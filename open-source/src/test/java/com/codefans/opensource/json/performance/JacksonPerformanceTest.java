@@ -3,7 +3,7 @@ package com.codefans.opensource.json.performance;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-23 09:13
  */
 public class JacksonPerformanceTest {

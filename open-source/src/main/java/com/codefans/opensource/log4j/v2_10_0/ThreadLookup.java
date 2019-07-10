@@ -5,7 +5,7 @@ import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.lookup.StrLookup;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/19 15:19
  */
 @Plugin(name = "thread", category = StrLookup.CATEGORY)

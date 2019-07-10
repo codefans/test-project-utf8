@@ -1,7 +1,7 @@
 package com.codefans.practicetask.projectsetup;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 9:44
  *
 <groupId>com.lejr</groupId>

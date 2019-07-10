@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.concurrent.Future;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-11-23 17:30
  **/
 public class KafkaProducerWrapper<K, V> {

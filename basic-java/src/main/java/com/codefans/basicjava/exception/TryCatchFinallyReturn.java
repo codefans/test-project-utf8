@@ -3,7 +3,7 @@ package com.codefans.basicjava.exception;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-23 16:19
  */
 public class TryCatchFinallyReturn {

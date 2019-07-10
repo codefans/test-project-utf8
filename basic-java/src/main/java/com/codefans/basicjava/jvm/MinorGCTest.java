@@ -1,7 +1,7 @@
 package com.codefans.basicjava.jvm;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-11-01 17:41
  **/
 public class MinorGCTest {

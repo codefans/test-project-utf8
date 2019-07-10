@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-06-06 17:32
  */
 public class ResponseContent {

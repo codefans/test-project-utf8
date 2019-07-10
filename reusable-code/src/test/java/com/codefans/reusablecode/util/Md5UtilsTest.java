@@ -3,7 +3,7 @@ package com.codefans.reusablecode.util;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-14 10:40
  * Md5Utils类单元测试
  **/

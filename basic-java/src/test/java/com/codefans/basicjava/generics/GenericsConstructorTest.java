@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-31 17:20
  */
 public class GenericsConstructorTest {

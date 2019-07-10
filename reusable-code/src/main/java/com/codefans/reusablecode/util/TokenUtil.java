@@ -24,7 +24,7 @@ import java.util.Map;
 import static org.junit.Assert.fail;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-12-06 14:15
  **/
 public class TokenUtil {

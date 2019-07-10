@@ -34,7 +34,8 @@ public class DiskFileScanner {
 		// String dir = "D:\\360云盘";
 		String dir = "C:\\";
 		// FileType fileType = FileType.App;
-		FileType fileType = FileType.Video;
+//		FileType fileType = FileType.Video;
+		FileType fileType = FileType.All;
 		levelOne = 3;
 		levelTwo = 2;
 		levelThree = 1;

@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-13 18:27
  **/
 public class HandleMsg implements Runnable {

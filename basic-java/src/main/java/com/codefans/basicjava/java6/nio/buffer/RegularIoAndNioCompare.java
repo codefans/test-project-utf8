@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-19 17:46
  **/
 public class RegularIoAndNioCompare {

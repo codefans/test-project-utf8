@@ -3,7 +3,7 @@ package com.codefans.basicjava.classload;
 import java.lang.reflect.Method;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-26 16:13
  *  运行步骤：
  *  1.将com.codefans.basicjava.classload.ClassForInitTestBean.class文件拷贝到C:\temp\classes\com\codefans\basicjava\classload\和C:\temp\classes2\com\codefans\basicjava\classload\两个目录下

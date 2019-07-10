@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-23 15:39
  **/
 public class NioServer {

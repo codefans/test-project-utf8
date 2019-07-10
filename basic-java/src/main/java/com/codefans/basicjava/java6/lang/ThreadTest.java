@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-23 11:23
  **/
 public class ThreadTest {

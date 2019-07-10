@@ -3,7 +3,7 @@ package com.codefans.opensource.commonlang;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-29 16:30
  */
 public class ToStringTest {

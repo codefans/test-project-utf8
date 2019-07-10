@@ -1,7 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-11-07 15:20
  *
  *  将数组分为有序部分和无序部分, 第一个元素作为默认有序部分, 第二个元素开始为无序部分

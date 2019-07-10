@@ -1,7 +1,7 @@
 package com.codefans.basicjava.java6.nio.net.example02;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-25 7:09
  **/
 public class Server {

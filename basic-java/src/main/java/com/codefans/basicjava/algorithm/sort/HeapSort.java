@@ -1,7 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-11-09 17:06
  **/
 public class HeapSort extends SortBase {

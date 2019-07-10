@@ -3,7 +3,7 @@ package com.codefans.reusablecode.algorithm.sort;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-09 14:36
  **/
 public class SortTest {

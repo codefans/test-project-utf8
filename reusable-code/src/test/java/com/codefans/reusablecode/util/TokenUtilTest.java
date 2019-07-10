@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-12-06 14:15
  **/
 public class TokenUtilTest {

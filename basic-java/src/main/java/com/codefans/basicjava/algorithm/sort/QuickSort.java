@@ -1,7 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-11-07 21:36
  *
  * 它的基本思想是：

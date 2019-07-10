@@ -28,7 +28,7 @@ public class Pdf2Images {
     private static final int DEFAULT_DPI = 300;
 
     public static void main(String[] args) {
-        String rootPath = "/Users/caishengzhi/Downloads/pdf-images";
+        String rootPath = "/Users/codefans/Downloads/pdf-images";
 //        pdf2img(rootPath + File.separator + "违法记分制度-不同分值对应不同措施.pdf", rootPath + File.separator + "违法记分制度-不同分值对应不同措施.png");
         pdf2Image(rootPath + File.separator + "巴厘岛海景房实景(1)(1).pdf", rootPath, "PNG", 300);
     }

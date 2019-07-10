@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/19 15:20
  * Log4j2实现不同线程不同级别日志输出到不同的文件中
 https://my.oschina.net/u/2300159/blog/887687

@@ -11,7 +11,7 @@ import org.apache.rocketmq.remoting.exception.RemotingException;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/6 15:07
  */
 

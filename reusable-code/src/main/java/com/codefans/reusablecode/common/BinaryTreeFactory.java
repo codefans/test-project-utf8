@@ -3,7 +3,7 @@ package com.codefans.reusablecode.common;
 import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-28 10:52
  **/
 public class BinaryTreeFactory implements TreeFactory<BinaryTreeNode> {

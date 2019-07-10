@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-13 18:23
  **/
 public class MultiThreadNioEchoServer {

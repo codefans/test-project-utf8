@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-06-12 11:27
  *
  *  1.首先均匀的为单价加上0.01，然后找出绝对值最小的值，并记录此时单价的增加值=n*0.01， 例如：n=431，则增加值为4.31.

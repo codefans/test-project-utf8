@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-26 10:59
  **/
 public class NioBufferTest {

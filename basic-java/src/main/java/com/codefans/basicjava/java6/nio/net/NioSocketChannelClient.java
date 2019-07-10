@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-23 14:20
  **/
 public class NioSocketChannelClient {

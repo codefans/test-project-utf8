@@ -1,7 +1,7 @@
 package com.codefans.interview.classload;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-07-19 18:00
  **/
 public class ClassLoadTest {

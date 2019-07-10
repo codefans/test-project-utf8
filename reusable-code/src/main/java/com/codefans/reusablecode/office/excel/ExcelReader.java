@@ -27,7 +27,7 @@ public class ExcelReader {
 
     public static void xssfRead() {
 
-        String filePath = "/Users/caishengzhi/Downloads/math.xlsx";
+        String filePath = "/Users/codefans/Downloads/math.xlsx";
         File excelFile = new File(filePath);
         if(!excelFile.exists()) {
             throw new IllegalArgumentException("文件:[" + filePath + "]不存在。");
@@ -121,7 +121,7 @@ public class ExcelReader {
     public static void hssfRead() {
         try {
 
-            String filePath = "/Users/caishengzhi/Downloads/math.xlsx";
+            String filePath = "/Users/codefans/Downloads/math.xlsx";
             File excelFile = new File(filePath);
             if(!excelFile.exists()) {
                 throw new IllegalArgumentException("文件:[" + filePath + "]不存在。");

@@ -3,7 +3,7 @@ package com.codefans.basicjava.algorithm.sort;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-11-07 14:44
  *
  *  冒择入希快归堆

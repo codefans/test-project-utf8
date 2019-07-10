@@ -1,7 +1,7 @@
 package com.codefans.basicjava.java6.nio.net.test01;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-23 15:49
  **/
 public class MsgDTO {

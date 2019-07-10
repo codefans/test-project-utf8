@@ -1,7 +1,7 @@
 package com.codefans.opensource.commonlang;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-29 16:29
  */
 public class DomainBean extends ToStringBuilderBean {

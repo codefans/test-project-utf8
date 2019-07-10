@@ -49,7 +49,7 @@ import java.util.Map;
  * https://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html#SSC
  *
  *
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-12-04 18:14
  *
  **/

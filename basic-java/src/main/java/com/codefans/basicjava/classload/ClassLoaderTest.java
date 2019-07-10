@@ -1,7 +1,7 @@
 package com.codefans.basicjava.classload;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-27 17:03
  **/
 public class ClassLoaderTest {

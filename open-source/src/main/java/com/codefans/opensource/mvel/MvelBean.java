@@ -1,7 +1,7 @@
 package com.codefans.opensource.mvel;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-18 10:52
  */
 public class MvelBean {

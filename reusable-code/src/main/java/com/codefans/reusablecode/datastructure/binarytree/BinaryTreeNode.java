@@ -1,7 +1,7 @@
 package com.codefans.reusablecode.datastructure.binarytree;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-28 10:40
  * 二叉树
  **/

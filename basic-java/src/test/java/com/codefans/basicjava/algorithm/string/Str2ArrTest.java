@@ -2,8 +2,6 @@ package com.codefans.basicjava.algorithm.string;
 
 import org.junit.Test;
 
-import static com.codefans.basicjava.util.CommonUtils.print;
-
 /**
  * @author: codefans
  * @date: 2019-07-08 10:26

@@ -3,7 +3,7 @@ package com.codefans.basicjava.java6.nio.net.example02;
 import java.util.Scanner;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-25 7:19
  **/
 public class Client {

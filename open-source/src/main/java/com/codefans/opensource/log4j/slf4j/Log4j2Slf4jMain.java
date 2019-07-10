@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 
 /**
- * Created by caishengzhi on 2018/3/21.
+ * Created by codefans on 2018/3/21.
  */
 public class Log4j2Slf4jMain extends Log4JBase {
 

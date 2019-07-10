@@ -38,12 +38,12 @@ public class MathExcelTool {
     int priceColumnIndex = 0;
 
     public static void main(String[] args) {
-        String filePath = "/Users/caishengzhi/Downloads/math.xlsx";
+        String filePath = "/Users/codefans/Downloads/math.xlsx";
         MathExcelTool mathExcelTool = new MathExcelTool(filePath);
 //        mathExcelTool.xssfRead();
 //        mathExcelTool.print();
 
-        String newFilePath = "/Users/caishengzhi/Downloads/output_result.xlsx";
+        String newFilePath = "/Users/codefans/Downloads/output_result.xlsx";
         List<String> weightList = new ArrayList<String>();
         weightList.add("100");
         Map<String, BigDecimal> weightPriceMap = new HashMap<String, BigDecimal>();

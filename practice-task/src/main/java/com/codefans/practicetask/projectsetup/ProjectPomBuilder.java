@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Map;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 9:40
  */
 public class ProjectPomBuilder extends BasicPomBuilder implements PropertyKeyConstants {

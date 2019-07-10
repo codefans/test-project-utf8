@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.util.concurrent.*;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-13 18:26
  **/
 public class MultiThreadSocketServer {

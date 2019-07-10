@@ -7,7 +7,7 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-25 23:30
  **/
 public class ReadHandler implements CompletionHandler<Integer, ByteBuffer> {

@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018-04-19 14:43
  */
 public class GsonUtil {

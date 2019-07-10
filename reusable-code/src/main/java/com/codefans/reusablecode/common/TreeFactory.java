@@ -1,7 +1,7 @@
 package com.codefans.reusablecode.common;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-28 10:52
  */
 public interface TreeFactory<T> {

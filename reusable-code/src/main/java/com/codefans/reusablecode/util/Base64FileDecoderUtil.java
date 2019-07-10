@@ -74,7 +74,7 @@ public class Base64FileDecoderUtil {
 		File decode = new File("H:/274500.jpg");
 //		decoder.str2file(str, decode);
 		
-		decoder.file2str("/Users/caishengzhi/Downloads/林峰.jpg");
+		decoder.file2str("/Users/codefans/Downloads/林峰.jpg");
 
 	}
 

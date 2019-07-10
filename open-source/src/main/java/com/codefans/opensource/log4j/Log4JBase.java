@@ -3,7 +3,7 @@ package com.codefans.opensource.log4j;
 import java.io.File;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/18 17:30
  */
 public class Log4JBase {

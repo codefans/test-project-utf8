@@ -16,7 +16,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 14:38
  */
 public class XercesXmlFormater {

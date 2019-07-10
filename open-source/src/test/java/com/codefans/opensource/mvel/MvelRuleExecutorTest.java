@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-17 18:28
  */
 public class MvelRuleExecutorTest {

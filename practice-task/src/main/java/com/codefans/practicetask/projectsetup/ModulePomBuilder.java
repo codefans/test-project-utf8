@@ -3,7 +3,7 @@ package com.codefans.practicetask.projectsetup;
 import java.util.Map;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 9:45
  */
 public class ModulePomBuilder extends BasicPomBuilder implements PropertyKeyConstants {

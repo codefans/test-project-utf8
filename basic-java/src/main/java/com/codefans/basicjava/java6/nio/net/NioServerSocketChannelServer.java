@@ -10,7 +10,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-23 14:30
  **/
 public class NioServerSocketChannelServer {

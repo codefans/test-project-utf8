@@ -19,12 +19,19 @@ public class BitSetTest {
         }
 
         System.out.println(bitSet.size());
+        for(int i = 0; i < bitSet.size(); i ++) {
+            if(bitSet.get(i)) {
+                System.out.println(i);
+            }
+//            System.out.println(bitSet.get(i));
+        }
+
         System.out.println(bitSet.get(3));
-        System.out.println(bitSet.get(11));
-
-        System.out.println(bitSet);
-
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Long.MAX_VALUE);
+//        System.out.println(bitSet.get(11));
+//
+//        System.out.println(bitSet);
+//
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(Long.MAX_VALUE);
     }
 }

@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-25 7:20
  **/
 public class ClientHandle implements Runnable{

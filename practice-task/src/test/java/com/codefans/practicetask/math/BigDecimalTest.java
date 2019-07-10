@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-06-15 17:13
  */
 public class BigDecimalTest extends AbstractUnitPriceReverse {

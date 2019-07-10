@@ -3,7 +3,7 @@ package com.codefans.reusablecode.xml;
 import org.junit.Test;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 14:48
  */
 public class Dom4jXmlFormaterTest {

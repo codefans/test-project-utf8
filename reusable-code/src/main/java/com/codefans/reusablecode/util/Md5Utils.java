@@ -10,7 +10,7 @@ import java.security.MessageDigest;
 import java.util.UUID;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-09-14 10:33
  * MD5工具类
  **/

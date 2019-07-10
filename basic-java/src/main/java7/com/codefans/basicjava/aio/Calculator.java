@@ -5,7 +5,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-25 23:41
  **/
 public final class Calculator {

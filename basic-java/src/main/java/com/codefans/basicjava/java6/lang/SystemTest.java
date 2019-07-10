@@ -3,7 +3,7 @@ package com.codefans.basicjava.java6.lang;
 import org.junit.Test;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2017-10-10 18:09
  **/
 public class SystemTest {
@@ -11,6 +11,14 @@ public class SystemTest {
     @Test
     public void systemTest() {
         this.arraycopyTest();
+    }
+
+    @Test
+    public void printfTest() {
+        System.out.printf("%8s %14s%n", "#Name", "#Password");
+
+//        System.out.printf("%16s% %14s%n", "#Name", "#Password");
+
     }
 
     public void arraycopyTest() {

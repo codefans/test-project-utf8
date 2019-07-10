@@ -35,7 +35,7 @@ public class CommonUtils {
     }
 
     public static String getMacDownloadsPath() {
-        return "/Users/caishengzhi/Downloads/";
+        return "/Users/codefans/Downloads/";
     }
 
 }

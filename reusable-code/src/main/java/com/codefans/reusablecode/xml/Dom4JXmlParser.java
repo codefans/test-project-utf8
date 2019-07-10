@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/24 14:21
  */
 public class Dom4JXmlParser {

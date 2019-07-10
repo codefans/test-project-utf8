@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/1/18 17:46
  */
 public class Log4J2V2100Main extends Log4JBase {

@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 9:39
  */
 public class ProjectSetupMain implements PropertyKeyConstants {

@@ -9,7 +9,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 /**
- * @author caishengzhi
+ * @author codefans
  * @date 2018/2/11 14:20
  */
 public class Dom4jXmlFormater {

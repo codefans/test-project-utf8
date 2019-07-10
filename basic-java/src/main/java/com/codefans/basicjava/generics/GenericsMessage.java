@@ -3,7 +3,7 @@ package com.codefans.basicjava.generics;
 import java.io.Serializable;
 
 /**
- * @author: caishengzhi
+ * @author: codefans
  * @date: 2018-05-31 17:15
  * 相关测试类
  *    GenericsConstructorTest.java
