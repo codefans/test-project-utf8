@@ -81,9 +81,26 @@ public class JedisSingleClientTest {
          * 毫秒
          */
 //        String expx = PX;
-        int expiredTime = 5000;
-        boolean setWithNXAndEXExpiredTime = jedisSingleClient.set(key, value, nxxx, expx, expiredTime);
-        System.out.println("setWithNXAndEXExpiredTime=" + setWithNXAndEXExpiredTime);
+        int expiredTime = 10;
+        int threadNums = 10;
+        for(int i = 0; i < threadNums; i ++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        boolean setWithNXAndEXExpiredTime = jedisSingleClient.set(key, value, nxxx, expx, expiredTime);
+                        System.out.println("setWithNXAndEXExpiredTime=" + setWithNXAndEXExpiredTime);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+        try {
+            Thread.sleep(50 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 

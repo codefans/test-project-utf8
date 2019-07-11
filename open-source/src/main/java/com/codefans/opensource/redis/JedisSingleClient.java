@@ -14,6 +14,10 @@ public class JedisSingleClient extends JedisClientBase {
 
     Jedis jedis;
 
+    public JedisSingleClient(Jedis jedis) {
+        this.jedis = jedis;
+    }
+
     public JedisSingleClient(String host, int port) {
         this.host = host;
         this.port = port;
@@ -26,6 +30,7 @@ public class JedisSingleClient extends JedisClientBase {
         this.password = password;
         jedis = new Jedis(host, port);
         jedis.auth(this.password);
+//        jedis.connect();
     }
 
     public void setAuth(String password) {

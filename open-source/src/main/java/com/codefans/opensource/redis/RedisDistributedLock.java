@@ -12,17 +12,19 @@ public interface RedisDistributedLock {
     /**
      * 秒
      */
-    final static String EX = "XX";
+    final static String EX = "EX";
     /**
      * 毫秒
      */
-    final static String PX = "XX";
+    final static String PX = "PX";
 
     public boolean getLock(String key, String value);
 
     public boolean getLockWithExpireTime(String key, int expiredTime);
 
     public boolean getLockWithNXEX(String key, String value, int expiredTime);
+
+    public boolean getLockWithNXEXLock(String key, String value, int expiredTime);
 
     public boolean getLockWithNXPX(String key, String value, int expiredTime);
 
@@ -35,5 +37,7 @@ public interface RedisDistributedLock {
     public void releaseLock(String key, String value);
 
     public void releaseLockUsingEvalLua(String key, String value);
+
+    public void releaseLockUsingEvalLuaConcurrency(String key, String value);
 
 }

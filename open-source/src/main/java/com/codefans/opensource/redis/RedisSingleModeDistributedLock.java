@@ -1,5 +1,10 @@
 package com.codefans.opensource.redis;
 
+import com.codefans.basicjava.concurrent.cas.CasLock;
+import redis.clients.jedis.Jedis;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * @author: codefans
  * @date: 2019-06-17 10:19:43
@@ -12,9 +17,14 @@ package com.codefans.opensource.redis;
 public class RedisSingleModeDistributedLock implements RedisDistributedLock {
 
     private JedisSingleClient redisSigleClient;
+    private ThreadLocal<JedisSingleClient> threadLocal;
+    private volatile AtomicBoolean lock = new AtomicBoolean(false);
+    private static CasLock casLock = new CasLock();
 
     public RedisSingleModeDistributedLock(JedisSingleClient redisSigleClient) {
         this.redisSigleClient = redisSigleClient;
+//        threadLocal = new ThreadLocal<JedisSingleClient>();
+//        threadLocal.set(redisSigleClient);
     }
     /**
      *
@@ -75,6 +85,27 @@ public class RedisSingleModeDistributedLock implements RedisDistributedLock {
     @Override
     public boolean getLockWithNXEX(String key, String value, int expiredTime) {
         return redisSigleClient.set(key, value, NX, EX, expiredTime);
+//        return threadLocal.get().set(key, value, NX, EX, expiredTime);
+    }
+
+    @Override
+    public boolean getLockWithNXEXLock(String key, String value, int expiredTime) {
+        boolean locked = false;
+        boolean flag = false;
+        do {
+            flag = lock.compareAndSet(false, true);
+        } while(!flag);
+        System.out.println("thread[" + Thread.currentThread().getName() + "],getLock=" + lock + ",flag=" + flag);
+
+
+//        casLock.lock();
+//        if(flag) {
+//        System.out.println(Thread.currentThread().getName());
+            locked = redisSigleClient.set(key, value, NX, EX, expiredTime);
+//        }
+//        System.out.println("locked=" + locked);
+        return locked;
+
     }
 
     /**
@@ -154,5 +185,23 @@ public class RedisSingleModeDistributedLock implements RedisDistributedLock {
     public void releaseLockUsingEvalLua(String key, String value) {
         String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
         redisSigleClient.deleteUsingEvalLua(key, value, script);
+    }
+
+    @Override
+    public void releaseLockUsingEvalLuaConcurrency(String key, String value) {
+
+//        if(flag) {
+//            lock.compareAndSet(true, false);
+            String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+            redisSigleClient.deleteUsingEvalLua(key, value, script);
+//            System.out.println("release lock:[" + key + "]");
+        System.out.println("thread[" + Thread.currentThread().getName() + "] unlock key:[" + key + "], lock=" + lock + "!");
+//        casLock.unlock();
+        boolean flag = false;
+        do{
+            flag = lock.compareAndSet(true, false);
+        } while(!flag);
+
+//        }
     }
 }
