@@ -37,7 +37,7 @@ public class JedisClusterNodeRouteTest {
 
         for(String key : keys) {
             jedisCluster.set(key, key + "_value");
-            System.out.println("key=" + key + ", node=" + JedisClusterNodeRoute.getNodeIndex(key));
+            System.out.println("key=" + key + ", node=" + JedisClusterNodeRoute.getSlot(key));
         }
 
 
