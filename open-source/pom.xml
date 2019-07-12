@@ -22,7 +22,10 @@
             <groupId>com.codefans</groupId>
             <artifactId>basic-java</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.codefans</groupId>
+            <artifactId>reusable-code</artifactId>
+        </dependency>
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>

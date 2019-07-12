@@ -1,6 +1,5 @@
 package com.codefans.opensource.redis.cluster;
 
-import com.codefans.basicjava.concurrent.threadpool.DefaultThreadPool;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPoolConfig;
@@ -20,19 +19,20 @@ public class DefaultJedisCluster {
 
     private int connectionTimeout;
     private int soTimeout;
+    public static final int DEFAULT_CONNECTION_TIMEOUT = 10000;
+    public int DEFAULT_SO_TIMEOUT = 10000;
 
     private JedisCluster jedisCluster;
 
     public DefaultJedisCluster(String host, int port, String password) {
-
 //        host = "127.0.0.1";
 //        port = 3793;
 //        password = "redisPass123";
         this.host = host;
         this.port = port;
         this.password = password;
-        this.connectionTimeout = 10000;
-        this.soTimeout = 10000;
+        this.connectionTimeout = DEFAULT_CONNECTION_TIMEOUT;
+        this.soTimeout = DEFAULT_SO_TIMEOUT;
 
 //        jedis = new Jedis(host, port, connectionTimeout, soTimeout);
 //        jedis.auth(password);
@@ -61,7 +61,6 @@ public class DefaultJedisCluster {
 //        hostAndPortSet.add(new HostAndPort("127.0.0.1", 3798));
 
         jedisCluster = new JedisCluster(hostAndPortSet, connectionTimeout, soTimeout, maxAttempts, password, poolConfig);
-
 
     }
 
@@ -136,7 +135,11 @@ public class DefaultJedisCluster {
         return jedisCluster.set(key, value);
     }
 
+    public JedisCluster getJedisCluster() {
+        return jedisCluster;
+    }
 
-
-
+    public void setJedisCluster(JedisCluster jedisCluster) {
+        this.jedisCluster = jedisCluster;
+    }
 }

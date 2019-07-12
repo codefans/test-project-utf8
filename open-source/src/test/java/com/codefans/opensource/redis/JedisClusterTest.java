@@ -4,13 +4,11 @@ import com.codefans.basicjava.concurrent.threadpool.DefaultThreadPool;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author: codefans
@@ -132,7 +130,7 @@ public class JedisClusterTest extends JedisClientBase {
     }
 
     @Test
-    public void setTest() {
+    public void jedisClusterInMultiThreadEnvTest() {
 
         final String key = "jedisClusterSetTestKey";
         final String value = "jedisClusterSetTestKey_value";
@@ -150,8 +148,9 @@ public class JedisClusterTest extends JedisClientBase {
             public void run() {
 //                lock.lock();
 //                try {
-                    String result = jedisCluster.set(key, value, nxxx, expx, timeout);
-                    System.out.println("result=" + result);
+                String newKey = key + System.currentTimeMillis();
+                    String result = jedisCluster.set(newKey, value, nxxx, expx, timeout);
+                    System.out.println("key=" + newKey + ", result=" + result + ", redisAddr=" + RedisContext.getAddr());
 //                } catch (Exception e) {
 //                    e.printStackTrace();
 //                } finally {
