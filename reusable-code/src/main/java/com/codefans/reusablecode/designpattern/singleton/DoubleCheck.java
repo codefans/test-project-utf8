@@ -1,7 +1,7 @@
 package com.codefans.reusablecode.designpattern.singleton;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-26 16:23
  * 单例模式的双重检查
  * https://www.jianshu.com/p/45885e50d1c4

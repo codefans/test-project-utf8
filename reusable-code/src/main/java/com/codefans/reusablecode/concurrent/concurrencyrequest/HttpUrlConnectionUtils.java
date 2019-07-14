@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-10 09:22
  */
 public class HttpUrlConnectionUtils {

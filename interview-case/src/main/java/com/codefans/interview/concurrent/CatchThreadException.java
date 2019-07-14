@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2017-09-14 22:28
  * 线程异常捕获问题测试类
  */

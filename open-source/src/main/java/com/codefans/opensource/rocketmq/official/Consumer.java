@@ -10,7 +10,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import java.util.List;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-10-15 23:05
  */
 

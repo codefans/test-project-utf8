@@ -19,7 +19,7 @@ import java.util.Map;
  * 必须按模板的样子组织excel数据
  * 1.共三列
  * 2.总价在最后一行的第三列的位置
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-08-20 00:40
  */
 public class MathExcelTool {

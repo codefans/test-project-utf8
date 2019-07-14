@@ -4,7 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-10 09:20
  *
  * 出处：

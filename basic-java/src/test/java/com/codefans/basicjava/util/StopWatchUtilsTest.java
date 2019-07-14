@@ -3,7 +3,7 @@ package com.codefans.basicjava.util;
 import org.junit.Test;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-06-21 15:25
  */
 public class StopWatchUtilsTest {

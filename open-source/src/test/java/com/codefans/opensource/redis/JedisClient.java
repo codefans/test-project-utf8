@@ -36,6 +36,21 @@ public class JedisClient extends JedisClientBase {
 
     }
 
+    @Test
+    public void setTest() {
+
+        String key = "";
+        String value = "";
+
+    }
+
+    public String set(String key, String value) {
+        Jedis jedis = new Jedis(host, port);
+        jedis.auth(password);
+        String result = jedis.set(key, value);
+        jedis.close();
+        return result;
+    }
 
 
 }

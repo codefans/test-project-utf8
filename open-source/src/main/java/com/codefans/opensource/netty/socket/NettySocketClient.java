@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-11-22 15:50
  */
 public class NettySocketClient {

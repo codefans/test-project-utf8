@@ -3,7 +3,7 @@ package com.codefans.reusablecode.concurrent.concurrencyrequest;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-10 09:15
  *
  * 出处：

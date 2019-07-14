@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-06-21 15:34
  */
 public class DateTest {

@@ -3,7 +3,7 @@ package com.codefans.basicjava.algorithm;
 import java.util.*;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-02-12 6:37
  *
  * 字典序，即按照字段名的ASCII码从小到大排序

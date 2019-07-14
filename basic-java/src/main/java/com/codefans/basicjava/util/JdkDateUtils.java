@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-06-21 15:00
  *
  * SimpleDateFormat线程不安全及解决办法

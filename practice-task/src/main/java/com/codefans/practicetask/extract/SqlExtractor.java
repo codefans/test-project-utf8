@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-11-20 11:19
  */
 public class SqlExtractor extends AbstractExtractor {

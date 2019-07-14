@@ -7,7 +7,7 @@ import org.apache.rocketmq.client.remoting.ChannelWrapper;
 import org.apache.rocketmq.client.remoting.common.RemotingHelper;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-04 10:04
  */
 public class RocketMQClient {

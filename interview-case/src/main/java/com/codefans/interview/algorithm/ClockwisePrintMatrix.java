@@ -1,7 +1,7 @@
 package com.codefans.interview.algorithm;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-04-02 20:46
  */
 

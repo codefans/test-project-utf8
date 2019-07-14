@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-11-08 11:11
  */
 public class SwingEventDrivenExample {

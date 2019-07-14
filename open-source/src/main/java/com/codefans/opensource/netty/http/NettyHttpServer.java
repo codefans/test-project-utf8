@@ -12,7 +12,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.util.CharsetUtil;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-05 11:44
  */
 public class NettyHttpServer {
@@ -22,12 +22,20 @@ public class NettyHttpServer {
         String inetHost = "localhost";
         int inetPort = 6789;
 
+        /**
+         * bossGroup、workerGroup可以理解为两个线程池
+         * bossGroup是处理Selector事件的,包括OP_ACCEPT、OP_CONNECT、OP_READ、OP_WRITE等事件
+         * workerGroup是处理接收事件后的IO操作，包括读和写
+         */
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(bossGroup, workerGroup)
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .channel(NioServerSocketChannel.class)
+                /**
+                 * 每个客户端连进来之后，给他分配一个监听器，来进行处理
+                 */
                 .childHandler(new ChannelInitializer<SocketChannel>() {
 
                     @Override
@@ -123,7 +131,14 @@ public class NettyHttpServer {
 
         }
 
-
+        @Override
+        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+            super.exceptionCaught(ctx, cause);
+            /**
+             * 出异常要把通道关闭
+             */
+            ctx.close();
+        }
     }
 
 }

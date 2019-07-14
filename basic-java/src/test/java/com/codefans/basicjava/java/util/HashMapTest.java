@@ -3,7 +3,7 @@ package com.codefans.basicjava.java.util;
 import java.util.*;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2017-10-12 19:59
  *
  * 主要功能：
