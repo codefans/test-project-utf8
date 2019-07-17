@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 <!-- 定义日志文件 输入位置 -->
-	<property name="log_dir" value="/letv/Logs/open-source" />
+	<property name="log_dir" value="D:/Logs" />
 	<!-- 控制台输出 -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -13,7 +13,7 @@
 	<appender name="DEFAULT-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!--日志文件输出的文件名-->
-			<FileNamePattern>${log_dir}/default/default.log.%d{yyyyMMdd}</FileNamePattern>
+			<FileNamePattern>${log_dir}/logback.%d{yyyyMMdd}.log</FileNamePattern>
 			<!-- 日志生成30天有效 -->
 			<MaxHistory>30</MaxHistory>
 		</rollingPolicy>
