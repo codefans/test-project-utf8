@@ -13,7 +13,7 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-11-13 14:59
  */
 public class NettyHttpClient {

@@ -8,7 +8,7 @@ import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-04 09:29
  */
 public class RemotingHelper {

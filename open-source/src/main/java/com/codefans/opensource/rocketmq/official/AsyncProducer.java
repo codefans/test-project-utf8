@@ -9,7 +9,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-10-15 22:59
  */
 

@@ -1,7 +1,7 @@
 package com.codefans.practicetask.extract;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-11-20 11:18
  */
 public abstract class AbstractExtractor {

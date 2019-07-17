@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 import java.util.NoSuchElementException;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-11-22 16:03
  */
 public class SocketServerHandler extends SimpleChannelInboundHandler<ByteBuf> {

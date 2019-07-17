@@ -1,5 +1,7 @@
 package com.codefans.basicjava.concurrent.threadpool;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 /**
@@ -54,6 +56,23 @@ public class DefaultThreadPool {
 
     public Future<?> submit(Runnable r) {
         return threadPoolExecutor.submit(r);
+    }
+
+    public void submit(int submitTimes, Runnable task) {
+        List<Future<?>> futureList = new ArrayList<Future<?>>(submitTimes);
+        for(int i = 0; i < submitTimes; i ++) {
+            Future<?> result = threadPoolExecutor.submit(task);
+            futureList.add(result);
+        }
+
+        for(int i = 0; i < submitTimes; i ++) {
+            Future<?> future = futureList.get(i);
+            try {
+                future.get();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void shutdown() {

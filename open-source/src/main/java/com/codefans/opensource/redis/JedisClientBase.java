@@ -1,8 +1,6 @@
 package com.codefans.opensource.redis;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisCluster;
 
 import java.util.Iterator;
 import java.util.List;

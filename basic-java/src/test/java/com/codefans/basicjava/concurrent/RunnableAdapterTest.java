@@ -3,7 +3,7 @@ package com.codefans.basicjava.concurrent;
 import org.junit.Test;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-05-23 7:10
  */
 

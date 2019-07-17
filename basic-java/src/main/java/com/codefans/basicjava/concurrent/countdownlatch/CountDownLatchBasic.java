@@ -3,7 +3,7 @@ package com.codefans.basicjava.concurrent.countdownlatch;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-10 09:41
  * CountDownLatch一般用于某个线程A等待若干个其他线程执行完任务之后，它才执行
  */

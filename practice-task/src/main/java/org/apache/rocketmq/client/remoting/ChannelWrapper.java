@@ -4,7 +4,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-04 10:13
  */
 public class ChannelWrapper {

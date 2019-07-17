@@ -4,7 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-10 10:12
  * CyclicBarrier一般用于一组线程互相等待至某个状态，然后这一组线程再同时执行；
  */

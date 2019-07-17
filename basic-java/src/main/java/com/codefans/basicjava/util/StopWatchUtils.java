@@ -3,7 +3,7 @@ package com.codefans.basicjava.util;
 import org.apache.commons.lang.time.StopWatch;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-06-21 15:22
  */
 public class StopWatchUtils {

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-12-10 7:07
  *
  * 这一题主要是记错containsKey函数了，记成了contains，一遍就Accepted

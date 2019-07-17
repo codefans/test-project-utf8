@@ -7,7 +7,7 @@ import org.joda.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-06-21 15:41
  */
 public class JodaDateUtils {

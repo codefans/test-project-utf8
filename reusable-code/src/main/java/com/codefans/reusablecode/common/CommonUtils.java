@@ -3,7 +3,7 @@ package com.codefans.reusablecode.common;
 import java.io.File;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-08-20 00:58
  */
 public class CommonUtils {

@@ -4,7 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.Semaphore;
 
 /**
- * @author: ShengzhiCai
+ * @author: codefans
  * @date: 2018-10-10 10:12
  * 控制工作线程的数量, 线程数到达最大值后, 必须退出一个, 才能加入一个
  *

@@ -21,7 +21,9 @@ public class VerifyThreadPoolExecutor {
 //        this.verifyCorePoolSize();
 
         //验证最大线程数
-        this.verifyMaximumPoolSize();
+//        this.verifyMaximumPoolSize();
+
+        this.verifyDiffBetweenExecuteAndSubmit();
 
     }
 
@@ -148,6 +150,33 @@ public class VerifyThreadPoolExecutor {
 
     }
 
+    public void verifyDiffBetweenExecuteAndSubmit() {
+
+        int threadNums = Runtime.getRuntime().availableProcessors();
+        ExecutorService executorService = Executors.newFixedThreadPool(threadNums);
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+
+                System.out.println("executorService.execute()...");
+
+            }
+        });
+
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+
+                System.out.println("executorService.submit()...");
+
+            }
+        });
+
+
+
+
+
+    }
 
 
 }

@@ -10,7 +10,7 @@ import io.netty.util.ReferenceCountUtil;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @Author: ShengzhiCai
+ * @Author: codefans
  * @Date: 2018-11-14 0:00
  */
 
