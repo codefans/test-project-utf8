@@ -38,7 +38,7 @@ public class RSAUtils {
             PublicKey publicKey = kPair.getPublic();
             PrivateKey privateKey = kPair.getPrivate();
             return new KeyPair(Base64.base64Encode(publicKey.getEncoded()), Base64.base64Encode(privateKey.getEncoded()));
-            
+
         } catch (NoSuchAlgorithmException var5) {
             throw new IllegalArgumentException(var5);
         }
