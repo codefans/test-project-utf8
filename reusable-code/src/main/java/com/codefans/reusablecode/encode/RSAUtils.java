@@ -257,7 +257,7 @@ public class RSAUtils {
         Assert.isNotBlank(input, "待验证数据不能为空！");
         Assert.notNull(charset, "数据编码不能为空！");
         Assert.isNotBlank(publicKey, "公钥数据不能为空！");
-        Assert.isNotBlank(publicKey, "数据签名不能为空！");
+        Assert.isNotBlank(sign, "数据签名不能为空！");
         byte[] data = input.getBytes(charset);
         byte[] pubKey = Base64.base64Decode(publicKey);
         byte[] signBytes = Base64.base64Decode(sign);
@@ -285,6 +285,20 @@ public class RSAUtils {
             throw new IllegalArgumentException(var9);
         } catch (SignatureException var10) {
             throw new IllegalStateException(var10);
+        }
+    }
+
+    public static boolean verifySign(String input, Charset charset, String publicKey, String uploadEncryptData) {
+        Assert.isNotBlank(input, "待验证数据不能为空！");
+        Assert.notNull(charset, "数据编码不能为空！");
+        Assert.isNotBlank(publicKey, "公钥数据不能为空！");
+        Assert.isNotBlank(uploadEncryptData, "数据签名不能为空！");
+
+        String encryptData = encryptByPublicKey(input, charset, publicKey);
+        if(encryptData.equals(uploadEncryptData)) {
+            return true;
+        } else {
+            return false;
         }
     }
 

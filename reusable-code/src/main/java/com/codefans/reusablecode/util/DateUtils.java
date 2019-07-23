@@ -31,9 +31,14 @@ public class DateUtils {
         }
     }
 
-    public static Date formatYYYYMMDDHHMMSS(String dateStr) throws ParseException {
+    public static Date parseYYYYMMDDHHMMSS(String dateStr) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_YYYYMMDDHHMMSS);
         return sdf.parse(dateStr);
+    }
+
+    public static String formatYYYYMMDDHHMMSS(Date date) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_YYYYMMDDHHMMSS);
+        return sdf.format(date);
     }
 
     /**
@@ -43,7 +48,7 @@ public class DateUtils {
      * @return
      */
     public static long minus(String endDate, String beginDate) throws ParseException {
-        return minus(formatYYYYMMDDHHMMSS(endDate), formatYYYYMMDDHHMMSS(beginDate));
+        return minus(parseYYYYMMDDHHMMSS(endDate), parseYYYYMMDDHHMMSS(beginDate));
     }
 
     /**

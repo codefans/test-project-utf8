@@ -1,9 +1,11 @@
 package com.codefans.reusablecode.util;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,6 +13,37 @@ import java.util.Map;
  * @date: 2018-07-27 14:15
  */
 public class CommonUtils {
+
+    public static final String PROJECT_ROOT = System.getProperty("user.dir");
+
+    public static String getModuleRoot(String moduleName) {
+        return PROJECT_ROOT + File.separator + moduleName;
+    }
+
+    public static String getModuleSrcRoot(String moduleName) {
+        return getModuleRoot(moduleName) + File.separator + "src";
+    }
+
+    public static String getModuleMainRoot(String moduleName) {
+        return getModuleSrcRoot(moduleName) + File.separator + "main";
+    }
+
+    public static String getModuleTestRoot(String moduleName) {
+        return getModuleSrcRoot(moduleName) + File.separator + "test";
+    }
+
+    public static String getModuleMainJavaRoot(String moduleName) {
+        return getModuleMainRoot(moduleName) + File.separator + "java";
+    }
+
+    public static String getModuleTestJavaRoot(String moduleName) {
+        return getModuleMainRoot(moduleName) + File.separator + "test";
+    }
+
+    public static String getMacDownloadsPath() {
+        return "/Users/codefans/Downloads/";
+    }
+
 
     public static Map<String, Object> bean2map(Object bean) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -53,5 +86,12 @@ public class CommonUtils {
         String getMethodName = "get" + firstLetter.toUpperCase() + suffix;
         return getMethodName;
     }
+
+    public static void print(List<String> list) {
+        for(String str : list) {
+            System.out.println(str);
+        }
+    }
+
 
 }

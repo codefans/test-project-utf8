@@ -41,8 +41,10 @@ public class Md5Utils {
 
     public static String getMd5Str(String source) {
         try {
-            byte[] strTemp = source.getBytes();
-            return getMd5Str(strTemp);
+            byte[] bytes = source.getBytes();
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(bytes, 0, bytes.length);
+            return getMd5Str(md5.digest());
         } catch (Exception e) {
             e.printStackTrace();
             return null;
