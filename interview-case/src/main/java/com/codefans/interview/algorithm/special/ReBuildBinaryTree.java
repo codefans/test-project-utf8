@@ -1,6 +1,6 @@
 package com.codefans.interview.algorithm.special;
 
-import com.codefans.interview.algorithm.common.BinaryTreeIterator;
+//import com.codefans.interview.algorithm.common.BinaryTreeIterator;
 import com.codefans.interview.datastructure.BinaryTreeNode;
 
 /**
@@ -74,12 +74,12 @@ public class ReBuildBinaryTree {
     public void print() {
 
 //        BinaryTreeIterator.printPreFirst(treeNode);
-        BinaryTreeIterator.printPreFirstByStack(treeNode);
-        System.out.println();
-//        BinaryTreeIterator.printMidFirst(treeNode);
-        BinaryTreeIterator.printMidFirstByStack(treeNode);
-        System.out.println();
-        BinaryTreeIterator.printRearFirst(treeNode);
+//        BinaryTreeIterator.printPreFirstByStack(treeNode);
+//        System.out.println();
+////        BinaryTreeIterator.printMidFirst(treeNode);
+//        BinaryTreeIterator.printMidFirstByStack(treeNode);
+//        System.out.println();
+//        BinaryTreeIterator.printRearFirst(treeNode);
 
     }
 
