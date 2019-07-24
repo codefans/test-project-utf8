@@ -7,7 +7,8 @@ import com.codefans.interview.algorithm.common.ListNode;
  * @Date: 2019-07-25 1:27
  *
  * 算法思路：
- *    将当前节点之后的节点的值依次往前挪
+ *    1.将当前节点之后的节点的值依次往前挪
+ *    2.去掉最后一个节点: 将倒数第二个节点的next指向null
  *
  */
 
