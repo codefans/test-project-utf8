@@ -50,12 +50,12 @@ public class ByteMain {
     public void basicGrammar() {
 
         /**
-         * 将数字1右移6位
+         * 将数字1左移6位
          */
         System.out.println(1<<6);
 
         /**
-         * 将数字6右移1位
+         * 将数字6左移1位
          */
         System.out.println(6<<1);
 

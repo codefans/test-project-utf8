@@ -11,11 +11,29 @@ public class BitMapTest {
     @Test
     public void basicTest() {
 
+        int n = 11;
+        System.out.println("n%8=" + (n%8));
+        System.out.println("n&(8-1)=" + (n&(8-1)));
+        System.out.println("n/8=" + (n/8));
+        System.out.println("n>>3=" + (n>>3));
+
+        int bitIndex = 65;
+        int wordIndex = bitIndex>>6;
+        System.out.println("bitIndex=" + bitIndex);
+        System.out.println("wordIndex=" + wordIndex);
+
+        /**
+         * 33只有最低5位有效，即1
+         * 65只有最低6位有效，即1
+         */
+        System.out.println("1<<33=" + (1<<33));
+        System.out.println("1L<<65=" + (1L<<65));
+
         int num = 191;
 
         int index = num >> 6;
 
-        // num%64得到在byte[index]的位置, 63对应的16进制数为0x3f
+        // num%64得到在byte[index]的位置, 64对应的16进制数为0x3f
         int position = num & 0x3f;
 
         System.out.println("index=" + index);
