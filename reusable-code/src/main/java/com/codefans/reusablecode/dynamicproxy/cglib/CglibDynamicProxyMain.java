@@ -42,14 +42,14 @@ public class CglibDynamicProxyMain {
         CglibService enhanceCglibService= (CglibService)cglibServiceEnhancer.create();
         // 通过代理对象调用目标方法
         enhanceCglibService.execute("我是参数1");
-        enhanceCglibService.queryResult("我是ID");
+        enhanceCglibService.execute("我是ID");
 
         Enhancer helloServiceEnhancer = this.getEnhance(HelloService.class);
         // 创建代理对象
         HelloService enhanceHelloService= (HelloService)helloServiceEnhancer.create();
         // 通过代理对象调用目标方法
         enhanceHelloService.sayHello("王五");
-        enhanceHelloService.sayHi("钱八");
+        enhanceHelloService.sayHello("钱八");
 
     }
 

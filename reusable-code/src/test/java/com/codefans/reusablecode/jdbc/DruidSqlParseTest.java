@@ -42,8 +42,8 @@ public class DruidSqlParseTest {
             MySqlSchemaStatVisitor visitor = new MySqlSchemaStatVisitor();
             stmt.accept(visitor);
 
-            //获取表名称
-            System.out.println("Tables : " + visitor.getCurrentTable());
+            //获取表名称,需要druid-1.0.19版本支持
+//            System.out.println("Tables : " + visitor.getCurrentTable());
             //获取操作方法名称,依赖于表名称
             System.out.println("Manipulation : " + visitor.getTables());
             //获取字段名称
