@@ -1,1 +1,2 @@
-http\://code.csz.com/schema/addition=com.codefans.opensource.spring.schema.AdditionNamespaceHandler
+http\://www.csz.com/schema/csz=com.codefans.opensource.spring.handle.AdditionNamespaceHandler
+http\://www.foo.com/schema/component=com.codefans.opensource.spring.handle.ComponentNamespaceHandler

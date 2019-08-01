@@ -1,1 +1,2 @@
-http\://code.csz.com/schema/addition/addition.xsd=META-INF/addition.xsd
+http\://www.csz.com/schema/csz/addition.xsd=META-INF/addition.xsd
+http\://www.foo.com/schema/component/component.xsd=META-INF/component.xsd

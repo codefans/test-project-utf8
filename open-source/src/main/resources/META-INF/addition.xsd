@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="http://www.mycompany.com/schema/myns"
+<xsd:schema xmlns="http://www.csz.com/schema/csz"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:beans="http://www.springframework.org/schema/beans"
-            targetNamespace="http://www.mycompany.com/schema/myns"
+            targetNamespace="http://www.csz.com/schema/csz"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
 

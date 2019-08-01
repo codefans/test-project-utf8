@@ -1,7 +1,37 @@
-<beans>
-    <bean id="application" class="Application">
-        <property name="marshaller" ref="castorMarshaller" />
-        <property name="unmarshaller" ref="castorMarshaller" />
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cfg="http://www.csz.com/schema/csz"
+       xmlns:foo="http://www.foo.com/schema/component"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.csz.com/schema/csz
+    http://www.csz.com/schema/csz/addition.xsd
+    http://www.foo.com/schema/component
+    http://www.foo.com/schema/component/component.xsd">
+
+    <!-- as a top-level bean -->
+    <cfg:dateformat id="defaultDateFormat" pattern="yyyy-MM-dd HH:mm" lenient="true"/>
+
+    <foo:component id="bionic-family" name="Bionic-1">
+        <foo:component name="Mother-1">
+            <foo:component name="Karate-1"/>
+            <foo:component name="Sport-1"/>
+        </foo:component>
+        <foo:component name="Rock-1"/>
+    </foo:component>
+
+    <bean id="car" class="com.codefans.opensource.spring.bean.Car">
+        <constructor-arg name="name" value="value01" />
     </bean>
-    <bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller"/>
+
+    <!--
+    when the above bean (messenger) is instantiated, this custom
+    BeanPostProcessor implementation will output the fact to the system console
+    -->
+    <bean class="com.codefans.opensource.spring.extension.BeanInitPostProcessor"/>
+    <bean class="com.codefans.opensource.spring.extension.MyBeanFactoryPostProcessor"/>
+
+
 </beans>
