@@ -764,6 +764,22 @@ public class FileUtils {
 		return sb.toString();
 	}
 
+	// read string from file, for debug
+	public static String fileToStr(InputStream inputStream) {
+		StringBuilder sb = new StringBuilder();
+		try {
+			Scanner sc = new Scanner(inputStream);
+			while (sc.hasNextLine()) {
+				sb.append(sc.nextLine());
+			}
+			sc.close();
+			sc = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sb.toString();
+	}
+
 	public void p(Object o) {
 		System.out.println(o);
 	}

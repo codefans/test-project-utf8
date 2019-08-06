@@ -1,6 +1,6 @@
 package com.codefans.practicetask.math;
 
-import com.codefans.reusablecode.common.CommonUtils;
+import com.codefans.reusablecode.util.CommonUtils;
 
 import java.io.File;
 import java.math.BigDecimal;

@@ -1,5 +1,6 @@
 package com.codefans.reusablecode.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +13,38 @@ import java.util.Date;
 public class DateUtils {
 
     private static final String PATTERN_YYYYMMDDHHMMSS = "yyyy-MM-dd HH:mm:ss";
+    private static final String PATTERN_YYYYMMDDHHMMSS_SSS = "yyyy-MM-dd HH:mm:ss,SSS";
     private static final String PATTERN_YYYYMMDD = "yyyy-MM-dd";
+
+    private static final ThreadLocal<DateFormat> yyyyMMddHHmmssDateFormat= new ThreadLocal<DateFormat>(){
+        @Override
+        protected DateFormat initialValue() {
+            return new SimpleDateFormat(PATTERN_YYYYMMDDHHMMSS);
+        }
+    };
+    private static final ThreadLocal<DateFormat> yyyyMMddHHmmssSSSDateFormat= new ThreadLocal<DateFormat>(){
+        @Override
+        protected DateFormat initialValue() {
+            return new SimpleDateFormat(PATTERN_YYYYMMDDHHMMSS_SSS);
+        }
+    };
+    private static final ThreadLocal<DateFormat> yyyyMMddDateFormat= new ThreadLocal<DateFormat>(){
+        @Override
+        protected DateFormat initialValue() {
+            return new SimpleDateFormat(PATTERN_YYYYMMDD);
+        }
+    };
+
+    public static String formatYYYYMMDDHHMMSS_SSS(Date date) {
+        DateFormat df = yyyyMMddHHmmssSSSDateFormat.get();
+        return df.format(date);
+    }
+
+    public static String formatYYYYMMDDHHMMSS_SSS(long timestamp) {
+        return formatYYYYMMDDHHMMSS_SSS(new Date(timestamp));
+    }
+
+
 
     /**
      * 获取精确到秒的时间戳
