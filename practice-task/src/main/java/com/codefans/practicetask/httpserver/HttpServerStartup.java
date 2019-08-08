@@ -1,12 +1,14 @@
 package com.codefans.practicetask.httpserver;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author: mpif
  * @date: 2018-06-06 10:05
  */
+//@EnableAutoConfiguration
 @SpringBootApplication
 public class HttpServerStartup {
 

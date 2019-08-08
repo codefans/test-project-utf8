@@ -2,11 +2,18 @@ package com.codefans.practicetask.httpserver;
 
 import com.alibaba.fastjson.JSON;
 import com.codefans.reusablecode.util.SignUtils;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.resource.ResourceUrlProvider;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -58,7 +65,47 @@ public class HttpRequestController {
         return entity;
     }
 
+    @RequestMapping(path = "/http/test", method={RequestMethod.GET})
+    public ResponseEntity<String> test(HttpServletRequest req, HttpServletResponse resp) {
 
+        String jsonResult = "";
 
+        Map<String, String> headMaps = this.parseHeader(req);
+        this.printMap(headMaps);
+
+        String userAgent = headMaps.get("User-Agent");
+        if(userAgent == null) {
+            userAgent = headMaps.get("user-agent");
+            jsonResult = "head, [user-agent]:" + userAgent;
+        } else {
+            jsonResult = "head:[user-agent]:" + userAgent;
+        }
+
+        ResponseEntity<String> entity = ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(jsonResult);
+        return entity;
+    }
+
+    public Map<String, String> parseHeader(HttpServletRequest request) {
+        Map<String, String> headMaps = new HashMap<String, String>();
+        Enumeration<String> headNames = request.getHeaderNames();
+        String headName = "";
+        while(headNames.hasMoreElements()) {
+            headName = headNames.nextElement();
+            headMaps.put(headName, request.getHeader(headName));
+        }
+        return headMaps;
+    }
+
+    public void printMap(Map<String, String> maps) {
+        Iterator<String> iter = maps.keySet().iterator();
+        String key = "";
+        String val = "";
+        while(iter.hasNext()) {
+            key = iter.next();
+            val = maps.get(key);
+            System.out.println("key=" + key + ", val=" + val);
+//            log.info("key=" + key + ", val=" + val);
+        }
+    }
 
 }

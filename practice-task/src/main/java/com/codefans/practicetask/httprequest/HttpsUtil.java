@@ -36,6 +36,7 @@ import java.net.UnknownHostException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -283,8 +284,19 @@ public class HttpsUtil {
         String url = "";
 //        url = "https://www.baidu.com/";
         url = "https://activity.waimai.meituan.com/coupon/sharechannel/B2EA8E1ABA8B47EA82DB475BA17B517D?urlKey=BE74ED05036D46D3836289A75464A2D9&utm_term=AiphoneBgroupC8.4.1DweixinEwm-orderGF8A3848E9B6C216A4256215A50BE7FDCF1EC5C2E836B8CB464359A6CF70F782920171124112540608&utm_source=appshare&utm_medium=iOSweb&from=singlemessage&isappinstalled=0";
-        String body =get(url);
+//        url = "http://localhost:8080/http/test";
+//        url = "http://wx.qaqww.xyz/app/index.php?i=3&c=entry&rid=51&m=tyzm_diamondvote&do=Index";
+        Map<String, String> header = new HashMap<String, String>();
+        header.put("X-Requested-With", "XMLHttpRequest");
+        header.put("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/zh_CN");
+        String body =get(url, header, null);
         System.out.println(body);
+        
+        url = "http://wx.qaqww.xyz/app/index.php?i=3&c=entry&rid=51&m=tyzm_diamondvote&do=Index";
+        String qaqwwContent = get(url, header, null);
+        System.out.println(qaqwwContent);
+        System.out.println("body.equals(qaqwwContent)=" + body.equals(qaqwwContent));
+
     }
 
 

@@ -24,7 +24,8 @@ public class AttackTest {
         String[] unicodeArr = new String[]{
                 "\u9648\u9e4f\u9716",
                 "\u8bf7\u8f93\u5165\u9a8c\u8bc1\u7801",
-                "\u8bf7\u8f93\u5165\u9a8c\u8bc1\u7801",
+                "\u8f93\u5165\u9a8c\u8bc1\u7801\u9519\u8bef",
+                "\u6bcf\u4eba\u6bcf\u65e5\u53ea\u80fd\u62951\u7968\uff0c\u660e\u5929\u518d\u6765\u5427",
                 "\u6bcf\u4eba\u6bcf\u65e5\u53ea\u80fd\u62951\u7968\uff0c\u660e\u5929\u518d\u6765\u5427"
         };
         String unicode = "";
@@ -61,12 +62,16 @@ public class AttackTest {
          * 1565056774 - 这个长度的时间, 不包含毫秒, 后面加3个0, 就是完整的时间了
          */
         long[] timestampArr = new long[]{
-            1565056774L
+            1565066362,1565081613,1565094138,1565147330,1565158448
         };
+
+
         long timestamp = 0L;
         for(int i = 0; i < timestampArr.length; i ++) {
             timestamp = timestampArr[i];
-            timestamp = Long.parseLong(timestamp + "000");
+            if(String.valueOf(timestamp).length() == 10) {
+                timestamp = Long.parseLong(timestamp + "000");
+            }
             System.out.println("timestamp=" + timestamp + ", format=" + DateUtils.formatYYYYMMDDHHMMSS_SSS(timestamp));
 
         }
