@@ -22,6 +22,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.AbstractHttpMessage;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContextBuilder;
@@ -35,10 +36,7 @@ import java.io.InterruptedIOException;
 import java.net.UnknownHostException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 参考资料：
@@ -137,32 +135,8 @@ public class HttpsUtil {
             localContext.setCookieStore(cookieStore);
             // 创建get方式请求对象
             HttpGet httpGet = new HttpGet(url);
-            if(header!=null){
-                if(header.get("Accept")!=null) {
-                    httpGet.setHeader("Accept", header.get("Accept"));
-                }
-                if(header.get("Cookie")!=null) {
-                    httpGet.setHeader("Cookie", header.get("Cookie"));
-                }
-                if(header.get("Accept-Encoding")!=null) {
-                    httpGet.setHeader("Accept-Encoding", header.get("Accept-Encoding"));
-                }
-                if(header.get("Accept-Language")!=null) {
-                    httpGet.setHeader("Accept-Language", header.get("Accept-Language"));
-                }
-                if(header.get("Host")!=null) {
-                    httpGet.setHeader("Host", header.get("Host"));
-                }
-                if(header.get("User-Agent")!=null) {
-                    httpGet.setHeader("User-Agent", header.get("User-Agent"));
-                }
-                if(header.get("x-requested-with")!=null) {
-                    httpGet.setHeader("x-requested-with", header.get("x-requested-with"));
-                }
-                if(header.get("Encoding")!=null) {
-                    Encoding =header.get("Encoding");
-                }
-            }
+            setHeader(httpGet, header);
+
             System.out.println("请求地址：" + url);
             // 执行请求操作，并拿到结果（同步阻塞）
             CloseableHttpResponse response = client.execute(httpGet,localContext);
@@ -208,35 +182,8 @@ public class HttpsUtil {
         try {
             // 创建post方式请求对象
             HttpPost httpPost = new HttpPost(url);
-            if(header!=null){
-                if(header.get("Accept")!=null) {
-                    httpPost.setHeader("Accept", header.get("Accept"));
-                }
-                if(header.get("Cookie")!=null) {
-                    httpPost.setHeader("Cookie", header.get("Cookie"));
-                }
-                if(header.get("Accept-Encoding")!=null) {
-                    httpPost.setHeader("Accept-Encoding", header.get("Accept-Encoding"));
-                }
-                if(header.get("Accept-Language")!=null) {
-                    httpPost.setHeader("Accept-Language", header.get("Accept-Language"));
-                }
-                if(header.get("Host")!=null) {
-                    httpPost.setHeader("Host", header.get("Host"));
-                }
-                if(header.get("User-Agent")!=null) {
-                    httpPost.setHeader("User-Agent", header.get("User-Agent"));
-                }
-                if(header.get("x-requested-with")!=null) {
-                    httpPost.setHeader("x-requested-with", header.get("x-requested-with"));
-                }
-                if(header.get("Encoding")!=null) {
-                    encoding =header.get("Encoding");
-                }
-                if(header.get("Content-Type")!=null) {
-                    contentType =header.get("Content-Type");
-                }
-            }
+            setHeader(httpPost, header);
+
             // 装填参数
             if (contentType.equalsIgnoreCase("text/html")) {
                 List<NameValuePair> nvps = new ArrayList<NameValuePair>();
@@ -280,6 +227,20 @@ public class HttpsUtil {
         }
         return body;
     }
+
+    public static void setHeader(AbstractHttpMessage httpMessage, Map<String, String> headers) {
+        if(headers != null) {
+            Iterator<String> iter = headers.keySet().iterator();
+            String key = "";
+            String val = "";
+            while(iter.hasNext()) {
+                key = iter.next();
+                val = headers.get(key);
+                httpMessage.setHeader(key, val);
+            }
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         String url = "";
 //        url = "https://www.baidu.com/";
@@ -287,15 +248,45 @@ public class HttpsUtil {
 //        url = "http://localhost:8080/http/test";
 //        url = "http://wx.qaqww.xyz/app/index.php?i=3&c=entry&rid=51&m=tyzm_diamondvote&do=Index";
         Map<String, String> header = new HashMap<String, String>();
-        header.put("X-Requested-With", "XMLHttpRequest");
+
         header.put("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/zh_CN");
-        String body =get(url, header, null);
-        System.out.println(body);
-        
+//        header.put("Accept", "application/json, text/javascript, */*; q=0.01");
+//        header.put("Accept-Language", "zh-cn");
+//        header.put("Connection", "keep-alive");
+//        header.put("Accept-Encoding", "gzip, deflate");
+//        header.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+//        header.put("Connection", "keep-alive");
+////        header.put("Upgrade-Insecure-Requests", "1");
+//        header.put("Cookie", "PHPSESSID=8ba47614a27c0a9ba18dfabe0b9c0975");
+//        header.put("Cache-Control", "no-cache");
+//        header.put("cache-control", "no-cache");
+        header.put("X-Requested-With", "XMLHttpRequest");
+//        Postman-Token: 72785a33-be82-44bc-925d-9324dd2d904c,29973e5d-afda-4a12-8218-b86974840bd2
+//        Host: wx.qaqww.xyz
+//        Cookie: PHPSESSID=8ba47614a27c0a9ba18dfabe0b9c0975
+//        cache-control: no-cache
+
+//        header.put("Origin", "http://wx.qaqww.xyz");
+//        header.put("Host", "activity.waimai.meituan.com");
+
+//        String body =get(url, header, null);
+//        System.out.println(body);
+//        header.remove("Host");
+
         url = "http://wx.qaqww.xyz/app/index.php?i=3&c=entry&rid=51&m=tyzm_diamondvote&do=Index";
-        String qaqwwContent = get(url, header, null);
+        /**
+         * 加上Host就报404
+         */
+//        header.put("Host", "wx.qaqww.xyz");
+//        header.put("Origin", "http://wx.qaqww.xyz");
+
+        Map<String, String> outCookies = null;
+//        Map<String, String> outCookies = new HashMap<String, String>();
+//        outCookies.put("PHPSESSID", "8ba47614a27c0a9ba18dfabe0b9c0975");
+
+        String qaqwwContent = get(url, header, outCookies);
         System.out.println(qaqwwContent);
-        System.out.println("body.equals(qaqwwContent)=" + body.equals(qaqwwContent));
+//        System.out.println("body.equals(qaqwwContent)=" + body.equals(qaqwwContent));
 
     }
 

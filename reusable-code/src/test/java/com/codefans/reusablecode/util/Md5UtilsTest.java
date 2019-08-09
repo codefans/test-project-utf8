@@ -20,4 +20,17 @@ public class Md5UtilsTest {
         System.out.println("sourceStr.length==md5Str.length:" + (sourceStr.length()==md5Str.length()));
     }
 
+    @Test
+    public void decodeMD5StrTest() {
+
+        String md5Str = "0a247e4796a02ae8dc96c27e03f17480";
+        String verifyCode = "4588";
+        String verifyCodeMD5Str = Md5Utils.getMd5Str(verifyCode);
+        System.out.println("verifyCodeMD5Str=" + verifyCodeMD5Str); //verifyCodeMD5Str=fa131721954c3ddae16ee67620ffb2e0
+
+
+    }
+
+
+
 }

@@ -23,9 +23,11 @@ public class AttackTest {
 
         String[] unicodeArr = new String[]{
                 "\u9648\u9e4f\u9716",
-                "\u8bf7\u8f93\u5165\u9a8c\u8bc1\u7801",
+                "\u6ca1\u6709\u5173\u6ce8",
                 "\u8f93\u5165\u9a8c\u8bc1\u7801\u9519\u8bef",
+                "\u8bf7\u8f93\u5165\u9a8c\u8bc1\u7801",
                 "\u6bcf\u4eba\u6bcf\u65e5\u53ea\u80fd\u62951\u7968\uff0c\u660e\u5929\u518d\u6765\u5427",
+                "\u6295\u7968\u6210\u529f\uff0c\u4eca\u5929\u60a8\u8fd8\u53ef\u4ee5\u62950\u7968\u3002",
                 "\u6bcf\u4eba\u6bcf\u65e5\u53ea\u80fd\u62951\u7968\uff0c\u660e\u5929\u518d\u6765\u5427"
         };
         String unicode = "";
