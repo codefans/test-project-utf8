@@ -1,4 +1,4 @@
-package com.codefans.interview.algorithm.special;
+package com.codefans.interview.algorithm.offer;
 
 /**
  * @Author: codefans

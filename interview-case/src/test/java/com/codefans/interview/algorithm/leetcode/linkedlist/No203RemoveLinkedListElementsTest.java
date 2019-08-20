@@ -3,11 +3,8 @@ package com.codefans.interview.algorithm.leetcode.linkedlist;
 import com.codefans.interview.algorithm.common.ListNode;
 import com.codefans.interview.algorithm.common.ListNodeFactory;
 import com.codefans.interview.algorithm.common.ListNodeUtils;
-import com.codefans.interview.algorithm.special.LinkedListNode;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.LinkedList;
 
 /**
  * @Author: codefans

@@ -1,4 +1,4 @@
-package com.codefans.interview.algorithm.special;
+package com.codefans.interview.algorithm.offer;
 
 //import com.codefans.interview.algorithm.common.BinaryTreeIterator;
 import com.codefans.interview.datastructure.BinaryTreeNode;
