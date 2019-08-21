@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    		http://www.springframework.org/schema/beans/spring-beans.xsd
+       		http://www.springframework.org/schema/context
+     		http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.codefans.opensource.mybatis" />
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath:mybatis/jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--<bean id="dataSource"-->
+          <!--class="org.logicalcobwebs.proxool.ConnectionPoolManager">-->
+        <!--<property name="driver">-->
+            <!--<value>com.mysql.jdbc.Driver</value>-->
+        <!--</property>-->
+        <!--<property name="driverUrl">-->
+            <!--<value>jdbc:mysql://localhost:3306/dbname?user=yourname&amp;password=yourpass</value>-->
+        <!--</property>-->
+        <!--<property name="user" value="yourname" />-->
+        <!--<property name="password" value="yourpass" />-->
+        <!--<property name="alias" value="Pool_dbname" />-->
+        <!--<property name="houseKeepingSleepTime" value="90000" />-->
+        <!--<property name="prototypeCount" value="0" />-->
+        <!--<property name="maximumConnectionCount" value="50" />-->
+        <!--<property name="minimumConnectionCount" value="2" />-->
+        <!--<property name="simultaneousBuildThrottle" value="50" />-->
+        <!--<property name="maximumConnectionLifetime" value="14400000" />-->
+        <!--<property name="houseKeepingTestSql" value="select CURRENT_DATE" />-->
+    <!--</bean>-->
+
+    <bean id="dbcp2DataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <!-- 数据库驱动 -->
+        <property name="driverClassName" value="${jdbc.driverClass}"/>
+        <!-- 连接数据库的url -->
+        <property name="url" value="${jdbc.jdbcUrl}"/>
+        <!-- 连接数据库的用户名 -->
+        <property name="username" value="${jdbc.username}"/>
+        <!-- 连接数据库的密码 -->
+        <property name="password" value="${jdbc.password}"/>
+        <!-- 最大连接数 -->
+        <property name="maxTotal" value="${jdbc.maxTotal}"/>
+        <!-- 最大空闲连接数 -->
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>
+        <!-- 初始化连接数 -->
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+    </bean>
+
+    <bean id="c3p0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass"><value>${jdbc.driverClass}</value></property>
+        <property name="jdbcUrl"><value>${jdbc.jdbcUrl}</value></property>
+        <property name="user"><value>${jdbc.username}</value></property>
+        <property name="password"><value>${jdbc.password}</value></property>
+        <property name="acquireIncrement"><value>5</value></property>
+        <property name="idleConnectionTestPeriod"><value>3000</value></property>
+        <property name="checkoutTimeout"><value>3000</value></property>
+        <property name="maxPoolSize"><value>80</value></property>
+        <property name="minPoolSize"><value>1</value></property>
+        <property name="maxStatements"><value>6000</value></property>
+        <property name="initialPoolSize"><value>5</value></property>
+    </bean>
+
+    <!-- 数据源 druid Configuration -->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.jdbcUrl}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="initialSize" value="${jdbc.datasource.initialSize}" />
+        <property name="maxActive" value="${jdbc.datasource.maxActive}" />
+        <property name="minIdle" value="${jdbc.datasource.minIdle}" />
+        <property name="maxWait" value="${jdbc.datasource.maxWait}" />
+        <property name="poolPreparedStatements" value="${jdbc.datasource.poolPreparedStatements}" />
+        <property name="maxOpenPreparedStatements" value="${jdbc.datasource.maxOpenPreparedStatements}" />
+        <property name="validationQuery" value="SELECT 'x'" />
+        <property name="testOnBorrow" value="${jdbc.datasource.testOnBorrow}" />
+        <property name="testOnReturn" value="${jdbc.datasource.testOnReturn}" />
+        <property name="testWhileIdle" value="${jdbc.datasource.testWhileIdle}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.datasource.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.datasource.minEvictableIdleTimeMillis}" />
+        <property name="proxyFilters">
+            <list>
+                <ref bean="logFilter" />
+                <ref bean="statFilter" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="logFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
+        <property name="dataSourceLogEnabled" value="false" />
+        <property name="connectionLogEnabled" value="false" />
+        <property name="statementLogEnabled" value="false" />
+        <property name="resultSetLogEnabled" value="false" />
+    </bean>
+
+    <bean id="statFilter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="3000" />
+        <property name="logSlowSql" value="true" />
+    </bean>
+
+    <!-- BoneCP configuration -->
+    <bean id="bonecpDataSource"
+          class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClass}" />
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="idleConnectionTestPeriodInMinutes" value="${jdbc.idleConnectionTestPeriod}" />
+        <property name="idleMaxAgeInMinutes" value="${jdbc.idleMaxAge}" />
+        <property name="maxConnectionsPerPartition" value="${jdbc.maxConnectionsPerPartition}" />
+        <property name="minConnectionsPerPartition" value="${jdbc.minConnectionsPerPartition}" />
+        <property name="partitionCount" value="${jdbc.partitionCount}" />
+        <property name="acquireIncrement" value="${jdbc.acquireIncrement}" />
+        <property name="statementsCacheSize" value="${jdbc.statementsCacheSize}" />
+        <property name="releaseHelperThreads" value="${jdbc.releaseHelperThreads}" />
+    </bean>
+
+    <!-- Hikari Datasource configuration -->
+    <bean id="dataSourceHikari" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <!-- <property name="driverClassName" value="${db.driverClass}" /> --> <!-- 无需指定，除非系统无法自动识别 -->
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <!-- 连接只读数据库时配置为true， 保证安全 -->
+        <property name="readOnly" value="false" />
+        <!-- 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 缺省:30秒 -->
+        <property name="connectionTimeout" value="30000" />
+        <!-- 一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟 -->
+        <property name="idleTimeout" value="600000" />
+        <!-- 一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';） -->
+        <property name="maxLifetime" value="1800000" />
+        <!-- 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count) -->
+        <property name="maximumPoolSize" value="15" />
+    </bean>
+
+
+    <!-- 集成Mybatis -->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dbcp2DataSource" />
+        <!--<property name="dataSource" ref="c3p0DataSource" />-->
+        <!--<property name="dataSource" ref="druidDataSource" />-->
+        <!--<property name="dataSource" ref="bonecpDataSource" />-->
+        <!--<property name="dataSource" ref="dataSourceHikari" />-->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml" /> <!-- **表示任意多级目录 -->
+        <!--<property name="plugins">-->
+            <!--<array>-->
+                <!--<bean id="shardingInterceptor"-->
+                      <!--class="com.lejr.platform.mybatis.spring.sharding.ShardingInterceptor">-->
+                    <!--<property name="tableNameHandler">-->
+                        <!--<bean class="com.lejr.platform.mybatis.spring.sharding.support.DefaultShadowTableNameHandler"/>-->
+                    <!--</property>-->
+                <!--</bean>-->
+            <!--</array>-->
+        <!--</property>-->
+    </bean>
+
+    <!-- 扫描 mappers 自动为DAO层生成bean -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
+        <property name="basePackage" value="com.codefans.opensource.mybatis" /> <!-- 多个package可以用","分割 -->
+    </bean>
+
+</beans>
