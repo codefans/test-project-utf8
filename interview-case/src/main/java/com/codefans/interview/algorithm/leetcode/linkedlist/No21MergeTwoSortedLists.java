@@ -14,6 +14,29 @@ import java.util.List;
 public class No21MergeTwoSortedLists {
 
     /**
+     * Runtime: 0 ms, faster than 100.00% of Java online submissions for Merge Two Sorted Lists.
+     * Memory Usage: 39.1 MB, less than 19.53% of Java online submissions for Merge Two Sorted Lists.
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode mergeTwoLists0(ListNode l1, ListNode l2) {
+        if(l1 == null) {
+            return l2;
+        }
+        if(l2 == null) {
+            return l1;
+        }
+        if(l1.val <= l2.val) {
+            l1.next = mergeTwoLists0(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists0(l1, l2.next);
+            return l2;
+        }
+    }
+
+    /**
      * 思路:
      *    定义一个头节点为0的链表head,一个指向头节点的指针curr,
      *    然后比较链表l1和链表l2当前节点的大小,然后将curr.next指向较小的节点.
@@ -53,6 +76,8 @@ public class No21MergeTwoSortedLists {
         }
         return result.next;
     }
+
+
 
     /**
      * 用一个新链表,比较两个链表,小的值加到新链表后面
