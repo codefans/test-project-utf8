@@ -267,11 +267,18 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.le.jr</groupId>-->
+            <!--<artifactId>mybatis-generator-ext</artifactId>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>com.jolbox</groupId>
@@ -322,8 +329,14 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.31</version>
+                        <version>5.1.38</version>
                     </dependency>
+                    <dependency>
+                        <groupId>com.le.jr</groupId>
+                        <artifactId>mybatis-generator-ext</artifactId>
+                        <version>1.0.3</version>
+                    </dependency>
+
                 </dependencies>
                 <configuration>
                     <!--配置文件的路径-->
