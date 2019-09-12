@@ -1431,7 +1431,7 @@ public class Hessian2Input
                 _chunkLength--;
                 int value = parseUTF8Char();
 
-                // special code so successive read byte won't
+                // offer code so successive read byte won't
                 // be read as a single object.
                 if (_chunkLength == 0 && _isLastChunk)
                     _chunkLength = END_OF_DATA;
@@ -1939,7 +1939,7 @@ public class Hessian2Input
 
                 int value = parseByte();
 
-                // special code so successive read byte won't
+                // offer code so successive read byte won't
                 // be read as a single object.
                 if (_chunkLength == 0 && _isLastChunk)
                     _chunkLength = END_OF_DATA;
