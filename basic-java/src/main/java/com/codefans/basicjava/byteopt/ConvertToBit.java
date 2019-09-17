@@ -1,5 +1,7 @@
 package com.codefans.basicjava.byteopt;
 
+import org.apache.commons.lang.BooleanUtils;
+
 /**
  * @author: codefans
  * @date: 2019-05-02 17:54:03
@@ -45,16 +47,23 @@ public class ConvertToBit {
          */
         double d = 1;
 
-        System.out.println(Byte.parseByte("1"));
+//        System.out.println(Byte.parseByte("1"));
 
         ConvertToBit convertToBit = new ConvertToBit();
-        convertToBit.minAndMaxValue();
+//        convertToBit.minAndMaxValue();
 //        convertToBit.byte2bit();
-//        convertToBit.boolean2bit();
+        convertToBit.boolean2bit();
 //        convertToBit.short2bit();
 //        convertToBit.char2bit();
-        convertToBit.int2bit();
+//        convertToBit.int2bit();
 //        convertToBit.long2bit();
+
+        System.out.println(convertToBit.byte2bit(b));
+        System.out.println(convertToBit.short2bit(s));
+        System.out.println(convertToBit.char2bit(c));
+        System.out.println(convertToBit.int2bit(n));
+        System.out.println(convertToBit.float2bit(f));
+        System.out.println(convertToBit.double2bit());
 
     }
 
@@ -121,6 +130,10 @@ public class ConvertToBit {
 
         System.out.println(Boolean.hashCode(true));
         System.out.println(Boolean.hashCode(false));
+
+        int booleanInt = BooleanUtils.toInteger(true);
+        System.out.println("booleanInt:" + booleanInt);
+
     }
 
     public String boolean2bit(boolean flag) {
@@ -257,6 +270,22 @@ public class ConvertToBit {
         return sb.toString();
     }
 
+    public String float2bit(float f) {
+        StringBuffer sb = new StringBuffer();
+
+        int fInt = Float.floatToIntBits(f);
+        int bitLen = 32;
+        for(int i = 0; i < bitLen; i ++) {
+            if((fInt & (1<<i)) != 0) {
+                sb.insert(0, "1");
+            } else {
+                sb.insert(0, "0");
+            }
+        }
+
+        return sb.toString();
+    }
+
     public void long2bit() {
         long l = 0;
         long maxLong = Long.MAX_VALUE;
@@ -283,6 +312,11 @@ public class ConvertToBit {
         StringBuffer sb = new StringBuffer();
 
         return sb.toString();
+    }
+
+    public String double2bit(double d) {
+        long dLong = Double.doubleToLongBits(d);
+        return this.long2bit(dLong);
     }
 
 //    public String core2bit(int bitLen) {

@@ -22,6 +22,7 @@ public class ThreadStatusTransfer {
         ThreadStatusTransfer threadStatusTransfer = new ThreadStatusTransfer();
 //        threadStatusTransfer.joinTest();
         threadStatusTransfer.yieldTest();
+//        threadStatusTransfer.interruptTest();
     }
 
     public void joinTest() {
@@ -70,6 +71,7 @@ public class ThreadStatusTransfer {
         t.start();
 
         try {
+
             System.out.println("before yield:");
             long beginTime = System.currentTimeMillis();
             //暂停当前正在执行的线程对象，并执行其他线程。
@@ -77,11 +79,78 @@ public class ThreadStatusTransfer {
             long endTime = System.currentTimeMillis();
             System.out.println("after yield:" + (endTime - beginTime)/1000 + "s");
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+
+    }
+
+    public void interruptTest() {
+
+//        new Thread().notify();
+//        new Thread().notifyAll();
+//
+//        Thread.interrupted();
+//        new Thread().interrupt();
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                while(true) {
+                    if(Thread.currentThread().isInterrupted()) {
+                        System.out.println("someone interrupt me.");
+
+                    } else {
+                        try {
+                            System.out.println("thread t is running,time:[" + System.currentTimeMillis() + "]....");
+                            Thread.sleep(500);
+
+                            notify();
+                            wait();
+
+                        }
+//                        catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+            }
+        },"thread01");
+        t.start();
+
+        try {
+            t.wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    System.out.println("thread t2 is running...");
+                    Thread.sleep(5 * 1000);
+                    t.interrupt();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },"thread02");
+        t2.start();
+
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
