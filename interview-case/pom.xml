@@ -20,6 +20,15 @@
             <groupId>com.codefans</groupId>
             <artifactId>basic-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.codefans</groupId>
+            <artifactId>reusable-code</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
