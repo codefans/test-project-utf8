@@ -46,7 +46,22 @@ public class DefaultThreadPool {
                 System.out.println("thread:[" + t.getName() + "] rejected!");
             }
         };
-        threadPoolExecutor = new ThreadPoolExecutor(coreSize, maximumPoolSize, keepAliveTime, timeUnit, blockingQueue, rejectedHandler);
+        threadPoolExecutor = new ThreadPoolExecutor(coreSize, maximumPoolSize, keepAliveTime, timeUnit, blockingQueue, threadFactory, rejectedHandler);
+
+    }
+
+    public DefaultThreadPool(int queueSize, ThreadFactory threadFactory, RejectedExecutionHandler rejectedHandler) {
+
+        coreSize = Runtime.getRuntime().availableProcessors();
+        maximumPoolSize = coreSize << 1;
+
+
+        keepAliveTime = 10 * 1000;
+        timeUnit = TimeUnit.MILLISECONDS;
+        blockingQueue = new LinkedBlockingQueue<>(queueSize);
+
+
+        threadPoolExecutor = new ThreadPoolExecutor(coreSize, maximumPoolSize, keepAliveTime, timeUnit, blockingQueue, threadFactory, rejectedHandler);
 
     }
 
