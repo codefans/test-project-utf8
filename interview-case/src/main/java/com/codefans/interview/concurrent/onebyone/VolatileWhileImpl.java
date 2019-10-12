@@ -5,7 +5,7 @@ package com.codefans.interview.concurrent.onebyone;
  * @Date: 2019-10-09 21:10
  */
 
-public class VolatileWhileImpl {
+public class VolatileWhileImpl implements RunOneByOneApi {
 
     public VolatileWhileImpl() {
 
@@ -24,7 +24,7 @@ public class VolatileWhileImpl {
 
     public void second(Runnable printSecond) throws InterruptedException {
 
-        while(yourTurn.equals(SECOND)) {}
+        while(!yourTurn.equals(SECOND)) {}
         // printSecond.run() outputs "second". Do not change or remove this line.
         printSecond.run();
         yourTurn = THIRD;
@@ -32,7 +32,7 @@ public class VolatileWhileImpl {
 
     public void third(Runnable printThird) throws InterruptedException {
 
-        while(yourTurn.equals(THIRD)) {}
+        while(!yourTurn.equals(THIRD)) {}
         // printThird.run() outputs "third". Do not change or remove this line.
         printThird.run();
 

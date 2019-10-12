@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date: 2019-10-09 21:12
  */
 
-public class AtomicIntegerWhileImpl {
+public class AtomicIntegerWhileImpl implements RunOneByOneApi {
 
     public AtomicIntegerWhileImpl() {
 

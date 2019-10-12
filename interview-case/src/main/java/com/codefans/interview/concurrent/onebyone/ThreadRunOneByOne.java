@@ -4,7 +4,6 @@ import com.codefans.basicjava.concurrent.threadpool.DefaultThreadPool;
 import com.codefans.basicjava.concurrent.threadpool.NamedThreadFactory;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -41,7 +40,7 @@ public class ThreadRunOneByOne {
     public void runOneByOne() {
 
 //        this.implJoin();
-//        this.implByWaitNotify();
+//        this.implByWaitNotify(); //有问题
 //        this.implByCountDownLatch();
 
 

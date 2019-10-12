@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -13,6 +12,16 @@ import java.util.concurrent.Future;
 /**
  * @Author: codefans
  * @Date: 2019-10-08 21:48
+ *
+ * 已实现的方案：
+ *    1、volatile+while
+ *    2、AtomicInteger+while
+ *    3、ArrayBlockingQueue
+ *    4、CountDownLatch
+ *    5、Volatile+Lock+Condition
+ *    6、Volatile+Sync+Wait+Notify
+ *    7、Volatile+LockSupport
+ *
  */
 
 public class ThreadsOneByOneTest {
@@ -23,8 +32,6 @@ public class ThreadsOneByOneTest {
     private Runnable firstTask;
     private Runnable secondTask;
     private Runnable thirdTask;
-
-    private VolatileWhileImpl volatileWhileImpl;
 
     @Before
     public void before() {
@@ -63,18 +70,30 @@ public class ThreadsOneByOneTest {
 
     }
 
-    @Test
-    public void volatileWhileImplTest() {
+    public void coreImpl(Class cls) {
+
+        RunOneByOneApi implObj = null;
 
         for(int i = 0; i < testCase.length; i ++) {
             List<Future<?>> futureList = new ArrayList<Future<?>>(3);
             Future<?> future = null;
-            volatileWhileImpl = new VolatileWhileImpl();
+
+            try {
+                implObj = (RunOneByOneApi)cls.newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
 
             for(int j = 0; j < testCase[i].length; j ++) {
-                ThreadLocal order = new ThreadLocal();
-                order.set(j+1);
-                future = executorService.submit(new ExecTask(volatileWhileImpl,order));
+                final int index = testCase[i][j];
+                ThreadLocal<Integer> order = new ThreadLocal<Integer>(){
+                    public Integer initialValue() {
+                        return new Integer(index);
+                    }
+                };
+                future = executorService.submit(new ExecTask(implObj,order));
                 futureList.add(future);
             }
             for(Future res : futureList) {
@@ -86,16 +105,83 @@ public class ThreadsOneByOneTest {
             }
             System.out.println();
         }
+    }
+
+    /**
+     * 方案1
+     */
+    @Test
+    public void volatileWhileImplTest() {
+
+        this.coreImpl(VolatileWhileImpl.class);
 
     }
 
+    /**
+     * 方案2
+     */
+    @Test
+    public void atomicIntegerWhileImplTest() {
+
+        this.coreImpl(AtomicIntegerWhileImpl.class);
+
+    }
+
+    /**
+     * 有问题
+     */
+    @Test
+    public void unsafeWhileImplTest() {
+        UnsafeWhileImpl unsafeWhile = new UnsafeWhileImpl();
+
+    }
+
+    /**
+     * 方案3
+     */
+    @Test
+    public void arrayBlockingQueueTest() {
+        this.coreImpl(ArrayBlockingQueueImpl.class);
+    }
+
+    /**
+     * 方案4
+     */
+    @Test
+    public void countDownLatchImplTest() {
+        this.coreImpl(CountDownLatchImpl.class);
+    }
+
+    /**
+     * 方案5
+     */
+    @Test
+    public void volatileLockConditionImplTest() {
+        this.coreImpl(VolatileLockConditionImpl.class);
+    }
+
+    /**
+     * 方案6
+     */
+    @Test
+    public void volatileSyncWaitNotifyImplTest() {
+        this.coreImpl(VolatileSyncWaitNotifyImpl.class);
+    }
+
+    /**
+     * 方案7
+     */
+    @Test
+    public void volatileLockSupportImplTest() {
+        this.coreImpl(VolatileLockSupportImpl.class);
+    }
+
     class ExecTask implements Runnable {
-        private int index;
-        private VolatileWhileImpl volatileWhileImpl;
+        private RunOneByOneApi runOneByOneApi;
         private ThreadLocal<Integer> order;
 
-        ExecTask(VolatileWhileImpl volatileWhileImpl,ThreadLocal order) {
-            this.volatileWhileImpl = volatileWhileImpl;
+        ExecTask(RunOneByOneApi runOneByOneApi,ThreadLocal order) {
+            this.runOneByOneApi = runOneByOneApi;
             this.order = order;
 
         }
@@ -104,19 +190,19 @@ public class ThreadsOneByOneTest {
         public void run() {
             if(order.get() == 1) {
                 try {
-                    volatileWhileImpl.first(firstTask);
+                    runOneByOneApi.first(firstTask);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             } else if(order.get() == 2) {
                 try {
-                    volatileWhileImpl.second(secondTask);
+                    runOneByOneApi.second(secondTask);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             } else if(order.get() == 3) {
                 try {
-                    volatileWhileImpl.third(thirdTask);
+                    runOneByOneApi.third(thirdTask);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
