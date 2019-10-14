@@ -176,6 +176,11 @@ public class ThreadsOneByOneTest {
         this.coreImpl(VolatileLockSupportImpl.class);
     }
 
+    @Test
+    public void pipedStreamImplTest() {
+        this.coreImpl(OneByOnePipedStreamImpl.class);
+    }
+
     class ExecTask implements Runnable {
         private RunOneByOneApi runOneByOneApi;
         private ThreadLocal<Integer> order;
