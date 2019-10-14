@@ -1,5 +1,7 @@
 package com.codefans.basicjava.concurrent.reentrantlock;
 
+import sun.misc.Unsafe;
+
 import java.util.Date;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -15,6 +17,7 @@ public class ReentrantLockBasic {
 
     }
 
+    Unsafe unSafe = Unsafe.getUnsafe();
     public void runCode() {
         final ReentrantLock reentrantLock = new ReentrantLock(true);
 

@@ -20,8 +20,8 @@ public class PipedStreamImpl {
         PipedOutputStream output1 = new PipedOutputStream();
         PipedOutputStream output2 = new PipedOutputStream();
 
-        input1.connect(output2);
-        input2.connect(output1);
+        input1.connect(output1);
+        input2.connect(output2);
 
         String msg = "Your Turn";
         byte[] buffer = new byte[9];
@@ -41,7 +41,7 @@ public class PipedStreamImpl {
                             System.out.print(c);
                         }
 
-                        output1.write(msg.getBytes());
+                        output2.write(msg.getBytes());
 
                     }
                 } catch (Exception e) {
@@ -61,7 +61,7 @@ public class PipedStreamImpl {
 
                         System.out.print(c);
 
-                        output2.write(msg.getBytes());
+                        output1.write(msg.getBytes());
 
                         input2.read(buffer);
 
