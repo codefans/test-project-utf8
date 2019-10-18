@@ -24,9 +24,13 @@ public class Base64FileDecoderUtil {
 		// File("C:\\Users\\Administrator\\Desktop\\GetAttachmentResponse_Content.txt");
 		// decoder.encodeBase64File(srcFile, destFile);
 
-		File srcFile = new File("C:\\Users\\Administrator\\Desktop\\GetAttachmentResponse_Content.txt");
-		File destFile = new File("C:\\Users\\Administrator\\Desktop\\abc_decoded.docx");
-		// decoder.decoderBase64File(srcFile, destFile);
+		File srcFile = new File("/Users/caishengzhi/Downloads/base64Str.txt");
+		File destFile = new File("/Users/caishengzhi/Downloads/工作簿1_decode2.xlsx");
+		 decoder.decoderBase64File(srcFile, destFile);
+
+//		 String base64Str = decoder.base64Text2OneLine(srcFile);
+//		System.out.println("base64Str:");
+//		System.out.println(base64Str);
 
 		// String str =
 		// "UmFyIRoHAM+QcwAADQAAAAAAAAARUHQgkC8AFgMAAGYEAAACsff4nE14+kAdMwoAIAAAAHN"
@@ -74,7 +78,7 @@ public class Base64FileDecoderUtil {
 		File decode = new File("H:/274500.jpg");
 //		decoder.str2file(str, decode);
 		
-		decoder.file2str("/Users/codefans/Downloads/林峰.jpg");
+//		decoder.file2str("/Users/caishengzhi/Downloads/工作簿1.xlsx");
 
 	}
 
@@ -295,4 +299,39 @@ public class Base64FileDecoderUtil {
 		return base64Str;
 		
 	}
+
+	public String base64Text2OneLine(String base64TextFilePath) {
+		File file = new File(base64TextFilePath);
+		return base64Text2OneLine(file);
+
+	}
+
+	public String base64Text2OneLine(File base64TextFile) {
+
+		BufferedReader br = null;
+		StringBuffer sb = new StringBuffer();
+
+		try {
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(base64TextFile)));
+			String line = "";
+			while((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(br != null) {
+					br.close();
+					br = null;
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return sb.toString();
+
+	}
+
 }

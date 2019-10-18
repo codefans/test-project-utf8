@@ -1,11 +1,13 @@
 package com.codefans.reusablecode.encode;
 
+import com.codefans.reusablecode.util.Base64FileDecoderUtil;
 import com.codefans.reusablecode.util.CommonUtils;
 import com.codefans.reusablecode.util.DateUtils;
 import com.codefans.reusablecode.util.Md5Utils;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
+import java.io.File;
 import java.nio.charset.Charset;
 import java.text.ParseException;
 import java.util.*;
@@ -90,10 +92,37 @@ public class RSAUtilsTest {
     }
 
     @Test
+    public void encryptBase64StrByPublicKeyTest() {
+
+        try {
+
+            String publicKey = "";
+
+            File srcFile = new File("/Users/userName/Downloads/base64Str.txt");
+            Base64FileDecoderUtil decoder = new Base64FileDecoderUtil();
+            String base64Str = decoder.base64Text2OneLine(srcFile);
+
+            Charset charset = Charset.forName("utf-8");
+            String encryptData = RSAUtils.encryptByPublicKey(base64Str, charset, publicKey);
+            System.out.println("encryptData:");
+            System.out.println(encryptData);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @Test
     public void decryptByPrivateKeyTest() {
 
-        String privateKey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALB6ZZlh1OqoP1n3qSgXtMuDcPL+POPSHE3AYQH6tNlo6qyP2CyF4jZvkCg79w87jE8wJFtJSoWl45BZrq4PrSb9P2rNTk2W8IN9JUg9jtQuFYCa6zCCm/0Gn/HyQ2+VPWZyudTOMuT8cyXon5cjbP15NVrkVFp0gTQP/REBNJfvAgMBAAECgYAJWMIuyHatYvHQAwTrga3qpXCC/iIdctBa8dhxcWTIqvza3Nd3LDQZ6/i3mM1x+hZpT0RtrUkMIQgXahiNUXk7I+Q1WZhqoD9VbLzS/tvU8NcaEXX7Klp/0YpaXy62/J1S0RGQivPMunWX2qE3WOI8tjuSnrhZRtNRSXXca6xNQQJBANdskhVZHd1H4Pv6G5aIHGeYQwicCKtgFzsnTSRh0BQhmn5HC71P8iHS+zbJ8c/+cALBcyJSrDJ2sBgeqw67s48CQQDRt+iXFKm9M69oAAxMP3MPk4VdyvE89yVxCUghN4iwqDFDjuoR0e9eU5ZJBmYchAt5PAK67bGQZdCKjfEB+yWhAkANq78tiaVCiLA3bWzYxbR/woLmhfhq38M5psnXeDmbPXKvdtTA49Tq3pfAp1ooJ+51zk7/K53v6eZM8Y1Ldw/zAkEAykC3C51d5Z5G9+Gz+oTmjosS/9WMueMQNOdirMZGCTjr6d+WVgFE/I9YTKzjJXUjK5R4fZZmvH+0kys411RCgQJAHbSnfijRvpnc47fNcyZ8gIyy5VLqJ6b8QuYiitMd7ZCjI+bDI+UI5zW/bneQfgzQSYxtPgBCPt94xR8fuGazHw==";
-        String encryptData = "Nc4uoGVvsr4X3itkaWxCtYTaX+4Bndg1UCs9glDK4dAtHs8HoOQ6Hl7AZvjKnXZ3f6xKhitzYMfQROeHzNkeLUepNwVX0vKFC+9+Vlw4enaVgWPdobGGFCLUWA78BcBPTm9fxQ/MeoubJOKi6yzsu201Q4WxEYzqmWjhtpUZXYM=";
+        String privateKey = "";
+
+        File srcFile = new File("/Users/userName/Downloads/encoderStr.txt");
+        Base64FileDecoderUtil decoder = new Base64FileDecoderUtil();
+        String encryptData = decoder.base64Text2OneLine(srcFile);
+
         Charset charset = Charset.forName("utf-8");
         String decryptData = RSAUtils.decryptByPrivateKey(encryptData, charset, privateKey);
         System.out.println("decryptData:");
