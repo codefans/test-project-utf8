@@ -27,7 +27,8 @@ public class Log4j2Slf4jMain extends Log4JBase {
         try {
 
 //            String fileName = "log4j2_v2_10_0.properties";
-            String fileName = "log4j2_v2_10_0_package_level_custom.properties";
+//            String fileName = "log4j2_v2_10_0_package_level_custom.properties";
+            String fileName = "log4j_v1_2_9.properties";
 //            String fileName = "log4j2_le_risk.xml";
 //            String fileName = "log4j2_config.xml";
 
@@ -35,8 +36,8 @@ public class Log4j2Slf4jMain extends Log4JBase {
             System.out.println("propFile:" + propFile);
 
             //初始化方式1
-//            System.setProperty("log4j.configurationFile", propFile);
-            System.setProperty("log4j.configurationFile", "classpath:log4j/log4j2_le_risk.xml");
+            System.setProperty("log4j.configurationFile", propFile);
+//            System.setProperty("log4j.configurationFile", "classpath:log4j/log4j2_le_risk.xml");
 
             //初始化方式2
 //            File log4jFile = new File(propFile);
@@ -56,6 +57,9 @@ public class Log4j2Slf4jMain extends Log4JBase {
 
             logger = LoggerFactory.getLogger(Log4j2Slf4jMain.class);
             logger.info("dddddddddddddddddddddddddddddddddddd");
+
+            logger.debug("调试信息：{}", "nihao");
+            logger.debug("调试信息：", "你好");
 
         } catch (Exception e) {
             e.printStackTrace();

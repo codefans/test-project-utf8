@@ -121,10 +121,10 @@
             <artifactId>jedis</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.le.jr</groupId>
-            <artifactId>jedis-ext</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.le.jr</groupId>-->
+<!--            <artifactId>jedis-ext</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.lmax</groupId>
@@ -315,6 +315,11 @@
             <artifactId>proxool</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -331,11 +336,11 @@
                         <artifactId>mysql-connector-java</artifactId>
                         <version>5.1.38</version>
                     </dependency>
-                    <dependency>
-                        <groupId>com.le.jr</groupId>
-                        <artifactId>mybatis-generator-ext</artifactId>
-                        <version>1.0.3</version>
-                    </dependency>
+<!--                    <dependency>-->
+<!--                        <groupId>com.le.jr</groupId>-->
+<!--                        <artifactId>mybatis-generator-ext</artifactId>-->
+<!--                        <version>1.0.3</version>-->
+<!--                    </dependency>-->
 
                 </dependencies>
                 <configuration>

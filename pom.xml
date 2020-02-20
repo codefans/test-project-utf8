@@ -25,7 +25,8 @@
         <spring.version>4.3.24.RELEASE</spring.version>
 
         <log4j2.version>2.10.0</log4j2.version>
-        <slf4j.version>1.7.25</slf4j.version>
+<!--        <slf4j.version>1.7.25</slf4j.version>-->
+        <slf4j.version>1.7.9</slf4j.version>
         <rocketmq.version>4.3.0</rocketmq.version>
 
         <zkclient.version>0.10</zkclient.version>
@@ -654,7 +655,17 @@
                 <version>4.12</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox</artifactId>
+                <version>2.0.18</version>
+            </dependency>
 
+            <dependency>
+                <groupId>ognl</groupId>
+                <artifactId>ognl</artifactId>
+                <version>3.2.12</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -715,11 +726,12 @@
             <url>http://47.93.23.254:8081/repository/snapshots/</url>
         </snapshotRepository>
 
+
+
         <repository>
-            <id>releases</id>
-            <name>release</name>
-            <!--<url>https://repository.sonatype.org/content/groups/public/</url>-->
-            <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+            <id>com.e-iceblue</id>
+            <name>e-iceblue</name>
+            <url>http://repo.e-iceblue.com/nexus/content/groups/public/</url>
         </repository>
 
     </distributionManagement>
