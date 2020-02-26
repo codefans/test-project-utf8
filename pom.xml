@@ -461,9 +461,10 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>2.24.5</version>
+                <version>3.2.4</version>
                 <scope>test</scope>
             </dependency>
+
 
             <!--fescar-->
             <dependency>
