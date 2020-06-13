@@ -56,11 +56,11 @@ public class FileUtils {
 //		String destPath = "C:\\Users\\Administrator\\AppData\\Local\\YNote\\data\\caiszf@163.com_allFiles\\";
 //		util.copyAllFilesToPath(dirPath, destPath);
 		
-//		String filePath = "D:/tmp/收入确认表(新).txt";
-//		String newFilePath = "D:/tmp/收入确认表(新改)_out.txt";
-		String filePath = "D:/tmp/erpSettlement4154.txt";
-//		String newFilePath = "D:/tmp/excel.txt";
-		String newFilePath = "D:/tmp/finSettleDetails4156.txt";
+		String filePath = "D:/topology-no repeated-368.txt";
+		String newFilePath = "D:/scanUrl-317.txt";
+
+//		String filePath = "D:/jone-ip.txt";
+//		String newFilePath = "D:/np-ip.txt";
 		util.compareFile(filePath, newFilePath);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";
@@ -73,10 +73,29 @@ public class FileUtils {
 //		String toAdd = "D:/tmp/收货地点.txt";
 //		util.fileAppend(filePath, toAdd);
 		
-		
+//		util.removeRepeatedLines("D:/topology-497.txt");
 		
 	}
-	
+
+	public void removeRepeatedLines(String file) {
+		File f = new File(file);
+		try {
+			Scanner sc = new Scanner(f);
+			String line = "";
+			Set<String> sets = new HashSet<>();
+			while(sc.hasNextLine()) {
+				line = sc.nextLine();
+				if(!sets.contains(line)) {
+					System.out.println(line);
+					sets.add(line);
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void fileAppend(String sourceFilePath, String toAddFilePath, String destFilePath) {
 		List<String> sourceList = this.fileToList(file);
 		List<String> toAddList = this.fileToList(toAddFilePath);
@@ -156,13 +175,14 @@ public class FileUtils {
 		result.addAll(destList);
 		result.retainAll(sourceList);
 		System.out.println("两个文件的交集,共:" + result.size() + "个:");
-//		print(result);
+		print(result);
 		
 		result.clear();
-		result.addAll(destList);
-		result.addAll(sourceList);
-		System.out.println("两个文件的并集,共:" + result.size() + "个:");
-//		print(result);
+		Set<String> noDupli = new HashSet<>();
+		noDupli.addAll(destList);
+		noDupli.addAll(sourceList);
+		System.out.println("两个文件的并集(无重复),共:" + noDupli.size() + "个:");
+		print(noDupli);
 		
 	}
 	
@@ -186,6 +206,12 @@ public class FileUtils {
 	}
 	
 	public static void print(List<String> list) {
+		for(String str : list) {
+			System.out.println(str);
+		}
+	}
+
+	public static void print(Set<String> list) {
 		for(String str : list) {
 			System.out.println(str);
 		}
