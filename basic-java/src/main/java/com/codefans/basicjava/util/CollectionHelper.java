@@ -1,6 +1,7 @@
 package com.codefans.basicjava.util;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -31,6 +32,15 @@ public class CollectionHelper {
             }
         }
         System.out.println();
+    }
+
+    public static void print(List<String> listData) {
+        String item = null;
+        for(int i = 0; i < listData.size(); i ++) {
+            item = listData.get(i);
+            System.out.println("index[" + (i + 1) + "]=" + item);
+        }
+
     }
 
 }
