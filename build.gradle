@@ -18,6 +18,7 @@ allprojects {
 
     task delPomXml(type: Delete, group: "csz customize", description: "Copies sources to the dest directory") {
         delete "$projectDir/pom.xml"
+        delete "$projectDir/target/"
     }
 }
 
