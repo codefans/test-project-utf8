@@ -23,7 +23,7 @@ public class PdfUnlock {
         String[] passArr = new String[]{
            "hhhkkk", "xxxmmm"
         };
-        String dirPath = "C:\\Users\\caishengzhi\\Pictures\\Films\\";
+        String dirPath = "C:\\Users\\codefans\\Pictures\\Films\\";
         String[][] filePathArr = new String[][]{
            {"木瓜怎样选.pdf","山地车自由行.pdf","粉红小书包.pdf","網紅hungerlan户外演出1.pdf","網紅hungerlan户外演出2.pdf","網紅hungerlan户外演出3.pdf","網紅hungerlan户外演出4.pdf","網紅hungerlan户外演出5.pdf"},
            {"S小姐与疫情共勉，武汉加油.pdf","安徽-武汉加油.pdf","广西抗击疫情.pdf","河南抗击疫情.pdf","抗击疫情科普知识.pdf","抗疫不能成为恐鄂，加油湖北.pdf","李云龙的意大利炮炮击新型丙状病毒.pdf","密切接触者请配合隔离，后果严重.pdf","曝光2020疫情有多严重.pdf","齐心协力，战胜病毒，不负韶华.pdf"},

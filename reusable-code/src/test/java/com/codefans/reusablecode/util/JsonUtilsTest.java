@@ -41,13 +41,13 @@ public class JsonUtilsTest {
     public void jsonFileArrToObj() throws FileNotFoundException {
 
         String[] filePathArr = new String[]{
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 1.txt",
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 2.txt",
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 3.txt",
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 4.txt",
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 5.txt",
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 6.txt",
-            "/Users/caishengzhi/Downloads/Charles-Sessions/Page 7.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 1.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 2.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 3.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 4.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 5.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 6.txt",
+            "/Users/codefans/Downloads/Charles-Sessions/Page 7.txt",
         };
         int totalSize = 0;
         for(String filePath : filePathArr) {

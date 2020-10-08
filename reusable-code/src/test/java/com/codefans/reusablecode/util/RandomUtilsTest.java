@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: RandomUtilsTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/4 11:44
  * Description: 随机类测试
  */
@@ -14,7 +14,7 @@ import org.junit.Test;
  *
  * 随机类测试
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/04 11:44
  * @since: 1.0.0
  */

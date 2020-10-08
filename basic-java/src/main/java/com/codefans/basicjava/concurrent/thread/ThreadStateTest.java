@@ -1,22 +1,17 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: ThreadStateTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/10/6 15:57
  * Description: 线程状态测试
  */
 package com.codefans.basicjava.concurrent.thread;
 
-import org.junit.Test;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  *
  * 线程状态测试
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/10/06 15:57
  * @since 1.0.0
  */

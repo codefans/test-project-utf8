@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: NestedMapSerializeTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/5/30 21:36
  * Description: 嵌套map序列化测试
  */
@@ -27,7 +27,7 @@ import java.util.Map;
  * 嵌套map序列化测试
  * https://www.ibm.com/developerworks/cn/java/jackson-advanced-application/index.html
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/05/30 21:36
  * @since 1.0.0
  */
@@ -42,11 +42,11 @@ public class NestedMapSerializeTest {
 //        this.mapSerialize();
 //        this.mapDeserialize();
 
-//        this.mapNestedListSerialize();
-//        this.mapNestedListDeserialize();
+        this.mapNestedListSerialize();
+        this.mapNestedListDeserialize();
 
-        this.nestedMapSerialize();
-        this.nestedMapDeserialize();
+//        this.nestedMapSerialize();
+//        this.nestedMapDeserialize();
 
     }
 

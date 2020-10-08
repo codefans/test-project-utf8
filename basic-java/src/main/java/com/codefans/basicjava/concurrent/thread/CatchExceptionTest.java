@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: CatchExceptionTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/10/3 14:52
  * Description: 捕获线程的异常测试
  */

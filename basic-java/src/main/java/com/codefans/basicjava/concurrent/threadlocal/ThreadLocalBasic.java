@@ -2,6 +2,8 @@ package com.codefans.basicjava.concurrent.threadlocal;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author:
@@ -28,7 +30,7 @@ public class ThreadLocalBasic {
     }
 
     public void startup() {
-        test01();
+//        test01();
         test02();
     }
 
@@ -38,9 +40,19 @@ public class ThreadLocalBasic {
     }
 
     public void test02() {
-        ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
+        int corePoolSize = Runtime.getRuntime().availableProcessors();
+        System.out.println("corePoolSize=" + corePoolSize);
 
-        for (int i = 0; i < 5; i++) {
+        ExecutorService newCachedThreadPool = Executors.newFixedThreadPool(corePoolSize, new ThreadFactory() {
+            private AtomicInteger index = new AtomicInteger(1);
+
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, "threadLocalTestingPool_thread_" + index.getAndIncrement());
+            }
+        });
+
+        for (int i = 0; i < 50; i++) {
             newCachedThreadPool.execute(new NotSaftThread((i + 1)));
         }
     }
@@ -65,22 +77,29 @@ public class ThreadLocalBasic {
 
             System.out.println("Thread01 running...");
 
-            System.out.println("data in Thread01 is:" + dataThreadLocal.get());
+            System.out.println("data in Thread02 is:" + dataThreadLocal.get());
 
         }
     }
 
     class NotSaftThread extends Thread {
+
+        private ThreadLocal<Integer> dataThreadLocal = null;
+
         private int i;
         NotSaftThread(int i) {
             this.i = i;
+            dataThreadLocal = new ThreadLocal<Integer>();
+            dataThreadLocal.set(i);
         }
         @Override
         public void run() {
 //            Integer num = numThreadLocal.get();
-            numThreadLocal.set(i);
 
-            System.out.println("name:" + Thread.currentThread().getName() + ", num:" + numThreadLocal.get());
+            while(true) {
+                System.out.println("name:" + Thread.currentThread().getName() + ", num:" + dataThreadLocal.get());
+            }
+
         }
     }
 

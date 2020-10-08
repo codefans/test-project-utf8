@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: NestedTwoLayersOfMapSerializeTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/5/30 21:44
  * Description: 嵌套2层map序列化测试
  */
@@ -21,7 +21,7 @@ import java.util.Map;
  *
  * 嵌套2层map序列化测试
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/05/30 21:44
  * @since 1.0.0
  */

@@ -24,8 +24,8 @@ public class Base64FileDecoderUtil {
 		// File("C:\\Users\\Administrator\\Desktop\\GetAttachmentResponse_Content.txt");
 		// decoder.encodeBase64File(srcFile, destFile);
 
-		File srcFile = new File("/Users/caishengzhi/Downloads/base64Str.txt");
-		File destFile = new File("/Users/caishengzhi/Downloads/工作簿1_decode2.xlsx");
+		File srcFile = new File("/Users/codefans/Downloads/base64Str.txt");
+		File destFile = new File("/Users/codefans/Downloads/工作簿1_decode2.xlsx");
 		 decoder.decoderBase64File(srcFile, destFile);
 
 //		 String base64Str = decoder.base64Text2OneLine(srcFile);
@@ -78,7 +78,7 @@ public class Base64FileDecoderUtil {
 		File decode = new File("H:/274500.jpg");
 //		decoder.str2file(str, decode);
 		
-//		decoder.file2str("/Users/caishengzhi/Downloads/工作簿1.xlsx");
+//		decoder.file2str("/Users/codefans/Downloads/工作簿1.xlsx");
 
 	}
 

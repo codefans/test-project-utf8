@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: RandomUtils
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/4 11:27
  * Description: 随机工具类
  */
@@ -14,7 +14,7 @@ import java.util.*;
  *
  * 随机工具类
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/04 11:27
  * @since: 1.0.0
  */
@@ -34,8 +34,12 @@ public class RandomUtils {
         '1','2','3','4','5','6','7','8','9','0'
     };
 
+    private static char[] commonArr = new char[]{
+            '!','@','#','$','%','^','&','*','-','_','+','=',
+    };
+
     private static char[] specialArr = new char[]{
-        '`','~','!','@','#','$','%','^','&','*','(',')','-','_','+','=',
+        '`','~','(',')',
         '[',']','{','}','|','\\',':',';','"','\'','<','>',',','.','?','/',
     };
 
@@ -61,6 +65,7 @@ public class RandomUtils {
     public static String generateRandomStr(int length) {
         char[] resArr = add(lowerLetterArr, higherLetterArr);
         resArr = add(resArr, numArr);
+//        resArr = add(resArr, commonArr);
         StringBuffer sb = new StringBuffer();
         Random random = new Random();
         for(int i = 0; i < length; i ++) {

@@ -1,12 +1,14 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: NestedMapBean
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/5/30 21:08
  * Description: 嵌套map的bean
  */
 package com.codefans.opensource.json.common;
 
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -15,7 +17,7 @@ import java.util.Map;
  *
  * 嵌套map的bean
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/05/30 21:08
  * @since 1.0.0
  */
@@ -33,6 +35,7 @@ public class NestedMapBean implements Serializable {
      */
     private String resultMsg;
 
+    @JsonProperty(value = "data")
     /**
      * 返回数据
      */

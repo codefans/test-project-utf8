@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: SyncLogger
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/6/28 15:28
  * Description: 同步Logger
  */

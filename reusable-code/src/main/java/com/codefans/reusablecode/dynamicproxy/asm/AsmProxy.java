@@ -1,7 +1,5 @@
 package com.codefans.reusablecode.dynamicproxy.asm;
 
-import com.codefans.reusablecode.dynamicproxy.CountService;
-import com.codefans.reusablecode.dynamicproxy.DynamicProxyPerformanceTest;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.MethodVisitor;
