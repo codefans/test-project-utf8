@@ -104,15 +104,19 @@ public class ThreadPoolExecutorTest {
              * 在 ThreadPoolExecutor.DiscardOldestPolicy 中，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）。
              */
 
-            RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
+//            RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
+            RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();
 
             poolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
 //            executorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
-            int taskNums = 20;
+            int taskNums = 200;
             ResultDto result = null;
             List<Future<ResultDto>> resList = new ArrayList<Future<ResultDto>>();
             Future<ResultDto> returnFuture = null;
             int poolSize = 0;
+
+            Thread currThread = Thread.currentThread();
+            currThread.setName("CurrentThread");
 
             for(int i = 0; i < taskNums; i ++) {
                 try {
@@ -126,7 +130,7 @@ public class ThreadPoolExecutorTest {
 //                    poolSize = executorService.getPoolSize();
 //                    System.out.println("poolSize:" + poolSize);
 
-                    System.out.println("task count:" + (i+1));
+                    System.out.println("task count:" + (i+1) + ", threadCount:" + poolExecutor.getPoolSize());
 
                 } catch (Exception e) {
                     e.printStackTrace();
