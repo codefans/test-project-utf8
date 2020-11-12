@@ -8,3 +8,6 @@ include(':interview-case')
 include(':open-source')
 include(':practice-task')
 include(':reusable-code')
+include 'basic-java-jdk7'
+include 'basic-java-jdk8'
+
