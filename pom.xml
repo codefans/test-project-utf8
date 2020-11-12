@@ -10,6 +10,8 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>basic-java</module>
+        <module>basic-java-jdk7</module>
+        <module>basic-java-jdk8</module>
         <module>interview-case</module>
         <module>open-source</module>
         <module>practice-task</module>

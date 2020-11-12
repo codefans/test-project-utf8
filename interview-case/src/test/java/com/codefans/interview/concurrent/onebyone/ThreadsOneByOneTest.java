@@ -132,7 +132,7 @@ public class ThreadsOneByOneTest {
      */
     @Test
     public void unsafeWhileImplTest() {
-        UnsafeWhileImpl unsafeWhile = new UnsafeWhileImpl();
+//        UnsafeWhileImpl unsafeWhile = new UnsafeWhileImpl();
 
     }
 
