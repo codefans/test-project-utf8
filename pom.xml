@@ -342,10 +342,11 @@
             </dependency>
             <!-- xerces 依赖 -->
             <dependency>
-                <groupId>batik</groupId>
+                <groupId>org.apache.xmlgraphics</groupId>
                 <artifactId>batik-ext</artifactId>
-                <version>1.7</version>
+                <version>1.13</version>
             </dependency>
+
 
             <!-- https://mvnrepository.com/artifact/org.mvel/mvel2 -->
             <dependency>
