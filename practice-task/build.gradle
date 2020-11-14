@@ -21,4 +21,5 @@ dependencies {
     implementation 'io.netty:netty-all:4.0.56.Final'
     implementation 'mysql:mysql-connector-java:5.1.48'
     api 'org.apache.pdfbox:pdfbox:2.0.16'
+    compile fileTree(dir:'lib',includes:['jave-1.0.2.jar'])
 }
