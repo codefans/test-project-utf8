@@ -1,5 +1,8 @@
 package com.codefans.practicetask.file;
 
+import it.sauronsoftware.jave.Encoder;
+import it.sauronsoftware.jave.MultimediaInfo;
+
 import java.io.File;
 import java.util.*;
 
@@ -52,27 +55,28 @@ public class SortFileBySizeTask extends FileBase {
 
     public void taskExecute() {
 //        List<String> fileList = new ArrayList<>();
-        Map<String, Long> fileSizeMap = new HashMap<>(1024);
+        Map<String, FileInfo> fileSizeMap = new HashMap<>(1024);
         this.gather(fileSizeMap);
-        List<Map.Entry<String, Long>> fileSizeList = this.sort(fileSizeMap, null);
+        List<Map.Entry<String, FileInfo>> fileSizeList = this.sort(fileSizeMap, null);
         this.print(fileSizeList);
     }
 
-    public void gather(Map<String, Long> fileSizeMap) {
+    public void gather(Map<String, FileInfo> fileSizeMap) {
         String[] dirs = new String[]{
             "D:\\Films",
 			"E:\\Films",
 			"F:\\Films",
 			"G:\\Films",
+			"C:\\Users\\Adminstrator\\Downloads\\Films",
         };
         /**
          * 扫描视频
          */
-//        String scanType = SCAN_VIDEO;
+        String scanType = SCAN_VIDEO;
         /**
          * 扫描图片
          */
-        String scanType = SCAN_IMAGE;
+//        String scanType = SCAN_IMAGE;
         for(int i = 0; i < dirs.length; i ++) {
             this.gather(dirs[i], scanType, fileSizeMap);
         }
@@ -83,7 +87,7 @@ public class SortFileBySizeTask extends FileBase {
      * @param dir
      * @param fileSizeMap
      */
-    public void gather(String dir, String scanType, Map<String, Long> fileSizeMap) {
+    public void gather(String dir, String scanType, Map<String, FileInfo> fileSizeMap) {
         File path = new File(dir);
         if(path.isDirectory()) {
             File[] files = path.listFiles();
@@ -100,7 +104,7 @@ public class SortFileBySizeTask extends FileBase {
         }
     }
 
-    public void addFile(File file, String scanType, Map<String, Long> fileSizeMap) {
+    public void addFile(File file, String scanType, Map<String, FileInfo> fileSizeMap) {
         String name = file.getName();
         String suffix = "";
         if(name.lastIndexOf(".") >= 0) {
@@ -117,7 +121,9 @@ public class SortFileBySizeTask extends FileBase {
             }
         }
         if(addThisFile) {
-            fileSizeMap.put(file.getAbsolutePath(), file.length());
+            long size = file.length();
+            long duration = this.getDuration(file);
+            fileSizeMap.put(file.getAbsolutePath(), new FileInfo(size, duration));
         }
     }
 
@@ -127,18 +133,18 @@ public class SortFileBySizeTask extends FileBase {
      * @param sortType: desc-降序; asc-升序, 默认值：desc-降序
      * @return
      */
-    public List<Map.Entry<String, Long>> sort(Map<String, Long> fileSizeMap, String sortType) {
-        Map<String, Long> sortedMap = new LinkedHashMap<>(fileSizeMap.size());
+    public List<Map.Entry<String, FileInfo>> sort(Map<String, FileInfo> fileSizeMap, String sortType) {
+        Map<String, FileInfo> sortedMap = new LinkedHashMap<>(fileSizeMap.size());
 
-        List<Map.Entry<String, Long>> infoIds = new ArrayList<>(fileSizeMap.entrySet());
+        List<Map.Entry<String, FileInfo>> infoIds = new ArrayList<>(fileSizeMap.entrySet());
 
         //排序方法
-        Collections.sort(infoIds, new Comparator<Map.Entry<String, Long>>() {
-            public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
+        Collections.sort(infoIds, new Comparator<Map.Entry<String, FileInfo>>() {
+            public int compare(Map.Entry<String, FileInfo> o1, Map.Entry<String, FileInfo> o2) {
                 if ("asc".equals(sortType)) {
-                    return o1.getValue().compareTo(o2.getValue());
+                    return new Long(o1.getValue().getSize()).compareTo(new Long(o2.getValue().getSize()));
                 } else {
-                    return o2.getValue().compareTo(o1.getValue());
+                    return new Long(o2.getValue().getSize()).compareTo(new Long(o1.getValue().getSize()));
                 }
             }
         });
@@ -164,17 +170,62 @@ public class SortFileBySizeTask extends FileBase {
      * 打印
      * @param fileSizeMap
      */
-    public void print(List<Map.Entry<String, Long>> fileSizeMap) {
-        Iterator<Map.Entry<String, Long>> iter = fileSizeMap.iterator();
-        Map.Entry<String, Long> key = null;
+    public void print(List<Map.Entry<String, FileInfo>> fileSizeMap) {
+        Iterator<Map.Entry<String, FileInfo>> iter = fileSizeMap.iterator();
+        Map.Entry<String, FileInfo> key = null;
         int index = 1;
         long totalSize = 0;
+        FileInfo fileInfo = null;
         while(iter.hasNext()) {
             key = iter.next();
-            System.out.println("第[" + (index++) + "]个文件, size:[" + super.formetFileSize(key.getValue()) + "], path:[" + key.getKey() + "]");
-            totalSize += key.getValue();
+            fileInfo = key.getValue();
+            System.out.println("第[" + (index++) + "]个文件, size:[" + super.formetFileSize(fileInfo.getSize()) + "], duration:[" + (fileInfo.getDuration()/1000) + "]分钟, path:[" + key.getKey() + "]");
+            totalSize += fileInfo.getSize();
         }
         System.out.println("[" + (--index) + "]个文件总大小为:[" + super.formetFileSize(totalSize) + "]");
     }
 
+    /**
+     * 获取视频时长, 单位秒s
+     * @return
+     */
+    public long getDuration(File source) {
+        Encoder encoder = new Encoder();
+        long duration = 0;
+        try {
+            MultimediaInfo m = encoder.getInfo(source);
+            long ls = m.getDuration();
+            duration = ls / 1000;
+//            System.out.println("此视频时长为:" + duration + "秒！");
+        } catch (Exception e) {
+            System.out.printf("文件:%s, 异常:%s/n", source.getAbsolutePath(), e);
+        }
+        return duration;
+    }
+
+    class FileInfo {
+        long size;
+        long duration;
+
+        public FileInfo(long size, long duration) {
+            this.size = size;
+            this.duration = duration;
+        }
+
+        public long getSize() {
+            return size;
+        }
+
+        public void setSize(long size) {
+            this.size = size;
+        }
+
+        public long getDuration() {
+            return duration;
+        }
+
+        public void setDuration(long duration) {
+            this.duration = duration;
+        }
+    }
 }
