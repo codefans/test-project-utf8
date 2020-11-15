@@ -27,7 +27,7 @@ public class PassParamBeyondThread {
 
         dataThreadLocal.set(1);
 
-        CountDownLatch countDownLatch = new CountDownLatch(1);
+        final CountDownLatch countDownLatch = new CountDownLatch(1);
 
         new Thread(new Runnable() {
             @Override

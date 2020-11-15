@@ -94,7 +94,7 @@ public class ThreadStatusTransfer {
 //        Thread.interrupted();
 //        new Thread().interrupt();
 
-        Thread t = new Thread(new Runnable() {
+        final Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
 

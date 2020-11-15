@@ -5,6 +5,8 @@ plugins {
 group 'com.codefans'
 version '1.0.0-SNAPSHOT'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+
 repositories {
     mavenCentral()
 }

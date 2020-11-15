@@ -52,9 +52,13 @@ public class CatchExceptionTest {
     public void catchRunnableExceptionTest() {
 
         try {
-            Runnable task = () -> {
-                System.out.println("runnable body....");
-                throw new RuntimeException("catchRunnableException test runtimeException!");
+            Runnable task = new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("runnable body....");
+                    throw new RuntimeException("catchRunnableException test runtimeException!");
+                }
+
             };
 
             Thread t = new Thread(task);

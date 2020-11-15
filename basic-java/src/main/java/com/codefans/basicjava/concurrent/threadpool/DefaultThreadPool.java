@@ -36,7 +36,7 @@ public class DefaultThreadPool {
 
         keepAliveTime = 10 * 1000;
         timeUnit = TimeUnit.MILLISECONDS;
-        blockingQueue = new LinkedBlockingQueue<>(queueSize);
+        blockingQueue = new LinkedBlockingQueue<Runnable>(queueSize);
 
         threadFactory = new NamedThreadFactory("DefaultThreadPool_");
         rejectedHandler = new RejectedExecutionHandler() {
@@ -58,7 +58,7 @@ public class DefaultThreadPool {
 
         keepAliveTime = 10 * 1000;
         timeUnit = TimeUnit.MILLISECONDS;
-        blockingQueue = new LinkedBlockingQueue<>(queueSize);
+        blockingQueue = new LinkedBlockingQueue<Runnable>(queueSize);
 
 
         threadPoolExecutor = new ThreadPoolExecutor(coreSize, maximumPoolSize, keepAliveTime, timeUnit, blockingQueue, threadFactory, rejectedHandler);

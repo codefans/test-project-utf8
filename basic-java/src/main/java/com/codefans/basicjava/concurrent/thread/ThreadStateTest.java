@@ -49,7 +49,7 @@ public class ThreadStateTest {
 
         System.out.println("------------blocked state test begin------------");
 
-        Object lock = new Object();
+        final Object lock = new Object();
 
         Thread t1 = new Thread() {
             @Override

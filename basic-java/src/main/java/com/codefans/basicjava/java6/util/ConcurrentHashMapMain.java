@@ -10,7 +10,7 @@ public class ConcurrentHashMapMain {
 
     public static void main(String[] args) {
 
-        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<String, String>();
         map.put("aaa", "1");
 
         if(map.containsKey("aaa")) {

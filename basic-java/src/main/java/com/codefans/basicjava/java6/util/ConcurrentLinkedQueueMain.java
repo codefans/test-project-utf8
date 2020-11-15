@@ -13,7 +13,7 @@ public class ConcurrentLinkedQueueMain {
     public static void main(String[] args) {
 
 
-        ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
+        ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<String>();
         int num = 20;
         for(int i = 0; i < num; i ++) {
             queue.add("str_" + i);
