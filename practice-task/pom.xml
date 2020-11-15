@@ -130,6 +130,14 @@
             <systemPath>${project.basedir}/lib/jave-1.0.2.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-ext</artifactId>
+        </dependency>
 
     </dependencies>
 
