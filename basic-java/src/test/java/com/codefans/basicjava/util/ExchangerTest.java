@@ -27,8 +27,8 @@ public class ExchangerTest {
     @Test
     public void test() {
 
-        Exchanger<Map<String, String>> exchanger = new Exchanger<Map<String, String>>();
-        int loopCount = 10;
+        final Exchanger<Map<String, String>> exchanger = new Exchanger<Map<String, String>>();
+        final int loopCount = 10;
 
         Thread producer = new Thread() {
             @Override
