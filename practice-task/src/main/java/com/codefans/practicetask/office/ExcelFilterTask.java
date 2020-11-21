@@ -1,7 +1,11 @@
 package com.codefans.practicetask.office;
 
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFDataFormat;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -29,7 +33,7 @@ public class ExcelFilterTask {
 
         try {
 
-            String outExcelPath = "D:\\excel\\整体库存_供应链-output.xlsx";
+            String outExcelPath = "D:\\excel\\整体库存-苹果.xlsx";
             String sheetName = "";
 
             String inExcelPath = "D:\\excel\\整体库存_供应链.xlsx";
@@ -45,8 +49,8 @@ public class ExcelFilterTask {
 
             int lineIndex = 0;
 
-            List<List<String>> dataList = new ArrayList<>();
-            List<String> columnList;
+            List<List<Object>> dataList = new ArrayList<>();
+            List<Object> columnList;
 
             while (iterator.hasNext()) {
 
@@ -54,28 +58,83 @@ public class ExcelFilterTask {
                 Iterator<Cell> cellIterator = currentRow.iterator();
 
                 columnList = new ArrayList<>();
+                int columnIndex = 0;
 
                 while (cellIterator.hasNext()) {
 
                     Cell currentCell = cellIterator.next();
+//                    if(currentCell.getCellTypeEnum() != CellType.STRING && currentCell.getCellTypeEnum() != CellType.NUMERIC) {
+//                        System.out.println("unknow cell type, cellType=" + currentCell.getCellTypeEnum());
+//                    }
 
                     //getCellTypeEnum shown as deprecated for version 3.15
                     //getCellTypeEnum ill be renamed to getCellType starting from version 4.0
                     if (currentCell.getCellTypeEnum() == CellType.STRING) {
 //                        System.out.print(currentCell.getStringCellValue() + "--");
-                        columnList.add(currentCell.getStringCellValue());
+
+                        if(lineIndex == 2) {
+                            columnList.add(currentCell.getStringCellValue());
+                        } else if(lineIndex > 2) {
+
+                            /**
+                             * 物料编码需要转为数字
+                             */
+                            if(columnIndex == 5) {
+                                Double wuliaoNo = null;
+                                try {
+                                    wuliaoNo = Double.parseDouble(currentCell.getStringCellValue());
+                                } catch (NumberFormatException e) {
+                                    System.out.println(e.getMessage() + ", lineIndex=" + lineIndex + ", columnIndex=" + columnIndex);
+                                }
+                                if (wuliaoNo != null) {
+                                    columnList.add(wuliaoNo);
+                                } else {
+                                    columnList.add(currentCell.getStringCellValue());
+                                }
+                            } else if(columnIndex == 23) {
+                                /**
+                                 * SN需要转为数字
+                                 */
+                                Double snNumber = null;
+                                try {
+                                    snNumber = Double.parseDouble(currentCell.getStringCellValue());
+                                } catch (NumberFormatException e) {
+                                    System.out.println(e.getMessage() + ", lineIndex=" + lineIndex + ", columnIndex=" + columnIndex);
+                                }
+                                if(snNumber != null) {
+                                    columnList.add(snNumber);
+                                } else {
+                                    columnList.add(currentCell.getStringCellValue());
+                                }
+
+                            } else {
+                                columnList.add(currentCell.getStringCellValue());
+                            }
+
+                        }
+
+
+
                     } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
 //                        System.out.print(currentCell.getNumericCellValue() + "--");
-                        columnList.add(String.valueOf(currentCell.getNumericCellValue()));
+                        columnList.add(currentCell.getNumericCellValue());
                     } else {
                         columnList.add("");
+//                        System.out.println("unknow cell type, add blank, cellType=" + currentCell.getCellTypeEnum());
                     }
+                    columnIndex++;
 
                 }
 
-                System.out.println("lineIndex=" + lineIndex ++ + ", columnCount=" + columnList.size());
-                dataList.add(columnList);
-                System.out.println();
+                int columnCount = columnList.size();
+                if(columnCount != 30) {
+                    System.out.println("columnCount unnormal, lineIndex=" + lineIndex++ + ", columnCount=" + columnCount);
+//                    System.out.println();
+                } else {
+                    System.out.println("lineIndex=" + lineIndex++ + ", columnCount=" + columnCount);
+                    dataList.add(columnList);
+                }
+
 
 
             }
@@ -119,11 +178,11 @@ public class ExcelFilterTask {
      *
      * @param dataList
      */
-    private void filter(List<List<String>> dataList) {
+    private void filter(List<List<Object>> dataList) {
         LocalDateTime startTime = LocalDateTime.now();
 
-        Iterator<List<String>> iter = dataList.iterator();
-        List<String> columnList;
+        Iterator<List<Object>> iter = dataList.iterator();
+        List<Object> columnList;
         String value;
         int lineIndex = 0;
 
@@ -132,14 +191,21 @@ public class ExcelFilterTask {
             /**
              * 前3行是标题, 不做过滤
              */
-            if(lineIndex++ <= 2) {
+            if(lineIndex < 1) {
+                iter.remove();
+                lineIndex++;
+                continue;
+            } else if(lineIndex == 1) {
+                lineIndex++;
                 continue;
             }
+
+
 
             /**
              * 数据来源勾选BOMS
              */
-            value = columnList.get(22);
+            value = (String) columnList.get(22);
             if(!"BOMS".equals(value.trim())) {
                 iter.remove();
                 continue;
@@ -147,7 +213,7 @@ public class ExcelFilterTask {
             /**
              * 门店名称筛选苹果字样
              */
-            value = columnList.get(3);
+            value = (String) columnList.get(3);
             if(!value.contains("苹果")) {
                 iter.remove();
                 continue;
@@ -155,7 +221,7 @@ public class ExcelFilterTask {
             /**
              * 大区去掉总部管理
              */
-            value = columnList.get(1);
+            value = (String) columnList.get(1);
             if("总部管理".equals(value.trim())) {
                 iter.remove();
                 continue;
@@ -165,7 +231,7 @@ public class ExcelFilterTask {
              * 第二步
              * 类型筛选：寄售、良品库、前置良品库、前置寄售库
              */
-            value = columnList.get(4);
+            value = (String) columnList.get(4);
             if("寄售".equals(value.trim()) || "良品库".equals(value.trim())
                     || "前置良品库".equals(value.trim()) || "前置寄售库".equals(value.trim())) {
 //                System.out.println("除了这四个,其他都过滤掉.");
@@ -178,7 +244,7 @@ public class ExcelFilterTask {
              * 第三步
              * 厂家编码去掉带"-"横杆的
              */
-            value = columnList.get(7);
+            value = (String) columnList.get(7);
             if(value.contains("-")) {
                 iter.remove();
                 continue;
@@ -188,7 +254,7 @@ public class ExcelFilterTask {
              * 第四步
              * 中类勾选：保护类、电源类、其他、其他附件、数码配件、外采附件、玩具类、音乐类、音频类、智能设备、整机
              */
-            value = columnList.get(10);
+            value = (String) columnList.get(10);
             if("保护类".equals(value.trim()) || "电源类".equals(value.trim()) || "其他".equals(value.trim())
                     || "其他附件".equals(value.trim()) || "数码配件".equals(value.trim()) || "外采附件".equals(value.trim())
                     || "玩具类".equals(value.trim()) || "音乐类".equals(value.trim()) || "音频类".equals(value.trim())
@@ -203,8 +269,8 @@ public class ExcelFilterTask {
              * 第五步
              * 库存数量去掉空白
              */
-            value = columnList.get(12);
-            if(value.trim().equals("")) {
+            Object numberObj = columnList.get(12);
+            if(numberObj == null) {
                 iter.remove();
                 continue;
             }
@@ -214,7 +280,7 @@ public class ExcelFilterTask {
         System.out.println("excel过滤总耗时=" + Duration.between(startTime, endTime).getSeconds() + "s");
     }
 
-    public void write(String outExcelPath, String sheetName, List<List<String>> dataList) {
+    public void write(String outExcelPath, String sheetName, List<List<Object>> dataList) {
 
         final LocalDateTime start = LocalDateTime.now();
 
@@ -252,7 +318,7 @@ public class ExcelFilterTask {
         writeTo(outWorkbook, outExcelPath);
     }
 
-    public void writeSXSSFWorkbook(String outExcelPath, String sheetName, List<List<String>> dataList) {
+    public void writeSXSSFWorkbook(String outExcelPath, String sheetName, List<List<Object>> dataList) {
         SXSSFWorkbook sxssfWorkbook = getWorkbook(sheetName, dataList);
         this.writeTo(sxssfWorkbook, outExcelPath);
     }
@@ -293,18 +359,35 @@ public class ExcelFilterTask {
         return workbook;
     }
 
-    private static SXSSFWorkbook getWorkbook(String sheetName, List<List<String>> data) {
+    private static SXSSFWorkbook getWorkbook(String sheetName, List<List<Object>> data) {
         SXSSFWorkbook workbook = new SXSSFWorkbook();
         // 添加一个sheet
         final Sheet sheet = workbook.createSheet(sheetName);
+
+        /**
+         * 设置数字格式为没有小数点,且不会以科学计数法格式显示
+         */
+        XSSFCellStyle cellStyle = (XSSFCellStyle) workbook.createCellStyle();
+        cellStyle.setDataFormat(HSSFDataFormat.getBuiltinFormat("0"));
+
         for(int i = 0; i < data.size(); i ++) {
             // 构建title
             final Row outRow = sheet.createRow(i);
-            final List<String> dataRow = data.get(i);
+            final List<Object> dataRow = data.get(i);
             for (int j = 0; j < dataRow.size(); j++) {
                 final Cell cell = outRow.createCell(j);
-                final String value = dataRow.get(j);
-                cell.setCellValue(value == null ? "" : value);
+                Object value = dataRow.get(j);
+                if(value instanceof String) {
+                    cell.setCellValue((String)value);
+                } else if(value instanceof Double) {
+                    cell.setCellValue((double)value);
+                    //具体如何创建cell就省略了，最后设置单元格的格式这样写
+                    cell.setCellStyle(cellStyle);
+//                    cell.setCellType(CellType.FORMULA);
+
+                } else {
+                    cell.setCellValue("");
+                }
             }
         }
         return workbook;
