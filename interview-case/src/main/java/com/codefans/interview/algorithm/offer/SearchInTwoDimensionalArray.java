@@ -86,8 +86,10 @@ public class SearchInTwoDimensionalArray {
         for(int i = 0; i < unitTestData.length; i ++) {
             data = unitTestData[i];
 //          isFound = findBySelf(arr, data);
-          isFound = findByOfficial(arr, data);
+//          isFound = findByOfficial(arr, data);
 //            isFound = findInterviewTemp(arr, data);
+//            isFound = this.findNum(arr, data);
+            isFound = this.findNum2(arr, data);
             System.out.println("数字[" + data + "]" + (isFound ? "已找到" : "未找到"));
         }
 
@@ -209,6 +211,44 @@ public class SearchInTwoDimensionalArray {
 
     }
 
+    /**
+     * 在二维数组中找一个数
+     * 暴力查找
+     **/
+    public boolean findNum(int[][] arr, int num) {
+        boolean found = false;
+        for(int i = 0; i < arr.length; i ++) {
+            for(int j = 0; j < arr[0].length; j ++) {
+                if(arr[i][j] == num) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        return found;
+    }
+
+    /**
+     * 在二维数组中找一个数
+     **/
+    public boolean findNum2(int[][] arr, int num) {
+        boolean found = false;
+        int rowLen = arr.length;
+        int columnLen = arr[0].length;
+        int rowIndex = 0;
+        int columnIndex = columnLen - 1;
+        while(rowIndex < rowLen && columnIndex >= 0) {
+            if(num == arr[rowIndex][columnIndex]) { //相等，说明找到元素，退出while循环
+                found = true;
+                break;
+            } else if(num < arr[rowIndex][columnIndex]) { //比当前行最后一个小，列减一
+                columnIndex--;
+            } else { //比当前行最后一个大，行加一
+                rowIndex ++;
+            }
+        }
+        return found;
+    }
 
 
 
