@@ -7,49 +7,44 @@ package com.codefans.interview.algorithm.common;
 public class ListNodeFactory {
 
     public static ListNode createOneNode() {
-        ListNode head = new ListNode(1);
-        return head;
+        return createListNode(1);
     }
 
     public static ListNode createTwoNode() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        return head;
+        return createListNode(2);
     }
 
     public static ListNode createThreeNode() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        return head;
+        return createListNode(3);
     }
 
     public static ListNode createFourNode() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        return head;
+        return createListNode(4);
     }
 
     public static ListNode createFiveNode() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        return head;
+        return createListNode(5);
     }
 
     public static ListNode createSixNode() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        head.next.next.next.next.next = new ListNode(6);
-        return head;
+        return createListNode(6);
     }
 
+    public static ListNode createListNode(int len) {
+        ListNode head = null;
+        ListNode next = null;
+        if(len > 0) {
+            for(int i = 1; i <= len; i ++) {
+                if(i == 1) {
+                    head = new ListNode(i);
+                    next = head;
+                } else {
+                    next.next = new ListNode(i);
+                    next = next.next;
+                }
+            }
+        }
+        return head;
+    }
 
 }

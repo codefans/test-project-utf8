@@ -7,6 +7,10 @@ package com.codefans.interview.algorithm.common;
 public class ListNodeUtils {
 
     public static void print(ListNode node) {
+        if(node == null) {
+            System.out.println("node is null");
+            return;
+        }
         if(node != null) {
             System.out.print("[" + node.val);
         }

@@ -17,16 +17,27 @@ public class No206ReverseLinkedListTest {
 
     @Before
     public void before() {
-        node = ListNodeFactory.createFiveNode();
+//        node = ListNodeFactory.createFiveNode();
+        node = ListNodeFactory.createListNode(10);
+    }
+
+    @Test
+    public void createListNodeTest() {
+        ListNodeUtils.print(ListNodeFactory.createOneNode());
+        ListNodeUtils.print(ListNodeFactory.createTwoNode());
+        ListNodeUtils.print(ListNodeFactory.createThreeNode());
+        ListNodeUtils.print(ListNodeFactory.createFourNode());
+        ListNodeUtils.print(ListNodeFactory.createFiveNode());
+        ListNodeUtils.print(ListNodeFactory.createSixNode());
     }
 
     @Test
     public void reverseListTest() {
         ListNodeUtils.print(node);
         No206ReverseLinkedList no206ReverseLinkedList = new No206ReverseLinkedList();
-//        ListNode resultNode = no206ReverseLinkedList.reverseListIteratively(node);
-//        ListNode resultNode = no206ReverseLinkedList.reverseList2(node);
-        ListNode resultNode = no206ReverseLinkedList.reverseListRecursively(node);
+        ListNode newHead = null;
+//        ListNode resultNode = no206ReverseLinkedList.reverseListRecursively(node, newHead);
+        ListNode resultNode = no206ReverseLinkedList.reverseListIterator(node);
         ListNodeUtils.print(resultNode);
     }
 

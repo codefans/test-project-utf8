@@ -67,18 +67,34 @@ public class No206ReverseLinkedList {
     }
 
     /**
-     * TODO 待完成
+     *
      * @param head
      * @return
      */
-    public ListNode reverseListRecursively(ListNode head) {
+    public ListNode reverseListIterator(ListNode head) {
+        ListNode newHead = null;
+        while(head != null) {
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
+        }
+        return newHead;
+    }
+
+    /**
+     * @param head
+     * @return
+     */
+    public ListNode reverseListRecursively(ListNode head, ListNode newHead) {
         if(head == null) {
-            return null;
+            return newHead;
         }
-        if(head.next == null) {
-            return head;
-        }
-        return reverseListRecursively(head.next).next = head;
+        ListNode next = head.next;
+        head.next = newHead;
+        newHead = head;
+        head = next;
+        return reverseListRecursively(head, newHead);
     }
 
 
