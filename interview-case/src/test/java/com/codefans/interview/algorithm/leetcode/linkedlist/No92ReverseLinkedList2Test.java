@@ -34,7 +34,20 @@ public class No92ReverseLinkedList2Test {
     @Test
     public void reverseListTest() {
         No92ReverseLinkedList2 no92ReverseLinkedList2 = new No92ReverseLinkedList2();
-        ListNodeUtils.print(no92ReverseLinkedList2.reverseBetween(node, 2,4));
+        ListNodeUtils.print(node);
+//        ListNodeUtils.print(no92ReverseLinkedList2.reverseBetweenMiddle(node, 2,3));
+//        ListNodeUtils.print(no92ReverseLinkedList2.reverseBetweenLeftPrefix(node, 1,5));
+        ListNodeUtils.print(no92ReverseLinkedList2.reverseBetweenRightSuffix(node, 2,6));
+
+//        for(int i = 1; i <= 6; i ++) {
+//            for(int j = i + 1; j <= 6; j ++) {
+//                if(i < j) {
+//                    System.out.println("i=" + i + ", j=" + j);
+//                    ListNodeUtils.print(no92ReverseLinkedList2.reverseBetween(ListNodeFactory.createListNode(6), i, j));
+//                }
+//            }
+//        }
+
     }
 
 

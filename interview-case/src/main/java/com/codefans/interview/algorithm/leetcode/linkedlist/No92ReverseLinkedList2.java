@@ -28,25 +28,176 @@ public class No92ReverseLinkedList2 {
      * @return
      */
     public ListNode reverseBetween(ListNode head, int left, int right) {
+        ListNode firstNode = head;
+        ListNode prefixNode = null;
+        ListNode suffixNode = head;
         ListNode newHead = null;
-        ListNode originHead = head;
-        int index = 0;
+        int index = 1;
         while(head != null) {
             if(index < left) {
+                prefixNode = head;
                 head = head.next;
-            } else {
+                suffixNode = head;
+            } else
+            if(index <= right) {
                 ListNode next = head.next;
-                if(index < right) {
-                    head.next = newHead;
-                    newHead = head;
-                    head = next;
-                } else {
-                    newHead.next = next;
+                head.next = newHead;
+                newHead = head;
+                head = next;
+                if(left == 1) {
+                    firstNode = newHead;
                 }
+            } else {
+                break;
             }
-            index ++;
+            index++;
         }
-        return originHead;
+//        System.out.println("head.val=" + head.val + ", newHead.val=" + newHead.val);
+        if(prefixNode != null) {
+//            System.out.println("prefixNode != null, prefixNode.val=" + prefixNode.val);
+            prefixNode.next = newHead;
+        }
+        if(suffixNode != null) {
+//            System.out.println("suffixNode != null, suffixNode.val=" + suffixNode.val);
+            suffixNode.next = head;
+        }
+        return firstNode;
+    }
+
+    /**
+     * 1->2->3->4->5
+     * 1   ---------5
+     * |  |
+     * |  2<-3<-4
+     * |        |
+     * ---------
+     * @param head
+     * @param left
+     * @param right
+     * @return
+     */
+    public ListNode reverseBetweenMiddle(ListNode head, int left, int right) {
+        ListNode firstNode = head;
+        ListNode prefixNode = null;
+        ListNode suffixNode = null;
+        ListNode newHead = null;
+        int index = 1;
+        while(head != null) {
+            if(index < left) {
+                prefixNode = head;
+                head = head.next;
+                suffixNode = head;
+            } else
+            if(index <= right) {
+                ListNode next = head.next;
+                head.next = newHead;
+                newHead = head;
+                head = next;
+            } else {
+                break;
+            }
+            index++;
+        }
+        System.out.println("head.val=" + head.val + ", newHead.val=" + newHead.val);
+        if(prefixNode != null) {
+            System.out.println("prefixNode != null, prefixNode.val=" + prefixNode.val);
+            prefixNode.next = newHead;
+        }
+        if(suffixNode != null) {
+            System.out.println("suffixNode != null, suffixNode.val=" + suffixNode.val);
+            suffixNode.next = head;
+        }
+        return firstNode;
+    }
+
+    /**
+     * 1->2->3->4->5
+     * 1<-2<-3
+     * |
+     * ------->4->5
+     * @param head
+     * @param left
+     * @param right
+     * @return
+     */
+    public ListNode reverseBetweenLeftPrefix(ListNode head, int left, int right) {
+        ListNode firstNode = head;
+        ListNode prefixNode = null;
+        ListNode suffixNode = head;
+        ListNode newHead = null;
+        int index = 1;
+        while(head != null) {
+            if(index < left) {
+                prefixNode = head;
+                head = head.next;
+            } else
+            if(index <= right) {
+                ListNode next = head.next;
+                head.next = newHead;
+                newHead = head;
+                head = next;
+                if(left == 1) {
+                    firstNode = newHead;
+                }
+            } else {
+                break;
+            }
+            index++;
+        }
+        System.out.println("head.val=" + head.val + ", newHead.val=" + newHead.val);
+        if(prefixNode != null) {
+            System.out.println("prefixNode != null, prefixNode.val=" + prefixNode.val);
+            prefixNode.next = newHead;
+        }
+        if(suffixNode != null) {
+            System.out.println("suffixNode != null, suffixNode.val=" + suffixNode.val);
+            suffixNode.next = head;
+        }
+        return firstNode;
+    }
+
+    /**
+     * 1->2->3->4->5->6
+     * 1->2->3
+     *          4<-5<-6
+     *
+     * @param head
+     * @param left
+     * @param right
+     * @return
+     */
+    public ListNode reverseBetweenRightSuffix(ListNode head, int left, int right) {
+        ListNode firstNode = head;
+        ListNode prefixNode = null;
+        ListNode suffixNode = null;
+        ListNode newHead = null;
+        int index = 1;
+        while(head != null) {
+            if(index < left) {
+                prefixNode = head;
+                head = head.next;
+                System.out.println("index=" + index + ", left=" + left + ", prefixNode.val=" + prefixNode.val + ", head.val=" + head.val);
+            } else
+            if(index <= right) {
+                ListNode next = head.next;
+                head.next = newHead;
+                newHead = head;
+                head = next;
+            } else {
+                break;
+            }
+            index++;
+        }
+        System.out.println("head.val=" + (head == null ? "head is null" : head.val) + ", newHead.val=" + (newHead == null ? "newHead is null" : newHead.val));
+        if(prefixNode != null) {
+            System.out.println("prefixNode != null, prefixNode.val=" + prefixNode.val);
+            prefixNode.next = newHead;
+        }
+        if(suffixNode != null) {
+            System.out.println("suffixNode != null, suffixNode.val=" + suffixNode.val);
+            suffixNode.next = head;
+        }
+        return firstNode;
     }
 
 }
