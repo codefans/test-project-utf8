@@ -47,4 +47,20 @@ public class ListNodeFactory {
         return head;
     }
 
+    public static ListNode createListNode(int... valArr) {
+        ListNode head = null;
+        ListNode current = null;
+        int len = valArr.length;
+        for(int i = 0; i < len; i ++) {
+            if(i == 0) {
+                head = new ListNode(valArr[i]);
+                current = head;
+            } else {
+                current.next = new ListNode(valArr[i]);
+                current = current.next;
+            }
+        }
+        return head;
+    }
+
 }
