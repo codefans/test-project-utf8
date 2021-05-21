@@ -18,7 +18,9 @@
     (5)合并两个有序链表
         MergeTwoSortedLinkedList.java
         No21MergeTwoSortedLists.java
-
+    (6)两个链表的第一个公共节点
+        FindFirstCommonNode.java
+        
 1.4 树
     (1)重建二叉树
         ReBuildBinaryTree.java

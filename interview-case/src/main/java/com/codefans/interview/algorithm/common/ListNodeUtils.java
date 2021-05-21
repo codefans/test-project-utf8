@@ -119,4 +119,18 @@ public class ListNodeUtils {
         return dummyRoot.next;
     }
 
+    /**
+     * 获取链表长度
+     * @param listNode
+     * @return
+     */
+    public static int getLen(ListNode listNode) {
+        int len = 0;
+        while(listNode != null) {
+            len++;
+            listNode = listNode.next;
+        }
+        return len;
+    }
+
 }
