@@ -31,11 +31,11 @@ public class No2AddTwoNumbersTest {
 
         No2AddTwoNumbers no2AddTwoNumbers = new No2AddTwoNumbers();
 //        ListNode l1 = ListNodeFactory.createListNode(2, 4, 3);
-        ListNode l1 = ListNodeFactory.createListNode(9,9,9,9,9,9,9);
+        ListNode l1 = ListNodeFactory.createByArr(9,9,9,9,9,9,9);
         System.out.println("链表l1:");
         ListNodeUtils.print(l1);
 //        ListNode l2 = ListNodeFactory.createListNode(5, 6, 4);
-        ListNode l2 = ListNodeFactory.createListNode(9,9,9,9);
+        ListNode l2 = ListNodeFactory.createByArr(9,9,9,9);
         System.out.println("链表l2:");
         ListNodeUtils.print(l2);
         ListNode l3 = no2AddTwoNumbers.addTwoNumbers(l1, l2);

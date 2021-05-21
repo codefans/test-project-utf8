@@ -47,7 +47,7 @@ public class ListNodeFactory {
         return head;
     }
 
-    public static ListNode createListNode(int... valArr) {
+    public static ListNode createByArr(int... valArr) {
         ListNode head = null;
         ListNode current = null;
         int len = valArr.length;
