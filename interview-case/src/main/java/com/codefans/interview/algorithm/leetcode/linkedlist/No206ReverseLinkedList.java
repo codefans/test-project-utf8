@@ -8,7 +8,7 @@ import com.codefans.interview.algorithm.common.ListNode;
  *
  * 算法描述：
  *    1.定义两个节点pre前节点和next后节点
- *    2.把头结点赋值给前节点pre前节点,把头结点的下一个节点赋值给next后节点,把pre的next置为null
+ *    2.把头结点赋值给pre前节点,把头结点的下一个节点赋值给next后节点,把pre的next置为null
  *    3.如果head不为空,next走到head.next的位置,head.next指向pre,然后前节点pre往前走到head的位置,head头结点往前走到next后节点的位置
  *
  */
