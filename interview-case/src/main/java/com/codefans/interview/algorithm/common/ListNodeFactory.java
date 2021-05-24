@@ -50,7 +50,7 @@ public class ListNodeFactory {
     public static ListNode createByArr(int... valArr) {
         ListNode head = null;
         ListNode current = null;
-        int len = valArr.length;
+        int len = valArr == null ? 0 : valArr.length;
         for(int i = 0; i < len; i ++) {
             if(i == 0) {
                 head = new ListNode(valArr[i]);
