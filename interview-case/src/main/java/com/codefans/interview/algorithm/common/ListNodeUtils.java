@@ -26,16 +26,16 @@ public class ListNodeUtils {
     public static void printComplexListNode(ComplexListNode node) {
         int index = 1;
         if(node != null) {
-            System.out.print("[" + (index + "_" + node.val + "_" + node.next.val + "_" + node.random.val));
-        }
-        index++;
-        node = node.next;
-        while(node != null) {
-            System.out.print(", " + (index + "_" + node.val + "_" + (node.next == null ? null : node.next.val) + "_" + (node.random == null ? null : node.random.val)));
-            node = node.next;
+            System.out.print("[" + (index + "_" + node.val + "_" + (node.next == null ? null : node.next.val) + "_" + (node.random == null ? null : node.random.val)));
             index++;
+            node = node.next;
+            while(node != null) {
+                System.out.print(", " + (index + "_" + node.val + "_" + (node.next == null ? null : node.next.val) + "_" + (node.random == null ? null : node.random.val)));
+                node = node.next;
+                index++;
+            }
+            System.out.println("]");
         }
-        System.out.println("]");
     }
 
     /**

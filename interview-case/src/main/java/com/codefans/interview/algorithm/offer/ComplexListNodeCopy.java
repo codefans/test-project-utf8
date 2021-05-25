@@ -9,6 +9,7 @@ package com.codefans.interview.algorithm.offer;
 
 
 import com.codefans.interview.algorithm.common.ComplexListNode;
+import com.codefans.interview.algorithm.common.ListNodeUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -128,13 +129,90 @@ public class ComplexListNodeCopy {
      */
     public ComplexListNode copyMethod3(ComplexListNode head) {
 
+        ComplexListNode originHead = head;
+
         /**
          * 复制链表
          */
+        ComplexListNode resultNode = this.copyNext(head);
+
+        System.out.println("老链表：");
+        ListNodeUtils.printComplexListNode(originHead);
+        System.out.println("新链表：");
+        ListNodeUtils.printComplexListNode(resultNode);
+
+        /**
+         * 链表穿插连接
+         */
+        ComplexListNode newMergeListNode = this.merge(originHead, resultNode);
+//        ComplexListNode newOriginHead = originHead;
+//        ComplexListNode newNodeHead = resultNode;
+//        while(newOriginHead != null) {
+//            ComplexListNode originNext = newOriginHead.next;
+//            ComplexListNode newNext = newNodeHead.next;
+//            newOriginHead.next = newNodeHead;
+//            if(originNext != null) {
+//                newNodeHead.next = originNext;
+//            }
+//            newOriginHead = originNext;
+//            newNodeHead = newNext;
+//        }
+
+
+        System.out.println("链表合并：");
+        ListNodeUtils.printComplexListNode(newMergeListNode);
+
+        /**
+         * 复制随机指针
+         */
+//        ComplexListNode oddPointer = newMergeListNode;
+//        ComplexListNode evenPointer = oddPointer.next;
+//        while(oddPointer != null && evenPointer != null) {
+//            ComplexListNode random = oddPointer.random;
+//            if(random != null) {
+//                evenPointer.random = random.next;
+//            }
+//            oddPointer = oddPointer.next;
+//            evenPointer = evenPointer.next;
+//        }
+        newMergeListNode = this.copyRandom(newMergeListNode);
+        System.out.println("复制随机指针后: ");
+        ListNodeUtils.printComplexListNode(newMergeListNode);
+
+        /**
+         * 拆分链表
+         */
+        ComplexListNode oddHead = newMergeListNode;
+        ComplexListNode evenHead = oddHead.next;
+        resultNode = evenHead;
+        while(oddHead != null && evenHead != null) {
+            oddHead.next = oddHead.next.next;
+            evenHead.next = evenHead.next.next;
+            if(oddHead.next != null) {
+                oddHead = oddHead.next.next;
+            }
+            if(evenHead.next != null) {
+                evenHead = evenHead.next.next;
+            }
+        }
+
+        System.out.println("拆分后，打印oddHead：");
+        ListNodeUtils.printComplexListNode(oddHead);
+        System.out.println("拆分后，打印evenHead：");
+        ListNodeUtils.printComplexListNode(evenHead);
+
+        return resultNode;
+    }
+
+    /**
+     * 复制next指针
+     * @param head
+     * @return
+     */
+    public ComplexListNode copyNext(ComplexListNode head) {
         ComplexListNode resultNode = null;
         ComplexListNode newNode;
         ComplexListNode cur = null;
-        ComplexListNode originHead = head;
         while(head != null) {
             if(resultNode == null) {
                 newNode = new ComplexListNode(head.val);
@@ -147,13 +225,20 @@ public class ComplexListNodeCopy {
             }
             head = head.next;
         }
+        return resultNode;
+    }
 
-        /**
-         * 链表穿插连接
-         */
-        ComplexListNode newMergeListNode = originHead;
-        ComplexListNode newOriginHead = originHead;
-        ComplexListNode newNodeHead = resultNode;
+    /**
+     * 穿插合并两个链表
+     * 会改变head1
+     * @param head1
+     * @param head2
+     * @return
+     */
+    public ComplexListNode merge(ComplexListNode head1, ComplexListNode head2) {
+        ComplexListNode resultNode = head1;
+        ComplexListNode newOriginHead = head1;
+        ComplexListNode newNodeHead = head2;
         while(newOriginHead != null) {
             ComplexListNode originNext = newOriginHead.next;
             ComplexListNode newNext = newNodeHead.next;
@@ -164,34 +249,58 @@ public class ComplexListNodeCopy {
             newOriginHead = originNext;
             newNodeHead = newNext;
         }
-
-        /**
-         * 复制随机指针
-         */
-        ComplexListNode oddPointer = newMergeListNode;
-        ComplexListNode evenPointer = oddPointer.next;
-        while(oddPointer != null && evenPointer != null) {
-            ComplexListNode random = oddPointer.random;
-            evenPointer.random = random.next;
-            oddPointer = oddPointer.next;
-            evenPointer = evenPointer.next;
-        }
-
-        /**
-         * 拆分链表
-         */
-        ComplexListNode oddHead = newMergeListNode;
-        ComplexListNode evenHead = oddHead.next;
-        resultNode = evenHead;
-        while(oddHead.next != null && evenHead.next != null) {
-            oddHead.next = oddHead.next.next;
-            evenHead.next = evenHead.next.next;
-            oddHead = oddHead.next.next;
-            evenHead = evenHead.next.next;
-        }
-
         return resultNode;
     }
 
+    /**
+     * 穿插合并两个链表
+     * 不会修改head1
+     * @param head1
+     * @param head2
+     * @return
+     */
+    public ComplexListNode mergeNotModifyOrigin(ComplexListNode head1, ComplexListNode head2) {
+        ComplexListNode resultNode = null;
+        ComplexListNode cur = null;
+        ComplexListNode newOriginHead = head1;
+        ComplexListNode newNodeHead = head2;
+        while(newOriginHead != null) {
+            if(resultNode == null) {
+                resultNode = new ComplexListNode(newOriginHead.val);
+                cur = resultNode;
+            } else {
+                ComplexListNode newNode = new ComplexListNode(newOriginHead.val);
+                
+                ComplexListNode originNext = newOriginHead.next;
+                ComplexListNode newNext = newNodeHead.next;
+                newOriginHead.next = newNodeHead;
+                if (originNext != null) {
+                    newNodeHead.next = originNext;
+                }
+                newOriginHead = originNext;
+                newNodeHead = newNext;
+            }
+        }
+        return resultNode;
+    }
 
+    /**
+     * 复制随机指针
+     * @param head
+     * @return
+     */
+    public ComplexListNode copyRandom(ComplexListNode head) {
+        ComplexListNode newMergeListNode = head;
+        ComplexListNode oddPointer = head;
+        ComplexListNode evenPointer = oddPointer.next;
+        while(oddPointer != null && evenPointer != null) {
+            ComplexListNode random = oddPointer.random;
+            if(random != null) {
+                evenPointer.random = random.next;
+            }
+            oddPointer = oddPointer.next;
+            evenPointer = evenPointer.next;
+        }
+        return newMergeListNode;
+    }
 }
