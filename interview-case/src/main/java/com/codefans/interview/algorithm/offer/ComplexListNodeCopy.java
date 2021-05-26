@@ -144,7 +144,11 @@ public class ComplexListNodeCopy {
         /**
          * 链表穿插连接
          */
-        ComplexListNode newMergeListNode = this.merge(originHead, resultNode);
+//        ComplexListNode newMergeListNode = this.merge(originHead, resultNode);
+        ComplexListNode newMergeListNode = this.mergeNotModifyOrigin(originHead, resultNode);
+        System.out.println("originHead在merge之后：");
+        ListNodeUtils.printComplexListNode(originHead);
+
 //        ComplexListNode newOriginHead = originHead;
 //        ComplexListNode newNodeHead = resultNode;
 //        while(newOriginHead != null) {
@@ -185,19 +189,21 @@ public class ComplexListNodeCopy {
         ComplexListNode oddHead = newMergeListNode;
         ComplexListNode evenHead = oddHead.next;
         resultNode = evenHead;
-        while(oddHead != null && evenHead != null) {
-            oddHead.next = oddHead.next.next;
-            evenHead.next = evenHead.next.next;
-            if(oddHead.next != null) {
-                oddHead = oddHead.next.next;
+        while(evenHead != null) {
+//            if(oddHead.next != null && oddHead.next.next != null) {
+//                oddHead.next = oddHead.next.next;
+//                oddHead = oddHead.next;
+//            }
+            if(evenHead.next != null && evenHead.next.next != null) {
+                evenHead.next = evenHead.next.next;
+            } else {
+                evenHead.next = null;
             }
-            if(evenHead.next != null) {
-                evenHead = evenHead.next.next;
-            }
+            evenHead = evenHead.next;
         }
 
-        System.out.println("拆分后，打印oddHead：");
-        ListNodeUtils.printComplexListNode(oddHead);
+//        System.out.println("拆分后，打印oddHead：");
+//        ListNodeUtils.printComplexListNode(oddHead);
         System.out.println("拆分后，打印evenHead：");
         ListNodeUtils.printComplexListNode(evenHead);
 
@@ -268,18 +274,22 @@ public class ComplexListNodeCopy {
             if(resultNode == null) {
                 resultNode = new ComplexListNode(newOriginHead.val);
                 cur = resultNode;
+                cur.random = newOriginHead.random;
             } else {
-                ComplexListNode newNode = new ComplexListNode(newOriginHead.val);
-                
                 ComplexListNode originNext = newOriginHead.next;
                 ComplexListNode newNext = newNodeHead.next;
-                newOriginHead.next = newNodeHead;
-                if (originNext != null) {
+                cur.next = newNodeHead;
+                cur.random = newOriginHead.random;
+
+                if(originNext != null) {
                     newNodeHead.next = originNext;
                 }
+                cur = originNext;
                 newOriginHead = originNext;
                 newNodeHead = newNext;
+
             }
+
         }
         return resultNode;
     }
@@ -296,10 +306,14 @@ public class ComplexListNodeCopy {
         while(oddPointer != null && evenPointer != null) {
             ComplexListNode random = oddPointer.random;
             if(random != null) {
-                evenPointer.random = random.next;
+                evenPointer.random = random;
             }
-            oddPointer = oddPointer.next;
-            evenPointer = evenPointer.next;
+            if(oddPointer.next != null) {
+                oddPointer = oddPointer.next.next;
+            }
+            if(evenPointer.next != null) {
+                evenPointer = evenPointer.next.next;
+            }
         }
         return newMergeListNode;
     }
