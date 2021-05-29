@@ -50,4 +50,36 @@ public class No203RemoveLinkedListElements {
         return first.next;
     }
 
+    /**
+     *
+     * @param head
+     * @param val
+     * @return
+     */
+    public ListNode removeElements2(ListNode head, int val) {
+        if(head == null) {
+            return null;
+        }
+        ListNode newHead = head;
+        ListNode lastNode = head;
+        while(head != null) {
+            if(head.val == val) {
+                if(head.next != null) {
+                    head.val = head.next.val;
+                    head.next = head.next.next;
+                } else {
+                    lastNode.next = null;
+                    head = head.next;
+                }
+            } else {
+                lastNode = head;
+                head = head.next;
+            }
+        }
+        if(newHead.val == val) {
+            newHead = null;
+        }
+        return newHead;
+    }
+
 }

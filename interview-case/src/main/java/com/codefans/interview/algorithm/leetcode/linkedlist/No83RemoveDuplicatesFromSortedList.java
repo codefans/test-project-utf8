@@ -55,4 +55,43 @@ public class No83RemoveDuplicatesFromSortedList {
 
     }
 
+    /**
+     *
+     * @param head
+     * @return
+     */
+    public ListNode deleteDuplicates2(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = head;
+        ListNode lastNode = null;
+        int lastVal = -200;
+        while(head != null) {
+            if(lastVal == head.val) {
+                if(head.next != null) {
+                    head.val = head.next.val;
+                    head.next = head.next.next;
+                } else {
+                    head = head.next;
+                    lastNode.next = null;
+//                    System.out.println("head.next==null, lastNode.val=" + lastNode.val + ", head.val=" + head.val);
+//                    break;
+                }
+            } else {
+                lastNode = head;
+                System.out.println("lastNode.val=" + lastNode.val);
+                lastVal = head.val;
+                head = head.next;
+            }
+
+        }
+
+        return newHead;
+    }
+
+
+
+
+
 }

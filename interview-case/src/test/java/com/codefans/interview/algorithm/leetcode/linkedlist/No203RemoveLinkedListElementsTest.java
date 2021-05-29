@@ -26,9 +26,10 @@ public class No203RemoveLinkedListElementsTest {
         ListNodeUtils.print(node);
 
         No203RemoveLinkedListElements no203RemoveLinkedListElements = new No203RemoveLinkedListElements();
-        no203RemoveLinkedListElements.removeElements(node, 3);
 
-        ListNodeUtils.print(node);
+        ListNode head = ListNodeFactory.createByArr(7,7,7,7);
+        head = no203RemoveLinkedListElements.removeElements2(head, 7);
+        ListNodeUtils.print(head);
 
     }
 
