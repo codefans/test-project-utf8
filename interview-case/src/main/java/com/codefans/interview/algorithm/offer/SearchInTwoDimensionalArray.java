@@ -87,9 +87,9 @@ public class SearchInTwoDimensionalArray {
             data = unitTestData[i];
 //          isFound = findBySelf(arr, data);
 //          isFound = findByOfficial(arr, data);
-//            isFound = findInterviewTemp(arr, data);
+            isFound = findInterviewTemp(arr, data);
 //            isFound = this.findNum(arr, data);
-            isFound = this.findNum2(arr, data);
+//            isFound = this.findNum2(arr, data);
             System.out.println("数字[" + data + "]" + (isFound ? "已找到" : "未找到"));
         }
 
@@ -201,6 +201,12 @@ public class SearchInTwoDimensionalArray {
         return found;
     }
 
+    /**
+     * 遗漏空数组的情况
+     * @param arr
+     * @param data
+     * @return
+     */
     public boolean findInterviewTemp(int[][] arr, int data) {
 
         boolean found = false;
