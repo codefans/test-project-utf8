@@ -32,9 +32,9 @@ public class HeapSort extends SortBase {
     /**
      *创建最大堆
      *
-     *@paramdata
-     *@paramheapSize需要创建最大堆的大小，一般在sort的时候用到，因为最多值放在末尾，末尾就不再归入最大堆了
-     *@paramindex当前需要创建最大堆的位置
+     * @param data
+     * @param heapSize 需要创建最大堆的大小，一般在sort的时候用到，因为最多值放在末尾，末尾就不再归入最大堆了
+     * @param index 当前需要创建最大堆的位置
      */
     private static void maxHeapify(int[] data,int heapSize,int index){
         //当前点与左右子节点比较

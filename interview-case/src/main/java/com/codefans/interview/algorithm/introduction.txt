@@ -2,6 +2,9 @@
 1.1 数组
     (1)二维数组中的查找
         SearchInTwoDimensionalArray.java
+    (2)数组合并
+        两个有序数组的合并-com.codefans.interview.algorithm.practise.ArrayMerge.mergeSortedArray()
+
 1.2 字符串
     (1)替换空格
         BlankReplacement.java
