@@ -217,6 +217,84 @@ public class ArraySorter {
      */
     public void heapSort(int[] arr) {
 
+        buildMaxHeapify(arr);
+
+//        for(int i = arr.length - 1; i >= 0; i --) {
+//            swap(arr, i, 0);
+//            maxHeapify(arr, i, 0);
+//        }
+    }
+
+    /**
+     * 构建最大堆
+     * @param arr
+     */
+    private void buildMaxHeapify(int[] arr) {
+        int parentIndex = getParentIndex(arr.length);
+        for(int i = parentIndex; i >= 0; i --) {
+            maxHeapify(arr, arr.length, i);
+        }
+    }
+
+    /**
+     * 维护最大堆的特性
+     * @param arr
+     * @param heapSize
+     * @param i
+     */
+    private void maxHeapify(int[] arr, int heapSize, int i) {
+        int left = this.getLeftIndex(i);
+        int right = this.getRightIndex(i);
+        int largest = i;
+        if(left < heapSize && arr[left] > arr[i]) {
+            largest = left;
+        }
+        if(right < heapSize && arr[right] > arr[largest]) {
+            largest = right;
+        }
+        if(largest != i) {
+            swap(arr, largest, i);
+            maxHeapify(arr, heapSize, largest);
+        }
+    }
+
+    /**
+     * 下标i和j位置的两个数相互交换
+     * @param arr
+     * @param i
+     * @param j
+     */
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    /**
+     * 获取父节点下标
+     * @param i
+     * @return
+     */
+    private int getParentIndex(int i) {
+        return i >> 1;
+    }
+
+    /**
+     * 获取左节点下标
+     * @param i
+     * @return
+     */
+    private int getLeftIndex(int i) {
+        return (i << 1) + 1;
+    }
+
+    /**
+     * 获取右节点下标
+     * @param i
+     * @return
+     */
+    private int getRightIndex(int i) {
+        return (i << 1) + 2;
     }
 
 

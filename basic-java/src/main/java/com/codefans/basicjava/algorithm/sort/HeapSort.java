@@ -10,7 +10,7 @@ public class HeapSort extends SortBase {
 
     public static void main(String[] args){
         buildMaxHeapify(sort);
-        heapSort(sort);
+//        heapSort(sort);
 //        print(sort);
         new HeapSort().print(sort);
     }
@@ -22,7 +22,7 @@ public class HeapSort extends SortBase {
 
     private static void buildMaxHeapify(int[] data){
         //没有子节点的才需要创建最大堆，从最后一个的父节点开始
-        int startIndex=getParentIndex(data.length-1);
+        int startIndex=getParentIndex(data.length);
         //从尾端开始创建最大堆，每次都是正确的堆
         for(int i=startIndex;i>=0;i--){
             maxHeapify(data,data.length,i);
@@ -74,32 +74,32 @@ public class HeapSort extends SortBase {
 
     /**
      *父节点位置
-     *
+     * current>>1 等价于current%2
      *@paramcurrent
      *@return
      */
     private static int getParentIndex(int current){
-        return(current-1)>>1;
+        return current>>1;
     }
 
     /**
      *左子节点position注意括号，加法优先级更高
-     *
+     * (current<<1)+1 等价于 current*2 + 1
      *@paramcurrent
      *@return
      */
     private static int getChildLeftIndex(int current){
-        return(current<<1)+1;
+        return (current<<1)+1;
     }
 
     /**
      *右子节点position
-     *
+     * (current<<1)+2 等价于 current*2 + 2
      *@paramcurrent
      *@return
      */
     private static int getChildRightIndex(int current){
-        return(current<<1)+2;
+        return (current<<1)+2;
     }
 
     private static void printArr(int[] data){
