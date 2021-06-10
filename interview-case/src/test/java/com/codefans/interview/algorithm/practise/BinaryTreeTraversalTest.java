@@ -10,6 +10,7 @@ package com.codefans.interview.algorithm.practise;
 
 import com.codefans.interview.algorithm.common.TreeNode;
 import com.codefans.interview.algorithm.common.TreeNodeUtils;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -22,10 +23,25 @@ import org.junit.Test;
  */
 public class BinaryTreeTraversalTest {
 
+    /**
+     *
+     */
+    private BinaryTreeTraversal binaryTreeTraversal;
+
+    @Before
+    private void before() {
+        binaryTreeTraversal = new BinaryTreeTraversal();
+    }
+
     @Test
     public void fisrtOrderTraversalTest() {
 
-//        TreeNode treeNode = TreeNodeUtils.
+        TreeNode treeNode = new TreeNode(1);
+        TreeNode left = new TreeNode(2);
+        TreeNode right = new TreeNode(3);
+        treeNode.left = left;
+        treeNode.right = right;
+        binaryTreeTraversal.fisrtOrderTraversal(treeNode);
 
     }
 

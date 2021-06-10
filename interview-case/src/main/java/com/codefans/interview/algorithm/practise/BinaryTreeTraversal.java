@@ -10,6 +10,8 @@ package com.codefans.interview.algorithm.practise;
 
 import com.codefans.interview.algorithm.common.TreeNode;
 
+import java.util.Stack;
+
 /**
  *
  * 二叉树的遍历
@@ -31,6 +33,30 @@ public class BinaryTreeTraversal {
         System.out.println(treeNode.val);
         fisrtOrderTraversal(treeNode.left);
         fisrtOrderTraversal(treeNode.right);
+    }
+
+    /**
+     *
+     * @param treeNode
+     */
+    public void fisrtOrderTraversal2(TreeNode treeNode) {
+        if(treeNode == null) {
+            return;
+        }
+        TreeNode curr = treeNode;
+        Stack<TreeNode> stack = new Stack<>();
+        while(curr != null) {
+            if(stack.isEmpty()) {
+                System.out.println(curr.val);
+                stack.push(curr.right);
+                stack.push(curr.left);
+            } else {
+                curr = stack.pop();
+                System.out.println(curr.val);
+                stack.push(curr.right);
+                stack.push(curr.left);
+            }
+        }
     }
 
     /**
