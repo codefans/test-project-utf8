@@ -7,4 +7,6 @@ dependencies {
     implementation project(':reusable-code')
     implementation 'com.google.guava:guava:23.0'
     implementation 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-core:2.2'
+
 }
