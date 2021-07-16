@@ -156,6 +156,8 @@ public class No160IntersectionOfTwoLinkedLists {
      * 改变了链表结构
      * 思路：
      *    先翻转两个链表,然后遍历其中一个翻转后的链表,如果当前两个节点的next不相等时,返回当前节点即可。
+     * 该方法行不通：
+     *    因为反转一个链表后，另一个链表的结构就改变了。第一个相交的节点的next，反转后只能指向一个节点。
      * @param headA
      * @param headB
      * @return
@@ -168,17 +170,15 @@ public class No160IntersectionOfTwoLinkedLists {
 
         headA = reversal(headA);
         headB = reversal(headB);
-        if(headA == headB) {
-            res = headA;
-        }
+
         while(headA != null && headB != null) {
-            if(headA.next == headB.next) {
-                headA = headA.next;
-                headB = headB.next;
-            } else {
+            if(headA == headB) {
                 res = headA;
+            } else {
                 break;
             }
+            headA = headA.next;
+            headB = headB.next;
         }
 
         return res;
@@ -192,16 +192,30 @@ public class No160IntersectionOfTwoLinkedLists {
             return head;
         }
         ListNode pre = null;
-        ListNode cur = head;
-        ListNode next = head.next;
-        while(next != null) {
-            cur.next = pre;
-            pre = cur;
-            cur = next;
-            next = next.next;
+        while(head != null) {
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
         }
+        return pre;
+    }
 
-        return cur;
+    public ListNode reverseAndCopy(ListNode head) {
+        if(head == null) {
+            return null;
+        }
+        if(head.next == null) {
+            return head;
+        }
+        ListNode pre = null;
+        while(head != null) {
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
     }
 
 }

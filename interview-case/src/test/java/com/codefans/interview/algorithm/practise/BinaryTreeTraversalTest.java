@@ -13,6 +13,9 @@ import com.codefans.interview.algorithm.common.TreeNodeUtils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * 二叉树遍历测试类
@@ -42,6 +45,9 @@ public class BinaryTreeTraversalTest {
         treeNode.left = left;
         treeNode.right = right;
         binaryTreeTraversal.fisrtOrderTraversal(treeNode);
+
+//        List<Integer> list = new ArrayList<>();
+//        int[] arr = (int[])list.toArray(new Integer[0]);
 
     }
 

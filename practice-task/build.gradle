@@ -20,6 +20,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE'
     implementation 'io.netty:netty-all:4.0.56.Final'
     implementation 'mysql:mysql-connector-java:5.1.48'
+    implementation 'com.alibaba:druid:1.1.12'
     api 'org.apache.pdfbox:pdfbox:2.0.16'
-    compile fileTree(dir:'lib',includes:['jave-1.0.2.jar'])
+    implementation fileTree(dir:'lib',includes:['jave-1.0.2.jar'])
 }
