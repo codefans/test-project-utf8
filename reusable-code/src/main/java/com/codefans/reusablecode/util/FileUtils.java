@@ -34,7 +34,7 @@ public class FileUtils {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		FileUtils util = new FileUtils();
 		// util.printPropertiesFile();
 
@@ -58,10 +58,7 @@ public class FileUtils {
 		
 		String filePath = "D:/topology-no repeated-368.txt";
 		String newFilePath = "D:/scanUrl-317.txt";
-
-//		String filePath = "D:/jone-ip.txt";
-//		String newFilePath = "D:/np-ip.txt";
-		util.compareFile(filePath, newFilePath);
+//		util.compareFile(filePath, newFilePath);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";
 //		String newFilePath = "D:/tmp/寄卖商品收货报表.txt";
@@ -74,7 +71,14 @@ public class FileUtils {
 //		util.fileAppend(filePath, toAdd);
 		
 //		util.removeRepeatedLines("D:/topology-497.txt");
-		
+
+		filePath = "G:/tmp/nums.txt";
+		List<String> list = util.fileToLineList(filePath, ",");
+		System.out.println("list.size()=" + list.size());
+
+
+
+
 	}
 
 	public void removeRepeatedLines(String file) {
@@ -846,6 +850,59 @@ public class FileUtils {
 				}
 			}
 		}
+	}
+
+	/**
+	 * 一个文件中就是一个以seperator分割的字符串,将它读取成List
+	 * @param filePath
+	 * @return
+	 * @throws FileNotFoundException
+	 */
+	public List<String> fileToLineList(String filePath) throws FileNotFoundException {
+		return fileToLineList(filePath, ",");
+	}
+
+	/**
+	 * 一个文件中就是一个以seperator分割的字符串,将它读取成List
+	 * @param filePath
+	 * @param seperator
+	 * @return
+	 */
+	public List<String> fileToLineList(String filePath, String seperator) throws FileNotFoundException {
+		if(filePath == null || filePath.trim().length() == 0) {
+			throw new IllegalArgumentException("入参filePath不能为空");
+		}
+		File file = new File(filePath);
+		if(!file.exists()) {
+			throw new IllegalArgumentException("文件[" + filePath + "]不存在");
+		}
+		return fileToLineList(new FileInputStream(file), seperator);
+	}
+
+	/**
+	 * 一个文件中就是一个以seperator分割的字符串,将它读取成List
+	 * @param inputStream
+	 * @param seperator
+	 * @return
+	 */
+	public List<String> fileToLineList(InputStream inputStream, String seperator) {
+		List<String> list = null;
+		Scanner sc = null;
+		try {
+			sc = new Scanner(inputStream);
+			String line = "";
+			while (sc.hasNextLine()) {
+				line = sc.nextLine();
+			}
+			list = Arrays.asList(line.split(seperator));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sc.close();
+			sc = null;
+		}
+		return list;
 	}
 
 }

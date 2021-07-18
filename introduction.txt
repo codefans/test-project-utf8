@@ -1,15 +1,23 @@
 
-1、计算两个文件的差集、交集、并集等
 practice-task模块：
+1、计算两个文件的差集、交集、并集等
     com.codefans.practicetask.FileUtil.compareFile()
 
 2.com.codefans.practicetask.file.GetFileSize.java
-practice-task模块：
     获取某个文件夹及子文件夹的大小(统计几个层级可以设置参数配置)
 
 3.com.codefans.practicetask.file.SortFileBySizeTask
-practice-task模块：
     扫描多个目录下某个文件类型的所有文件及文件大小，并按文件大小进行排序输出
+
+reusable-code模块：
+1、将str列表转换为int数组
+    com.codefans.reusablecode.util.CollectionUtils.strListToIntArr()
+
+2、将文件中以逗号分割的字符串读成一个字符串list
+    com.codefans.reusablecode.util.FileUtils.fileToLineList(java.lang.String)
+
+
+
 
 
 
