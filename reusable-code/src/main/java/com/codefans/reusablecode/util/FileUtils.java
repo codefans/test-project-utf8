@@ -858,7 +858,7 @@ public class FileUtils {
 	 * @return
 	 * @throws FileNotFoundException
 	 */
-	public List<String> fileToLineList(String filePath) throws FileNotFoundException {
+	public static List<String> fileToLineList(String filePath) throws FileNotFoundException {
 		return fileToLineList(filePath, ",");
 	}
 
@@ -868,7 +868,7 @@ public class FileUtils {
 	 * @param seperator
 	 * @return
 	 */
-	public List<String> fileToLineList(String filePath, String seperator) throws FileNotFoundException {
+	public static List<String> fileToLineList(String filePath, String seperator) throws FileNotFoundException {
 		if(filePath == null || filePath.trim().length() == 0) {
 			throw new IllegalArgumentException("入参filePath不能为空");
 		}
@@ -885,7 +885,7 @@ public class FileUtils {
 	 * @param seperator
 	 * @return
 	 */
-	public List<String> fileToLineList(InputStream inputStream, String seperator) {
+	public static List<String> fileToLineList(InputStream inputStream, String seperator) {
 		List<String> list = null;
 		Scanner sc = null;
 		try {
