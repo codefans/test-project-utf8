@@ -33,12 +33,17 @@ public class No876MiddleOfTheLinkedListTest {
     }
 
     @Test
-    public void test() {
-
+    public void middleNodeTest() {
         for(ListNode node : testDataList) {
             System.out.println("原链表：" + ListNodeUtils.toString(node) + ", 中间链表：" + ListNodeUtils.toString(no876MiddleOfTheLinkedList.middleNode(node)));
         }
+    }
 
+    @Test
+    public void middleNode2Test() {
+        for(ListNode node : testDataList) {
+            System.out.println("原链表：" + ListNodeUtils.toString(node) + ", 中间链表：" + ListNodeUtils.toString(no876MiddleOfTheLinkedList.middleNode2(node)));
+        }
     }
 
 
