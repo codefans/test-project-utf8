@@ -1,5 +1,7 @@
 package com.codefans.interview.algorithm.leetcode.strings;
 
+import java.util.HashSet;
+
 /**
  * 3. 无重复字符的最长子串
  * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
@@ -10,35 +12,74 @@ package com.codefans.interview.algorithm.leetcode.strings;
 
 public class No3LengthOfLongestSubstring {
 
-    /**
-     *
-     * @param s
-     * @return
-     */
     public int lengthOfLongestSubstring(String s) {
         int maxLen = 0;
         if(s == null || s.length() == 0) {
             return maxLen;
         }
+        if(s.length() == 1) {
+            return 1;
+        }
         int strLen = s.length();
-        char[] arr = s.toCharArray();
-        int low = 0, high = 1;
-        int index = 0;
-        char c = arr[index++];
-        while(high < strLen && index < strLen) {
-            if(arr[index++] != c) {
-                high++;
-            } else {
-                c = arr[index];
-                if(high - low > maxLen) {
-                    maxLen = high - low;
+        HashSet<Character> hashSet = new HashSet<Character>();
+        int right = -1;
+        for(int i = 0; i < strLen; i ++) {
+            if(i != 0) {
+                hashSet.remove(s.charAt(i - 1));
+            }
+            while(right + 1 < strLen && !hashSet.contains(s.charAt(right + 1))) {
+                hashSet.add(s.charAt(right + 1));
+                right++;
+            }
+            maxLen = Math.max(maxLen, right - i + 1);
+        }
+        return maxLen;
+    }
+
+    /**
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring2(String s) {
+        int maxLen = 0;
+        if(s == null || s.length() == 0) {
+            return maxLen;
+        }
+        if(s.length() == 1) {
+            return 1;
+        }
+        int strLen = s.length();
+        String subStr = "";
+        for(int i = 0; i < strLen - 1; i ++) {
+            for(int j = i + 1; j <= strLen; j ++) {
+                subStr = s.substring(i, j);
+                boolean hasRepeatChar = !hasRepeatChar(subStr);
+                //System.out.println("subStr=[" + subStr + "], hasRepeatChar=" + hasRepeatChar);
+                if(hasRepeatChar) {
+                    int subLen = subStr.length();
+                    maxLen = Math.max(maxLen, subLen);
                 }
-                low = index;
-                high = index;
-                index++;
             }
         }
         return maxLen;
+    }
+
+    private boolean hasRepeatChar(String subStr) {
+        boolean hasRepeat = false;
+        char[] arr = subStr.toCharArray();
+        HashSet<Character> hashSet = new HashSet<Character>();
+        char c;
+        for(int i = 0; i < arr.length; i ++) {
+            c = arr[i];
+            if(hashSet.contains(c)) {
+                hasRepeat = true;
+                break;
+            } else {
+                hashSet.add(c);
+            }
+        }
+        return hasRepeat;
     }
 
 }
