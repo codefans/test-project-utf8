@@ -20,8 +20,8 @@ public class No3LengthOfLongestSubstringTest {
         for(String str : arr) {
             System.out.println("str=[" + str + "], length=" + str.length());
             long beginTime = System.currentTimeMillis();
-//            int len = no3LengthOfLongestSubstring.lengthOfLongestSubstring(str);
-            int len = no3LengthOfLongestSubstring.lengthOfLongestSubstring2(str);
+            int len = no3LengthOfLongestSubstring.lengthOfLongestSubstring(str);
+//            int len = no3LengthOfLongestSubstring.lengthOfLongestSubstring2(str);
             long endTime = System.currentTimeMillis();
             System.out.println("longestSubstringLen=" + len + ", cost=[" + (endTime - beginTime) + "]ms");
         }

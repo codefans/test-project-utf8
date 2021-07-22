@@ -12,6 +12,12 @@ import java.util.HashSet;
 
 public class No3LengthOfLongestSubstring {
 
+    /**
+     * 滑动窗口
+     * 耗时: 19ms毫秒
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
         int maxLen = 0;
         if(s == null || s.length() == 0) {
@@ -37,7 +43,8 @@ public class No3LengthOfLongestSubstring {
     }
 
     /**
-     *
+     * 暴力破解
+     * longestSubstringLen=95, cost=[3569164]ms毫秒, [3569.164]s秒, [59.49]m分钟
      * @param s
      * @return
      */
