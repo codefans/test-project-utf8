@@ -12,16 +12,24 @@ import java.util.Date;
  */
 public class CommonsDateUtils {
 
-    private static final String pattern = "yyyy-MM-dd HH:mm:ss";
+    private static final String PATTERN = "yyyy-MM-dd HH:mm:ss";
 
-    public static FastDateFormat fdf = FastDateFormat.getInstance(pattern);
+    private static final String PATTERN_MILLISECOND = "yyyy-MM-dd HH:mm:ss:SSS";
+
+    public static FastDateFormat fdf = FastDateFormat.getInstance(PATTERN);
+
+    public static FastDateFormat fdfMillisecond = FastDateFormat.getInstance(PATTERN_MILLISECOND);
 
     public static String format(Date date) {
         return fdf.format(date);
     }
 
+    public static String formatMilliecond(Date date) {
+        return fdfMillisecond.format(date);
+    }
+
     public static Date parse(String dateStr) throws ParseException {
-        return DateUtils.parseDate(dateStr, new String[]{pattern});
+        return DateUtils.parseDate(dateStr, new String[]{PATTERN, PATTERN_MILLISECOND});
     }
 
 }

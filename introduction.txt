@@ -1,3 +1,12 @@
+basic-java模块：
+1、对比CompletionService和ExecutorService的区别
+    ExecutorService, 即ThreadPoolExecutor, 只能根据任务提交的顺序, 来获取结果;
+    CompletionService, 哪个任务先执行完, 就先获取哪个任务的结果.
+
+    com.codefans.basicjava.concurrent.completionservice.ExecutorServiceFutureOrder.submitOrderResult
+
+    com.codefans.basicjava.concurrent.completionservice.CompletionServiceFutureOrder.submitOrderResult
+    com.codefans.basicjava.concurrent.completionservice.CompletionServiceFutureOrder.submitNoOrderResult
 
 practice-task模块：
 1、计算两个文件的差集、交集、并集等
