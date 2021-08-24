@@ -85,5 +85,16 @@ public class BinaryTreeFactory implements TreeFactory<BinaryTreeNode> {
         return rootNode;
     }
 
+    /**
+     * 根据数组创建一个二叉树
+     * @param arr
+     * @return
+     */
+    public static BinaryTreeNode createBinaryTree(int[] arr) {
+        BinaryTreeNode binaryTree = null;
+
+        return binaryTree;
+    }
+
 
 }
