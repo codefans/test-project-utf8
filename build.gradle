@@ -59,6 +59,11 @@ subprojects {
 
     }
 
+    dependencies {
+        compile 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    }
+
 }
 
 //buildscript {
