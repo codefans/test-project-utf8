@@ -7,8 +7,7 @@
  */
 package com.codefans.interview.algorithm.leetcode.tree;
 
-
-import com.codefans.interview.datastructure.BinaryTreeNode;
+import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 
 /**
  *

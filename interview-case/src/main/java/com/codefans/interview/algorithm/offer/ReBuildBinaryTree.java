@@ -1,7 +1,8 @@
 package com.codefans.interview.algorithm.offer;
 
 //import com.codefans.interview.algorithm.common.BinaryTreeIterator;
-import com.codefans.interview.datastructure.BinaryTreeNode;
+
+import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 
 /**
  * @Author: codefans
