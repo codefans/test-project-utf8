@@ -2,6 +2,8 @@ package com.codefans.reusablecode.common;
 
 import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 
+import java.util.LinkedList;
+
 /**
  * @author: codefans
  * @date: 2017-09-28 10:52
@@ -90,11 +92,59 @@ public class BinaryTreeFactory implements TreeFactory<BinaryTreeNode> {
      * @param arr
      * @return
      */
-    public static BinaryTreeNode createBinaryTree(int[] arr) {
-        BinaryTreeNode binaryTree = null;
-
-        return binaryTree;
+    public BinaryTreeNode createBinaryTree(Integer[] arr) {
+        BinaryTreeNode root = null;
+        int len;
+        if(arr != null && arr.length > 0) {
+            len = arr.length;
+            root = new BinaryTreeNode(arr[0]);
+            BinaryTreeNode left;
+            BinaryTreeNode right;
+            BinaryTreeNode curr;
+            LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+            queue.push(root);
+            Integer curVal;
+            for(int i = 1; i < len; i = i + 2) {
+                curr = queue.removeLast();
+                if(curr != null) {
+                    curVal = arr[i];
+                    if(curVal != null) {
+                        left = new BinaryTreeNode(arr[i]);
+                        curr.setLeft(left);
+                        queue.addFirst(left);
+                    } else {
+                        curr.setLeft(null);
+                    }
+                    curVal = arr[i+1];
+                    if(curVal != null) {
+                        right = new BinaryTreeNode(arr[i + 1]);
+                        curr.setRight(right);
+                        queue.addFirst(right);
+                    } else {
+                        curr.setRight(null);
+                    }
+                }
+            }
+        }
+        return root;
     }
 
+    /**
+     * 中序遍历-输出二叉树
+     * @param treeNode
+     */
+    public static void print(BinaryTreeNode treeNode) {
+        printRecursion(treeNode);
+        System.out.println();
+    }
+
+    public static void printRecursion(BinaryTreeNode treeNode) {
+        if(treeNode == null) {
+            return;
+        }
+        System.out.print(treeNode.getValue() + ",");
+        printRecursion(treeNode.getLeft());
+        printRecursion(treeNode.getRight());
+    }
 
 }

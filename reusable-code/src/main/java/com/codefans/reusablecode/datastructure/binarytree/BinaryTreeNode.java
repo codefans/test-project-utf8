@@ -14,6 +14,13 @@ public class BinaryTreeNode {
 
     private int value;
 
+    public BinaryTreeNode(int value) {
+        this.value = value;
+    }
+
+    public BinaryTreeNode() {
+    }
+
     public BinaryTreeNode getLeft() {
         return left;
     }

@@ -25,7 +25,8 @@ reusable-code模块：
 2、将文件中以逗号分割的字符串读成一个字符串list
     com.codefans.reusablecode.util.FileUtils.fileToLineList(java.lang.String)
 
-
+3、根据数组创建一个二叉树
+    com.codefans.reusablecode.common.BinaryTreeFactory.createBinaryTree(Integer[])
 
 
 
