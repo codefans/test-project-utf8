@@ -10,11 +10,14 @@ package com.codefans.interview.algorithm.practise;
 
 import com.codefans.interview.algorithm.common.TreeNode;
 import com.codefans.interview.algorithm.common.TreeNodeUtils;
+import com.google.common.base.Stopwatch;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -32,7 +35,7 @@ public class BinaryTreeTraversalTest {
     private BinaryTreeTraversal binaryTreeTraversal;
 
     @Before
-    private void before() {
+    public void before() {
         binaryTreeTraversal = new BinaryTreeTraversal();
     }
 
@@ -40,15 +43,24 @@ public class BinaryTreeTraversalTest {
     public void fisrtOrderTraversalTest() {
 
         TreeNode treeNode = new TreeNode(1);
-        TreeNode left = new TreeNode(2);
-        TreeNode right = new TreeNode(3);
-        treeNode.left = left;
+        TreeNode left = new TreeNode(3);
+        TreeNode right = new TreeNode(2);
+        right.left = left;
         treeNode.right = right;
         binaryTreeTraversal.fisrtOrderTraversal(treeNode);
 
 //        List<Integer> list = new ArrayList<>();
 //        int[] arr = (int[])list.toArray(new Integer[0]);
 
+
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        long beginTime = System.currentTimeMillis();
+        for(int i = 0; i < 1000000; i ++) {
+
+        }
+        stopwatch.stop();
+        long endTime = System.currentTimeMillis();
+        System.out.println("stopWatch cost:" + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms, currentTimeMillis=" + (endTime - beginTime));
     }
 
 }

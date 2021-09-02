@@ -9,6 +9,9 @@ package com.codefans.interview.algorithm.leetcode.tree;
 
 import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * 二叉树镜像（翻转二叉树）
@@ -32,7 +35,38 @@ public class No226InvertTree {
      */
     public BinaryTreeNode invertTree(BinaryTreeNode node) {
         BinaryTreeNode binaryTreeNode = null;
-
+        if(node != null) {
+            binaryTreeNode = new BinaryTreeNode(node.getValue());
+            BinaryTreeNode curr = binaryTreeNode;
+            LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+            queue.add(binaryTreeNode);
+            while(!queue.isEmpty()) {
+                BinaryTreeNode firstNode = queue.removeFirst();
+                if(firstNode != null) {
+                    BinaryTreeNode left = firstNode.getLeft();
+                    if(left != null) {
+                        queue.addLast(left);
+                    }
+                    BinaryTreeNode right = firstNode.getRight();
+                    if(right != null) {
+                        queue.addLast(right);
+                    }
+                    curr.setRight(firstNode);
+                }
+                BinaryTreeNode secondNode = queue.removeFirst();
+                if(firstNode != null) {
+                    BinaryTreeNode left = firstNode.getLeft();
+                    if(left != null) {
+                        queue.addLast(left);
+                    }
+                    BinaryTreeNode right = firstNode.getRight();
+                    if(right != null) {
+                        queue.addLast(right);
+                    }
+                    curr.setRight(firstNode);
+                }
+            }
+        }
         return binaryTreeNode;
     }
 
