@@ -34,12 +34,10 @@ public class No226InvertTree {
      * @return
      */
     public BinaryTreeNode invertTree(BinaryTreeNode node) {
-        BinaryTreeNode binaryTreeNode = null;
+        BinaryTreeNode binaryTreeNode = node;
         if(node != null) {
-            binaryTreeNode = new BinaryTreeNode(node.getValue());
-            BinaryTreeNode curr = binaryTreeNode;
             LinkedList<BinaryTreeNode> queue = new LinkedList<>();
-            queue.add(binaryTreeNode);
+            queue.add(node);
             while(!queue.isEmpty()) {
                 BinaryTreeNode firstNode = queue.removeFirst();
                 if(firstNode != null) {
@@ -51,20 +49,10 @@ public class No226InvertTree {
                     if(right != null) {
                         queue.addLast(right);
                     }
-                    curr.setRight(firstNode);
+                    firstNode.setLeft(right);
+                    firstNode.setRight(left);
                 }
-                BinaryTreeNode secondNode = queue.removeFirst();
-                if(firstNode != null) {
-                    BinaryTreeNode left = firstNode.getLeft();
-                    if(left != null) {
-                        queue.addLast(left);
-                    }
-                    BinaryTreeNode right = firstNode.getRight();
-                    if(right != null) {
-                        queue.addLast(right);
-                    }
-                    curr.setRight(firstNode);
-                }
+
             }
         }
         return binaryTreeNode;

@@ -138,6 +138,37 @@ public class BinaryTreeFactory implements TreeFactory<BinaryTreeNode> {
         System.out.println();
     }
 
+    /**
+     * 按层级打印二叉树
+     * @param treeNode
+     */
+    public static void printByLevel(BinaryTreeNode treeNode) {
+        LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+        queue.add(treeNode);
+        BinaryTreeNode currNode = null;
+        BinaryTreeNode left = null;
+        BinaryTreeNode right = null;
+        boolean isFirst = true;
+        while(!queue.isEmpty()) {
+            currNode = queue.removeFirst();
+            if(isFirst) {
+                System.out.print(currNode.getValue());
+                isFirst = false;
+            } else {
+                System.out.print(", " + currNode.getValue());
+            }
+            left = currNode.getLeft();
+            if(left != null) {
+                queue.addLast(left);
+            }
+            right = currNode.getRight();
+            if(right != null) {
+                queue.addLast(right);
+            }
+        }
+        System.out.println();
+    }
+
     public static void printRecursion(BinaryTreeNode treeNode) {
         if(treeNode == null) {
             return;

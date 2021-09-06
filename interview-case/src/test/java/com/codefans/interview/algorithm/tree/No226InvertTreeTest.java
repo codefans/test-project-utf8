@@ -35,12 +35,13 @@ public class No226InvertTreeTest {
 
 //        Integer[] arr = new Integer[]{10, 9, 4, 11, null, 5, null};
         Integer[] arr = new Integer[]{4,2,7,1,3,6,9};
+//        Integer[] arr = new Integer[]{4,7,2,9,6,3,1};
         BinaryTreeNode treeNode = treeFactory.createBinaryTree(arr);
-        treeFactory.print(treeNode);
+        treeFactory.printByLevel(treeNode);
 
         No226InvertTree no226InvertTree = new No226InvertTree();
         BinaryTreeNode invertTreeNode = no226InvertTree.invertTree(treeNode);
-        treeFactory.print(invertTreeNode);
+        treeFactory.printByLevel(invertTreeNode);
 
     }
 }
