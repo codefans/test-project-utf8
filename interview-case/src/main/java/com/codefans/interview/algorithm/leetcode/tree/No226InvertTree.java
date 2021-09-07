@@ -10,7 +10,6 @@ package com.codefans.interview.algorithm.leetcode.tree;
 import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  *
@@ -29,6 +28,8 @@ public class No226InvertTree {
 
     /**
      * 翻转二叉树
+     * 算法描述：
+     *    从队列中取出一个节点，然后把这个节点的左右节点放入队列中，并将该节点的左右节点互换。
      *
      * @param node
      * @return
