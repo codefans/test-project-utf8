@@ -1,6 +1,5 @@
 package com.codefans.opensource.redis;
 
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.*;

@@ -3,7 +3,6 @@ package com.codefans.opensource.redis;
 import redis.clients.jedis.Jedis;
 
 import java.util.Collections;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author: codefans

@@ -3,12 +3,8 @@ package com.codefans.opensource.log4j.v2_10_0;
 import com.codefans.opensource.log4j.Log4JBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.LoggerContext;
-import org.apache.logging.log4j.core.config.ConfigurationSource;
-import org.apache.logging.log4j.core.config.Configurator;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 /**
  * @author codefans
@@ -26,11 +22,10 @@ public class Log4J2V2100Main extends Log4JBase {
 
     public void init() {
 
-
         try {
 
-//            String fileName = "log4j2_v2_10_0.properties";
-            String fileName = "log4j2_v2_10_0_package_level_custom.properties";
+            String fileName = "log4j2_v2_10_0.properties";
+//            String fileName = "log4j2_v2_10_0_package_level_custom.properties";
 //            String fileName = "log4j2_le_risk.xml";
 //            String fileName = "log4j2_config.xml";
 
@@ -38,8 +33,8 @@ public class Log4J2V2100Main extends Log4JBase {
             System.out.println("propFile:" + propFile);
 
             //初始化方式1
-//            System.setProperty("log4j.configurationFile", propFile);
-            System.setProperty("log4j.configurationFile", "classpath:log4j/log4j2_le_risk.xml");
+            System.setProperty("log4j.configurationFile", propFile);
+//            System.setProperty("log4j.configurationFile", "classpath:log4j/log4j2_le_risk.xml");
 
             //初始化方式2
 //            File log4jFile = new File(propFile);

@@ -1,9 +1,6 @@
 package com.codefans.opensource.redis.jedispool;
 
 import com.codefans.opensource.redis.JedisClientBase;
-import org.apache.commons.pool2.PooledObject;
-import org.apache.commons.pool2.PooledObjectFactory;
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 

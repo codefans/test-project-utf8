@@ -63,11 +63,7 @@ public class SortFileBySizeTask extends FileBase {
 
     public void gather(Map<String, FileInfo> fileSizeMap) {
         String[] dirs = new String[]{
-            "D:\\Films",
-			"E:\\Films",
-			"F:\\Films",
-			"G:\\Films",
-			"C:\\Users\\Adminstrator\\Downloads\\Films",
+            "D:\\",
         };
         /**
          * 扫描视频

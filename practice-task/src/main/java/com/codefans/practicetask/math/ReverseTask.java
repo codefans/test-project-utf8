@@ -1,7 +1,5 @@
 package com.codefans.practicetask.math;
 
-import io.jsonwebtoken.lang.Collections;
-import org.apache.commons.collections.BidiMap;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.math.BigDecimal;

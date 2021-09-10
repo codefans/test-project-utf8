@@ -1,10 +1,10 @@
 package com.codefans.basicjava.objectcopy;
 
 import com.codefans.basicjava.util.CollectionHelper;
-import org.apache.commons.beanutils.BeanUtils;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: codefans

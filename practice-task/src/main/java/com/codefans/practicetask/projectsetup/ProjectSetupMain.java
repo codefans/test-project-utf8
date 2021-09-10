@@ -2,7 +2,6 @@ package com.codefans.practicetask.projectsetup;
 
 import com.codefans.reusablecode.xml.Dom4jXmlFormater;
 import com.codefans.reusablecode.xml.XercesXmlFormater;
-import org.apache.commons.collections.CollectionUtils;
 
 import java.io.*;
 import java.util.*;
@@ -48,7 +47,7 @@ public class ProjectSetupMain implements PropertyKeyConstants {
 
     public void initProperties() throws IOException {
 
-        projectRootDir = "/githubForSourcetree";
+        projectRootDir = "D:/github";
         propertyFileName = "setup.properties";
 
         InputStream is = ProjectSetupMain.class.getResourceAsStream(propertyFileName);

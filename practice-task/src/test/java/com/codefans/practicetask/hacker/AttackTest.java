@@ -4,7 +4,6 @@ import com.codefans.reusablecode.util.DateUtils;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 
 /**
  * @author: codefans

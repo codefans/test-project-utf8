@@ -12,11 +12,8 @@ import com.codefans.opensource.json.common.NestedMapBean;
 import com.codefans.opensource.json.common.NestedMapValueBean;
 import com.codefans.opensource.util.JsonUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.type.MapType;
 import org.junit.Test;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

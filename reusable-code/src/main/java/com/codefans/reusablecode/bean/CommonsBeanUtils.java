@@ -1,6 +1,7 @@
 package com.codefans.reusablecode.bean;
 
 import org.apache.commons.beanutils.BeanUtils;
+
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.math.BigInteger;

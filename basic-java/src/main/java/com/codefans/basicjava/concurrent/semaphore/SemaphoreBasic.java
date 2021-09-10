@@ -1,6 +1,5 @@
 package com.codefans.basicjava.concurrent.semaphore;
 
-import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.Semaphore;
 
 /**

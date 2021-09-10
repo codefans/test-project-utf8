@@ -32,7 +32,7 @@ public class DiskFileScanner {
 	public void scannerDiskFile() throws IOException {
 		// String dir = "D:\\software";
 		// String dir = "D:\\360云盘";
-		String dir = "C:\\";
+		String dir = "D:\\";
 		// FileType fileType = FileType.App;
 //		FileType fileType = FileType.Video;
 		FileType fileType = FileType.All;

@@ -3,7 +3,6 @@ package com.codefans.basicjava.java6.util;
 import com.codefans.basicjava.util.CollectionHelper;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**

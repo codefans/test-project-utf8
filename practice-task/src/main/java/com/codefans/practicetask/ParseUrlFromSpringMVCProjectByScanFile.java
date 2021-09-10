@@ -12,7 +12,9 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -28,11 +30,15 @@ public class ParseUrlFromSpringMVCProjectByScanFile {
     public void httpUrlCount() {
 
         String[] dirArr = new String[]{
-                "D:\\workspace\\project\\moduleName",
-                "D:\\workspace\\project\\moduleName2",
+                "D:\\jdProjects\\jd.plus.app\\jd-vip-plus-app-rest",
+                "D:\\jdProjects\\jd.plus.app\\jd-vip-plus-app-web",
+                "D:\\jdProjects\\jd.plus.app\\jd-vip-plus-app-mobile",
+                "D:\\jdProjects\\jd.plus.app\\jd-vip-smc-app-mobile",
         };
 
         String rootDir = "D:\\project\\projectName";
+        String urlPrefix = "";
+
         List<String> fileList = new ArrayList<String>();
         List<String> httpUrlList = new ArrayList<String>();
         long start = System.currentTimeMillis();
@@ -40,7 +46,7 @@ public class ParseUrlFromSpringMVCProjectByScanFile {
 
         for(int i = 0; i < dirArr.length; i ++) {
             rootDir = dirArr[i];
-
+            urlPrefix = getUrlPrefix(rootDir);
             collect(rootDir, fileList);
 
             for (int j = 0; j < fileList.size(); j++) {
@@ -54,7 +60,7 @@ public class ParseUrlFromSpringMVCProjectByScanFile {
             System.out.println(rootDir + ", url列表如下:");
             for (int j = 0; j < httpUrlList.size(); j++) {
                 String url = httpUrlList.get(j);
-                System.out.println(url);
+                System.out.println(urlPrefix + url);
             }
 
             fileList.clear();
@@ -65,6 +71,19 @@ public class ParseUrlFromSpringMVCProjectByScanFile {
 
         System.out.println("totalUrlCount:" + totalUrlCount);
         System.out.println("cost:[" + (end - start) + "]ms");
+    }
+
+    public String getUrlPrefix(String rootDir) {
+        if(rootDir.contains("jd-vip-plus-app-rest")) {
+            return "http://rsp.jd.com";
+        } else if(rootDir.contains("jd-vip-plus-app-web")) {
+            return "http://plus.jd.com";
+        } else if(rootDir.contains("jd-vip-plus-app-mobile")) {
+            return "http://plus.m.jd.com";
+        } else if(rootDir.contains("jd-vip-smc-app-mobile")) {
+            return "http://smc.m.jd.com";
+        }
+        return "";
     }
 
     public void collect(String rootDir, List<String> fileList) {

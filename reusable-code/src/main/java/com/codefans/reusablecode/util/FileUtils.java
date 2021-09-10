@@ -56,9 +56,13 @@ public class FileUtils {
 //		String destPath = "C:\\Users\\Administrator\\AppData\\Local\\YNote\\data\\caiszf@163.com_allFiles\\";
 //		util.copyAllFilesToPath(dirPath, destPath);
 		
-		String filePath = "D:/topology-no repeated-368.txt";
-		String newFilePath = "D:/scanUrl-317.txt";
-//		util.compareFile(filePath, newFilePath);
+//		String filePath = "D:\\codefans\\Desktop\\jone-部署251台机器-部署成功机器.txt";
+//		String filePath = "D:\\caishengzhi\\Desktop\\2020年10月16日-全链路压测\\m-汇天-np88台.txt";
+		String filePath = "D:\\caishengzhi\\Desktop\\m-廊坊-74台.txt";
+//		String newFilePath = "D:\\caishengzhi\\Desktop\\2020年10月16日-全链路压测\\m-汇天-n台.txt";
+//		String newFilePath = "D:\\caishengzhi\\Desktop\\2020年10月16日-全链路压测\\rsp-汇天-np-local-139台.txt";
+		String newFilePath = "D:\\caishengzhi\\Desktop\\m-廊坊-jone-76台.txt";
+		util.compareFile(filePath, newFilePath);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";
 //		String newFilePath = "D:/tmp/寄卖商品收货报表.txt";
@@ -72,9 +76,9 @@ public class FileUtils {
 		
 //		util.removeRepeatedLines("D:/topology-497.txt");
 
-		filePath = "G:/tmp/nums.txt";
-		List<String> list = util.fileToLineList(filePath, ",");
-		System.out.println("list.size()=" + list.size());
+//		filePath = "G:/tmp/nums.txt";
+//		List<String> list = util.fileToLineList(filePath, ",");
+//		System.out.println("list.size()=" + list.size());
 
 
 

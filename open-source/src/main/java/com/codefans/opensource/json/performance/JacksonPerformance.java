@@ -1,9 +1,6 @@
 package com.codefans.opensource.json.performance;
 
-import com.codefans.opensource.json.JacksonJsonUtils;
 import com.codefans.opensource.util.JsonUtils;
-
-import java.io.Serializable;
 
 /**
  * @author: codefans

@@ -1,8 +1,10 @@
 package com.codefans.practicetask.math;
 
-import java.io.*;
+import java.io.InputStream;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * @Author: codefans

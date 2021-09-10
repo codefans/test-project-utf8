@@ -12,7 +12,8 @@ public class FastjsonPerformance extends AbstractRuntimePerformance {
     public void execute() {
 
         PerformanceDomain domain = new PerformanceDomain();
-
+        domain.setPropertyName01("2020-04-12 12:00:00.000");
+        domain.setPropertyName02("\"1970-01-01 00:00:00.000");
         System.out.println(JSON.toJSON(domain));
 
     }

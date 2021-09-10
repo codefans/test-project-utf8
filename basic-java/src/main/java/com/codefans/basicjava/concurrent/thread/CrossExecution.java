@@ -87,14 +87,14 @@ public class CrossExecution {
 
     public void method02() {
 
-        RunnableTest r1 = new RunnableTest();
-        RunnableTest r2 = new RunnableTest();
+//        RunnableTest r1 = new RunnableTest();
+//        RunnableTest r2 = new RunnableTest();
 
         for(int i = 0; i < 100; i ++) {
             if(i % 2 == 0) {
-                new ThreadTest(r1, i, "Thread_" + i).start();
+                new ThreadTest(new RunnableTest(i), "Thread_" + i).start();
             } else {
-                new ThreadTest(r2, i,"Thread_" + i).start();
+                new ThreadTest(new RunnableTest(i),"Thread_" + i).start();
             }
         }
 
@@ -103,6 +103,10 @@ public class CrossExecution {
     class RunnableTest implements Runnable {
 
         private int num;
+
+        public RunnableTest(int num) {
+            this.num = num;
+        }
 
         @Override
         public void run() {
@@ -139,10 +143,17 @@ public class CrossExecution {
             this.threadName = threadName;
         }
 
+        public ThreadTest(RunnableTest runnable, String threadName) {
+            this.runnable = runnable;
+            this.threadName = threadName;
+        }
+
         @Override
         public void run() {
             this.setName(threadName);
-            runnable.setNum(num);
+            if(num != 0) {
+                runnable.setNum(num);
+            }
             runnable.run();
         }
 

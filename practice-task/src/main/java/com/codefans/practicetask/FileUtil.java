@@ -58,9 +58,9 @@ public class FileUtil {
 		
 //		String filePath = "D:/tmp/收入确认表(新).txt";
 //		String newFilePath = "D:/tmp/收入确认表(新改)_out.txt";
-		String filePath = "/Users/codefans/Downloads/jstotal.txt";
+		String filePath = "D:\\caishengzhi\\Desktop/jdos-rsp-汇天.txt";
 //		String newFilePath = "D:/tmp/excel.txt";
-		String newFilePath = "/Users/codefans/Downloads/javatotal.txt";
+		String newFilePath = "D:\\caishengzhi\\Desktop/rsp-汇天.txt";
 		util.compareFile(filePath, newFilePath);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";
@@ -140,30 +140,41 @@ public class FileUtil {
 		System.out.println(sourceFilePath + ":共" + sourceList.size() + "行.");
 		System.out.println(destFilePath + ":共" + destList.size() + "行.");
 		
+		this.compareFile(sourceFilePath, sourceList, destFilePath, destList);
+		
+	}
+
+	/**
+	 * 求两个文件的差集、交集、并集,文件每行一条记录
+	 * @param sourceList
+	 * @param destList
+	 */
+	public void compareFile(String sourceFilePath, List<String> sourceList, String destFilePath, List<String> destList) {
+
 		List<String> result = new ArrayList<String>();
 		result.addAll(sourceList);
 		result.removeAll(destList);
 		System.out.println("只存在于[" + sourceFilePath + "]文件中,共:" + result.size() + "个:");
 		print(result);
-		
+
 		result.clear();
 		result.addAll(destList);
 		result.removeAll(sourceList);
 		System.out.println("只存在于[" + destFilePath + "]文件中,共:" + result.size() + "个:");
 		print(result);
-		
+
 		result.clear();
 		result.addAll(destList);
 		result.retainAll(sourceList);
 		System.out.println("两个文件的交集,共:" + result.size() + "个:");
 //		print(result);
-		
+
 		result.clear();
 		result.addAll(destList);
 		result.addAll(sourceList);
 		System.out.println("两个文件的并集,共:" + result.size() + "个:");
 //		print(result);
-		
+
 	}
 
 	public List<String> fileToList(String filePath) {

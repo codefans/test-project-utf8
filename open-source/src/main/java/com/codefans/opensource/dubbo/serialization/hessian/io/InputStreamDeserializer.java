@@ -48,9 +48,6 @@
 
 package com.codefans.opensource.dubbo.serialization.hessian.io;
 
-import com.alibaba.com.caucho.hessian.io.AbstractDeserializer;
-import com.alibaba.com.caucho.hessian.io.AbstractHessianInput;
-
 import java.io.IOException;
 
 /**

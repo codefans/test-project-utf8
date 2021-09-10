@@ -12,6 +12,11 @@ import java.util.TreeMap;
 
 public class TreeMapTest {
 
+    @Test
+    public void consistentHashTest() {
+
+    }
+
     /**
      * 遍历treeMap
      */
@@ -55,6 +60,9 @@ public class TreeMapTest {
 
     }
 
+    /**
+     * tailMap-顺时针
+     */
     @Test
     public void tailMapTest() {
 
@@ -73,6 +81,9 @@ public class TreeMapTest {
 
     }
 
+    /**
+     * headMap-逆时针
+     */
     @Test
     public void headMapTest() {
         TreeMap<Long, String> data = new TreeMap<Long, String>();
@@ -85,7 +96,14 @@ public class TreeMapTest {
         System.out.println(data.headMap(102L).firstKey());
 
         /**
+         * print 100
+         * inclusive-表示是否包含当前key
+         */
+        System.out.println(data.headMap(100L, true).firstKey());
+
+        /**
          * java.util.NoSuchElementException
+         * 默认不包含当前key
          */
         System.out.println(data.headMap(100L).firstKey());
 

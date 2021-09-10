@@ -9,6 +9,8 @@ package com.codefans.basicjava.concurrent.completionservice;
 
 
 import com.codefans.basicjava.util.CommonsDateUtils;
+import com.codefans.basicjava.util.StopWatchUtils;
+import org.apache.commons.lang.time.StopWatch;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -30,7 +32,8 @@ public class CompletionServiceFutureOrderTest {
     public void submitOrderResultTest() {
         CompletionServiceFutureOrder completionServiceFutureOrder = new CompletionServiceFutureOrder();
 
-        int taskCount = 1000;
+        StopWatchUtils.start();
+        int taskCount = 100000;
         List<Callable<String>> taskList = new ArrayList<>(taskCount);
         for(int i = 0; i < taskCount; i ++) {
             final int index = i;
@@ -39,7 +42,8 @@ public class CompletionServiceFutureOrderTest {
         }
 //        completionServiceFutureOrder.submitOrderResult(taskList);
         completionServiceFutureOrder.submitNoOrderResult(taskList);
-
+        StopWatchUtils.stop();
+        System.out.println("耗时:[" + StopWatchUtils.getTimeInMills() + "]ms");
     }
 
 }

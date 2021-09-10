@@ -2,7 +2,6 @@ package com.codefans.practicetask.file;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -402,9 +401,9 @@ public class GetFileSize extends FileBase {
 
 	public void scan() throws Throwable {
 		String[] dirs = new String[]{
-//			"D:\\Films",
+			"D:\\github\\test-project-utf8\\interview-case\\build\\test-results\\test\\binary",
 //			"E:\\Films",
-			"F:\\Films",
+//			"F:\\Films",
 //			"G:\\Films",
 		};
 		for(int i = 0; i < dirs.length; i ++) {

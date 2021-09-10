@@ -1,11 +1,12 @@
 package com.codefans.basicjava.concurrent.threadpool;
 
+import com.codefans.basicjava.dto.ResultDto;
+
 import java.util.Date;
 import java.util.concurrent.Callable;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import com.codefans.basicjava.dto.ResultDto;
 
 /**
  * @author: codefans

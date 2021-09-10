@@ -19,8 +19,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import static org.mockito.Mockito.mock;
-
 /**
  *
  * 自动注入测试类

@@ -3,7 +3,6 @@ package com.codefans.opensource.netty.socket;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import org.apache.rocketmq.remoting.common.TlsMode;
 
 import java.nio.charset.Charset;
 import java.util.NoSuchElementException;

@@ -1,7 +1,6 @@
 package com.codefans.opensource.redis;
 
 import com.codefans.basicjava.concurrent.cas.CasLock;
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +8,6 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import sun.misc.BASE64Encoder;
-import sun.security.provider.MD5;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.codefans.practicetask.projectsetup;
 
-import java.io.File;
 import java.util.Map;
 
 /**

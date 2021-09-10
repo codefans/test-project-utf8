@@ -9,7 +9,6 @@ package com.codefans.opensource.mocking.commonobjs;
 
 
 import org.mockito.InjectMocks;
-import org.mockito.Spy;
 
 /**
  *

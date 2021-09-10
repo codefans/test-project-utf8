@@ -1,11 +1,7 @@
 package com.codefans.reusablecode.util;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.messaging.saaj.util.Base64;
-import io.jsonwebtoken.impl.TextCodec;
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 

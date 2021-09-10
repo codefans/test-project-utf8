@@ -1,6 +1,5 @@
 package com.codefans.opensource.dubbo.serialization.client;
 
-import com.codefans.opensource.dubbo.serialization.ToSerializationObject;
 import com.codefans.opensource.dubbo.serialization.java.CompactedJavaSerialization;
 import com.codefans.opensource.dubbo.serialization.java.CompactedObjectOutputStream;
 

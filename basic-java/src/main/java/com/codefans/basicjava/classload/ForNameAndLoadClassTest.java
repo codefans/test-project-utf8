@@ -1,7 +1,5 @@
 package com.codefans.basicjava.classload;
 
-import java.lang.reflect.Method;
-
 /**
  * @author: codefans
  * @date: 2017-09-26 16:13

@@ -3,8 +3,6 @@ package com.codefans.opensource.dubbo.serialization.client;
 import com.codefans.opensource.dubbo.serialization.ToSerializationObject;
 import org.junit.Test;
 
-import java.io.IOException;
-
 /**
  * @author codefans
  * @date 2019-06-28 11:23

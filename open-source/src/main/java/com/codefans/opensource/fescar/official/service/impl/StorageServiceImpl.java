@@ -17,7 +17,6 @@
 package com.codefans.opensource.fescar.official.service.impl;
 
 import com.alibaba.fescar.core.context.RootContext;
-//import com.alibaba.fescar.samples.dubbo.service.StorageService;
 import com.codefans.opensource.fescar.official.service.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

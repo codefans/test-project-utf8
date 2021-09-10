@@ -1,8 +1,6 @@
 package com.codefans.basicjava.algorithm.timeout;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.*;
 import java.util.concurrent.*;
 
 /**

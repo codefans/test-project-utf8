@@ -4,7 +4,6 @@ import com.codefans.basicjava.util.CollectionHelper;
 import org.junit.Test;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**

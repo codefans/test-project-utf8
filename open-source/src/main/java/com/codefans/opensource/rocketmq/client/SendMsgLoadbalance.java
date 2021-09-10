@@ -1,7 +1,6 @@
 package com.codefans.opensource.rocketmq.client;
 
 import com.codefans.opensource.rocketmq.common.ThreadLocalIndex;
-import org.apache.rocketmq.common.message.MessageQueue;
 
 import java.util.ArrayList;
 import java.util.List;

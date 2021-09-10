@@ -2,8 +2,6 @@ package com.codefans.opensource.json.performance;
 
 //import com.dslplatform.json.*;
 
-import java.io.IOException;
-
 /**
  * @author codefans
  * @date 2018/2/8 23:20

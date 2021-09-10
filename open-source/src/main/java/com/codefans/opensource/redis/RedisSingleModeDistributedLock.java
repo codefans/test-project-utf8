@@ -1,7 +1,6 @@
 package com.codefans.opensource.redis;
 
 import com.codefans.basicjava.concurrent.cas.CasLock;
-import redis.clients.jedis.Jedis;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

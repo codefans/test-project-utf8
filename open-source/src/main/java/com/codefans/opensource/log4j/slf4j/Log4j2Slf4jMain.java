@@ -1,10 +1,6 @@
 package com.codefans.opensource.log4j.slf4j;
 
 import com.codefans.opensource.log4j.Log4JBase;
-import com.codefans.opensource.log4j.v2_10_0.Log4J2V2100Main;
-import com.codefans.opensource.log4j.v2_10_0.Log4j2DebugLog;
-import com.codefans.opensource.log4j.v2_10_0.Log4j2InfoLog;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 

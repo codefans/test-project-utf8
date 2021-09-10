@@ -1,6 +1,5 @@
 package com.codefans.basicjava.concurrent;
 
-import com.codefans.basicjava.concurrent.cas.CasLock;
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
@@ -18,9 +17,9 @@ public class ConcurrencyTest {
     public void basicTest() {
 
         int threadNum = 100;
-        CountDownLatch countDownLatch = new CountDownLatch(threadNum);
+        final CountDownLatch countDownLatch = new CountDownLatch(threadNum);
 
-        ReentrantLock lock = new ReentrantLock();
+        final ReentrantLock lock = new ReentrantLock();
 
         for(int i = 0; i < threadNum; i ++) {
             final int index = i;

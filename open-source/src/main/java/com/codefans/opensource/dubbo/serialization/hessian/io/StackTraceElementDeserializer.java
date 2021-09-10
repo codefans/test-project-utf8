@@ -48,8 +48,6 @@
 
 package com.codefans.opensource.dubbo.serialization.hessian.io;
 
-import com.alibaba.com.caucho.hessian.io.JavaDeserializer;
-
 /**
  * Deserializing a JDK 1.4 StackTraceElement
  */

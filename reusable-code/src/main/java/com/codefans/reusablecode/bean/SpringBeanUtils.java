@@ -2,7 +2,6 @@ package com.codefans.reusablecode.bean;
 
 import org.springframework.beans.BeanUtils;
 
-import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;

@@ -3,7 +3,6 @@ package com.codefans.opensource.redis;
 import com.codefans.opensource.redis.springdata.SpringDataRedisDistributedLock;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.data.redis.connection.RedisClusterConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import redis.clients.jedis.JedisPoolConfig;

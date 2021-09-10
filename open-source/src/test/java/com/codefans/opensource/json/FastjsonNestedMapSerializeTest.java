@@ -14,7 +14,6 @@ import com.alibaba.fastjson.parser.deserializer.FieldTypeResolver;
 import com.codefans.opensource.json.common.NestedMapBean;
 import com.codefans.opensource.json.common.NestedMapValueBean;
 import com.codefans.opensource.util.JsonUtils;
-import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Test;
 
 import java.lang.reflect.Type;

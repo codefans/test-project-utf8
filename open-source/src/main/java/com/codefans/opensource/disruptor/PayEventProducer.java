@@ -2,7 +2,6 @@ package com.codefans.opensource.disruptor;
 
 import com.lmax.disruptor.RingBuffer;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 
 /**

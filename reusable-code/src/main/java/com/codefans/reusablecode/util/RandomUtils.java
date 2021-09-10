@@ -8,7 +8,7 @@
 package com.codefans.reusablecode.util;
 
 
-import java.util.*;
+import java.util.Random;
 
 /**
  *

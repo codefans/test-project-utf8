@@ -1,7 +1,6 @@
 package com.codefans.opensource.dubbo.serialization.java;
 
 import java.io.IOException;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 

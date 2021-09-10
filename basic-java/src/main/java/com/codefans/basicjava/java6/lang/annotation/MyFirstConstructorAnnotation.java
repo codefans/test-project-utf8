@@ -1,6 +1,5 @@
 package com.codefans.basicjava.java6.lang.annotation;
 
-import javax.xml.bind.Element;
 import java.lang.annotation.*;
 
 /**

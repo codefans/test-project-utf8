@@ -3,7 +3,6 @@ package com.codefans.basicjava.objectcopy;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: codefans

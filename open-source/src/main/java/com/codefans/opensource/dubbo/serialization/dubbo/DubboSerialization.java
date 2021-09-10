@@ -1,12 +1,8 @@
 package com.codefans.opensource.dubbo.serialization.dubbo;
 
-import com.codefans.opensource.dubbo.serialization.hessian.Hessian2Deserializer;
-import com.codefans.opensource.dubbo.serialization.hessian.Hessian2Serializer;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * @author: codefans

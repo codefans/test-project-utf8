@@ -1,7 +1,5 @@
 package com.codefans.opensource.dubbo.serialization.hessian.io;
 
-import com.alibaba.com.caucho.hessian.io.JavaDeserializer;
-
 import java.math.BigInteger;
 
 /**

@@ -7,13 +7,7 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
-import org.apache.rocketmq.common.protocol.RequestCode;
-import org.apache.rocketmq.common.protocol.header.GetProducerConnectionListRequestHeader;
-import org.apache.rocketmq.remoting.netty.NettyDecoder;
-import org.apache.rocketmq.remoting.netty.NettyEncoder;
-import org.apache.rocketmq.remoting.protocol.RemotingCommand;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.ThreadFactory;

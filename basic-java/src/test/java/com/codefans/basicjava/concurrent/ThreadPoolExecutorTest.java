@@ -5,7 +5,6 @@ import com.codefans.basicjava.concurrent.threadpool.ParamRunnable;
 import com.codefans.basicjava.dto.ResultDto;
 import org.junit.Test;
 
-import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;

@@ -7,7 +7,6 @@ import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.protocol.body.TopicList;
 import org.apache.rocketmq.remoting.exception.RemotingException;
-import org.apache.rocketmq.tools.admin.DefaultMQAdminExt;
 import org.junit.Before;
 import org.junit.Test;
 

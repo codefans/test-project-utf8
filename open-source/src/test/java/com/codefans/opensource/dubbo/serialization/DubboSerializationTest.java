@@ -1,7 +1,6 @@
 package com.codefans.opensource.dubbo.serialization;
 
 import com.codefans.opensource.dubbo.serialization.dubbo.DubboSerialization;
-import org.junit.Before;
 import org.junit.Test;
 
 /**

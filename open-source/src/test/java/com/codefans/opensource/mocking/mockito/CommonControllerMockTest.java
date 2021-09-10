@@ -12,13 +12,10 @@ import com.codefans.opensource.mocking.commonobjs.CommonController;
 import com.codefans.opensource.mocking.commonobjs.CommonRpcApi;
 import com.codefans.opensource.mocking.commonobjs.CommonService;
 import com.codefans.opensource.mocking.commonobjs.CommonWrapper;
-import com.codefans.reusablecode.unittest.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 /**
  *

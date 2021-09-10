@@ -7,9 +7,6 @@
  */
 package com.codefans.interview.algorithm.common;
 
-
-import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
-
 import java.util.LinkedList;
 
 /**

@@ -13,7 +13,7 @@ import org.mockito.ArgumentMatcher;
 
 import java.util.LinkedList;
 import java.util.List;
-//Let's import Mockito statically so that the code looks clearer
+
 import static org.mockito.Mockito.*;
 
 

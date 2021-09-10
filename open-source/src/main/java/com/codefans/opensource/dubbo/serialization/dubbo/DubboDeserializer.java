@@ -2,7 +2,6 @@ package com.codefans.opensource.dubbo.serialization.dubbo;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * @author: codefans

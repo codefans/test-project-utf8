@@ -17,9 +17,6 @@
 package com.codefans.opensource.fescar.official.service.impl;
 
 import com.alibaba.fescar.core.context.RootContext;
-//import com.alibaba.fescar.samples.dubbo.Order;
-//import com.alibaba.fescar.samples.dubbo.service.AccountService;
-//import com.alibaba.fescar.samples.dubbo.service.OrderService;
 import com.codefans.opensource.fescar.official.Order;
 import com.codefans.opensource.fescar.official.service.AccountService;
 import com.codefans.opensource.fescar.official.service.OrderService;

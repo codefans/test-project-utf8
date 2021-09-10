@@ -5,9 +5,7 @@ import com.codefans.basicjava.concurrent.threadpool.DefaultThreadPool;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author: codefans
