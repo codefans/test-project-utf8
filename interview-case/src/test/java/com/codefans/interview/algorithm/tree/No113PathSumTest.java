@@ -45,7 +45,8 @@ public class No113PathSumTest {
             TreeNodeFactory.printByLevel(treeNode);
 
             No113PathSum no113PathSum = new No113PathSum();
-            List<List<Integer>> list = no113PathSum.pathSum(treeNode, targetSum);
+//            List<List<Integer>> list = no113PathSum.pathSumDfs(treeNode, targetSum);
+            List<List<Integer>> list = no113PathSum.pathSumBfs(treeNode, targetSum);
             no113PathSum.print(list);
 
         }

@@ -48,11 +48,13 @@ public class TreeNodeFactory {
                 queue.addLast(left);
                 curNode.left = left;
             }
-            curItem = arr[i+1];
-            if(curItem != null) {
-                right = new TreeNode(curItem);
-                queue.addLast(right);
-                curNode.right = right;
+            if(i+1 <= arr.length - 1) {
+                curItem = arr[i + 1];
+                if (curItem != null) {
+                    right = new TreeNode(curItem);
+                    queue.addLast(right);
+                    curNode.right = right;
+                }
             }
         }
         return treeNode;
@@ -63,6 +65,10 @@ public class TreeNodeFactory {
      * @param treeNode
      */
     public static void printByLevel(TreeNode treeNode) {
+        if(treeNode == null) {
+            System.out.println("[]");
+            return;
+        }
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.add(treeNode);
         TreeNode currNode = null;
