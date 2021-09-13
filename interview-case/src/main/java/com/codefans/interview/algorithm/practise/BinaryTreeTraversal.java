@@ -45,13 +45,10 @@ public class BinaryTreeTraversal {
         }
         TreeNode curr = treeNode;
         Stack<TreeNode> stack = new Stack<>();
-        while(curr != null) {
-            if(stack.isEmpty()) {
-                System.out.println(curr.val);
-                stack.push(curr.right);
-                stack.push(curr.left);
-            } else {
-                curr = stack.pop();
+        stack.push(curr);
+        while(!stack.isEmpty()) {
+            curr = stack.pop();
+            if(curr != null) {
                 System.out.println(curr.val);
                 stack.push(curr.right);
                 stack.push(curr.left);
@@ -64,7 +61,12 @@ public class BinaryTreeTraversal {
      * @param treeNode
      */
     public void middleOrderTraversal(TreeNode treeNode) {
-
+        if(treeNode == null) {
+            return;
+        }
+        middleOrderTraversal(treeNode.left);
+        System.out.println(treeNode.val);
+        middleOrderTraversal(treeNode.right);
     }
 
     /**
@@ -72,7 +74,12 @@ public class BinaryTreeTraversal {
      * @param treeNode
      */
     public void postOrderTraversal(TreeNode treeNode) {
-
+        if(treeNode == null) {
+            return;
+        }
+        postOrderTraversal(treeNode.left);
+        postOrderTraversal(treeNode.right);
+        System.out.println(treeNode.val);
     }
 
 }
