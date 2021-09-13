@@ -123,4 +123,25 @@ public class TreeNodeFactory {
         }
         return mirrorNode;
     }
+
+    /**
+     * 在二叉树中，查找值为nodeVal的节点
+     * @param root
+     * @param nodeVal
+     * @return
+     */
+    public static TreeNode getTreeNode(TreeNode root, int nodeVal) {
+        if(root == null || root.val == nodeVal) {
+            return root;
+        }
+        TreeNode left = getTreeNode(root.left, nodeVal);
+        TreeNode right = getTreeNode(root.right, nodeVal);
+        if(left == null) {
+            return right;
+        }
+        if(right == null) {
+            return left;
+        }
+        return root;
+    }
 }
