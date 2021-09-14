@@ -31,6 +31,7 @@ public class PostorderTraversalOfBinaryTreeTest {
             {7,4,6,5}, //false
             {4, 8, 6, 12, 16, 14, 10},  //true
             {1,2,5,10,6,9,4,3},  //false
+            {},  //true
             {5, 7, 6, 9, 11, 10, 8}  //true
         };
         for(int i = 0; i < postOrderArr.length; i ++) {

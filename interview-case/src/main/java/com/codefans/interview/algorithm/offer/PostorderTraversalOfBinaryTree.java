@@ -8,6 +8,8 @@
 package com.codefans.interview.algorithm.offer;
 
 
+import java.util.Arrays;
+
 /**
  *
  * 判断数据是否是二叉树的后序遍历
@@ -39,8 +41,11 @@ public class PostorderTraversalOfBinaryTree {
 
     public boolean verifyPostorder(int[] postorder, int len) {
         boolean isPostOrder = false;
-        if(postorder == null || len <= 0) {
+        if(postorder == null) {
             return isPostOrder;
+        }
+        if(len <= 0) {
+            return true;
         }
         int root = postorder[len - 1];
         int i = 0;
@@ -61,7 +66,7 @@ public class PostorderTraversalOfBinaryTree {
         }
         boolean right = true;
         if(i < len - 1) {
-            right = verifyPostorder(postorder, len - i - 1);
+            right = verifyPostorder(Arrays.copyOfRange(postorder, i, len - 1), len - i - 1);
         }
         return (left && right);
     }
