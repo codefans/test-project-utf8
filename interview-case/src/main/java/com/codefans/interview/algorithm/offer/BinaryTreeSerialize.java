@@ -17,63 +17,106 @@ public class BinaryTreeSerialize {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-//        serialize(root, sb);
+//        dfsSerialize(root, sb);
         bfsSerialize(root, sb);
-        return sb.toString();
+        String str = sb.toString();
+        while(str.endsWith(",null")) {
+            str = str.substring(0, str.lastIndexOf(",null"));
+        }
+        return str;
     }
 
-    private void serialize(TreeNode root, StringBuilder sb) {
+    private void dfsSerialize(TreeNode root, StringBuilder sb) {
         if(root == null) {
             sb.append(",null");
             return;
         }
+
         if(sb.length() == 0) {
             sb.append(root.val);
         } else {
             sb.append(",").append(root.val);
         }
-        serialize(root.left, sb);
-        serialize(root.right, sb);
+        dfsSerialize(root.left, sb);
+        dfsSerialize(root.right, sb);
 
     }
 
     private void bfsSerialize(TreeNode root, StringBuilder sb) {
         LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        queue.addLast(root);
         while(!queue.isEmpty()) {
             int size = queue.size();
-            StringBuilder childStr = new StringBuilder();
             for(int i = 0; i < size; i ++) {
-                TreeNode cur = queue.pop();
-                if(sb.length() == 0) {
-                    sb.append(cur.val);
+                TreeNode cur = queue.removeFirst();
+                if(cur != null) {
+                    if(sb.length() == 0) {
+                        sb.append(cur.val);
+                    } else {
+                        sb.append(",").append(cur.val);
+                    }
+                    TreeNode left = cur.left;
+                    queue.addLast(left);
+                    TreeNode right = cur.right;
+                    queue.addLast(right);
                 } else {
-                    sb.append(",").append(cur.val);
+                    sb.append(",null");
                 }
-
-                TreeNode left = cur.left;
-                if(left == null) {
-                    childStr.append(",null");
-                } else {
-                    queue.offer(left);
-                }
-                TreeNode right = cur.right;
-                if(right == null) {
-                    childStr.append(",null");
-                } else {
-                    queue.offer(right);
-                }
-
             }
-            sb.append(childStr.toString());
         }
 
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
+        if(data == null) {
+            return null;
+        }
         TreeNode treeNode = null;
+        String[] arr = data.split(",");
+        treeNode = createTreeNode(arr);
+        return treeNode;
+    }
 
+    /**
+     * 根据数组创建二叉树
+     * @param arr
+     * @return
+     */
+    public static TreeNode createTreeNode(String[] arr) {
+        TreeNode treeNode = null;
+        if(arr == null || arr.length == 0) {
+            return treeNode;
+        }
+        treeNode = new TreeNode(Integer.parseInt(arr[0]));
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(treeNode);
+
+        TreeNode curNode = null;
+        TreeNode left = null;
+        TreeNode right = null;
+        String curItem = null;
+        for(int i = 1; i < arr.length; i = i + 2) {
+            curNode = queue.removeFirst();
+            curItem = arr[i];
+            if(curItem != null && !curItem.equals("null")) {
+                left = new TreeNode(Integer.parseInt(curItem));
+                queue.addLast(left);
+                curNode.left = left;
+            } else {
+                curNode.left = null;
+            }
+            if(i+1 <= arr.length - 1) {
+                curItem = arr[i + 1];
+                if (curItem != null && !curItem.equals("null")) {
+                    right = new TreeNode(Integer.parseInt(curItem));
+                    queue.addLast(right);
+                    curNode.right = right;
+                } else {
+                    curNode.right = null;
+                }
+            }
+        }
         return treeNode;
     }
 
