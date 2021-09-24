@@ -20,7 +20,7 @@ public class FibonacciSequence {
 
     /**
      * O(2^n)
-     * 有些数字计算多次
+     * 递归法-有些数字计算多次
      * @param n
      * @return
      */
@@ -30,6 +30,7 @@ public class FibonacciSequence {
 
     /**
      * O(n)
+     * 记忆化递归法
      * 优化点：每个数字只计算一次
      * @param n
      * @return
@@ -54,8 +55,9 @@ public class FibonacciSequence {
     }
 
     /**
-     * O(n)
      * 动态规划思想
+     * 空间复杂度：O(n)
+     * 
      * @param n
      * @return
      */
@@ -72,6 +74,13 @@ public class FibonacciSequence {
         return arr[n];
     }
 
+    /**
+     * 动态规划思想2
+     * 空间复杂度：O(1)
+     *
+     * @param n
+     * @return
+     */
     public int dynamicProgrammingBetter(int n) {
         if(n <= 1) {
             return n;
