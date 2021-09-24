@@ -58,4 +58,13 @@ public class FibonacciSequenceTest {
         }
     }
 
+    @Test
+    public void dynamicProgrammingBetterTest() {
+        int n = 44;
+        System.out.println("斐波那契数列-动态规划解法：");
+        for(int i = 0; i < n; i ++) {
+            System.out.print(fibonacciSequence.dynamicProgrammingBetter(i) + ",");
+        }
+    }
+
 }
