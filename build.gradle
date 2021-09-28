@@ -64,7 +64,12 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.12'
     }
 
+
+
 }
+
+
+
 
 //buildscript {
 //    repositories {

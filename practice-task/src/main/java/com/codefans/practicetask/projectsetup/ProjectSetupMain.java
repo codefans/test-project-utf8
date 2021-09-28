@@ -1,5 +1,6 @@
 package com.codefans.practicetask.projectsetup;
 
+import com.codefans.reusablecode.util.IOUtils;
 import com.codefans.reusablecode.xml.Dom4jXmlFormater;
 import com.codefans.reusablecode.xml.XercesXmlFormater;
 
@@ -17,6 +18,10 @@ public class ProjectSetupMain implements PropertyKeyConstants {
 
     String projectRootDir;
     String propertyFileName;
+    /**
+     * 项目类型：pom和gradle
+     */
+    String projectType;
 
     String projectArtifactId;;
     String[] moduleArtifactIdArr;
@@ -35,7 +40,11 @@ public class ProjectSetupMain implements PropertyKeyConstants {
 
             this.initProperties();
             this.setupDir();
-            this.setupPom();
+            if(projectType.equals("pom")) {
+                this.setupPom();
+            } else {
+                this.setupGradle();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,8 +58,10 @@ public class ProjectSetupMain implements PropertyKeyConstants {
 
         projectRootDir = "D:/github";
         propertyFileName = "setup.properties";
+        projectType = "gradle";
 
         InputStream is = ProjectSetupMain.class.getResourceAsStream(propertyFileName);
+//        InputStream is = ProjectSetupMain.class.getClassLoader().getResourceAsStream(propertyFileName);
         properties = new Properties();
         properties.load(is);
 
@@ -138,6 +149,77 @@ public class ProjectSetupMain implements PropertyKeyConstants {
             e.printStackTrace();
 
         }
+    }
+
+    public void setupGradle() {
+        this.setBuildGradle();
+        this.setSettingsGradle();
+        this.setDefaultFiles();
+    }
+
+    public void setBuildGradle() {
+        try {
+
+            ProjectGradleBuilder projectGradleBuilder = new ProjectGradleBuilder(setupInfoMap);
+            String buildGradleStr = projectGradleBuilder.rootBuildGradle();
+            String buildGradleFilePath = projectPath + File.separator + "build.gradle";
+            this.write(buildGradleFilePath, buildGradleStr);
+
+            String subProjectBuildGradleStr = projectGradleBuilder.subProjectBuildGradle();
+
+            String moduleArtifactIdStr = setupInfoMap.get(MODULE_ARTIFACTIDS);
+            String[] moduleArtifactIdArr = moduleArtifactIdStr.split(PROPERTY_SEPERATOR);
+            if(moduleArtifactIdArr != null && moduleArtifactIdArr.length > 0) {
+                for(int i = 0; i < moduleArtifactIdArr.length; i ++) {
+                    String modulePomFilePath = modulePaths.get(i) + File.separator + "build.gradle";
+                    this.write(modulePomFilePath, subProjectBuildGradleStr);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("setBuildGradle exception:");
+            e.printStackTrace();
+        }
+    }
+
+
+    public void setSettingsGradle() {
+        try {
+
+            ProjectGradleBuilder projectGradleBuilder = new ProjectGradleBuilder(setupInfoMap);
+            String buildGradleStr = projectGradleBuilder.settingsGradle();
+            String buildGradleFilePath = projectPath + File.separator + "settings.gradle";
+            this.write(buildGradleFilePath, buildGradleStr);
+        } catch (Exception e) {
+            System.out.println("setSettingsGradle exception:");
+            e.printStackTrace();
+        }
+    }
+
+    public void setDefaultFiles() {
+
+        try {
+            String projectName = "test-project-utf8";
+            String userDir = System.getProperty("user.dir");
+            String rootPath = userDir.substring(0, userDir.indexOf(projectName) + projectName.length());
+            System.out.println("rootPath=" + rootPath);
+
+            String gradlePropertiesInPath = rootPath + File.separator + "gradle.properties";
+            String gradlePropertiesOutPath = projectPath + File.separator + "gradle.properties";
+            IOUtils.write(gradlePropertiesInPath, gradlePropertiesOutPath);
+
+            String gradlewInPath = rootPath + File.separator + "gradlew";
+            String gradlewOutPath = projectPath + File.separator + "gradlew";
+            IOUtils.write(gradlewInPath, gradlewOutPath);
+
+            String gradlewBatInPath = rootPath + File.separator + "gradlew.bat";
+            String gradlewBatOutPath = projectPath + File.separator + "gradlew.bat";
+            IOUtils.write(gradlewBatInPath, gradlewBatOutPath);
+        } catch (IOException e) {
+            System.out.println("setDefaultFiles exception");
+            e.printStackTrace();
+        }
+
     }
 
     public String getProperty(String key) {

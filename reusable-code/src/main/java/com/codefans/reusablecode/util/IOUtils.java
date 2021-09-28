@@ -81,5 +81,30 @@ public class IOUtils {
         return baos.toByteArray();
     }
 
+    public static boolean write(String inFilePath, String outFilePath) throws IOException {
+        return write(new File(inFilePath), new File(outFilePath));
+    }
+
+    public static boolean write(File inFile, File outFile) throws IOException {
+        return write(new FileInputStream(inFile), new FileOutputStream(outFile));
+    }
+
+    public static boolean write(InputStream is, OutputStream os) throws IOException {
+        boolean isSuccess = false;
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
+        String line = "";
+        while((line = br.readLine()) != null) {
+            bw.write(line);
+            bw.newLine();
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+        br = null;
+        bw = null;
+        isSuccess = true;
+        return isSuccess;
+    }
 
 }
