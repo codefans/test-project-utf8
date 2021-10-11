@@ -18,3 +18,10 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest-core:2.2'
 
 }
+
+
+sourceSets {
+    main {
+        resources.srcDirs = ['src/main/resources', 'src/main/java']
+    }
+}
