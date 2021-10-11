@@ -17,10 +17,25 @@ import java.util.List;
  */
 public class HanotaProblemTest {
 
+    /**
+     * 示例1:
+     *  输入：A = [2, 1, 0], B = [], C = []
+     *  输出：C = [2, 1, 0]
+     *
+     * 示例2:
+     *  输入：A = [1, 0], B = [], C = []
+     *  输出：C = [1, 0]
+     *
+     */
     @Test
     public void hanotaTest() {
 
         List<Integer> A = new ArrayList<>();
+        A.add(4);
+        A.add(3);
+        A.add(2);
+        A.add(1);
+        A.add(0);
         List<Integer> B = new ArrayList<>();
         List<Integer> C = new ArrayList<>();
         HanotaProblem hanotaProblem = new HanotaProblem();

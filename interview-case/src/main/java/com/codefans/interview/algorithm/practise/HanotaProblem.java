@@ -27,7 +27,27 @@ import java.util.List;
 public class HanotaProblem {
 
     public void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
-
+        hanota(A.size(), A, B, C);
     }
+
+    public void hanota(int size, List<Integer> A, List<Integer> B, List<Integer> C) {
+        if(size > 0) {
+            //先将size-1个元素从A通过C移动到B
+            hanota(size - 1, A, C, B);
+            //把A的最后一个元素移动到C
+            move(A, C);
+            //将size-1个元素从B通过A移动到C
+            hanota(size - 1, B, A, C);
+        }
+    }
+
+    /**
+     * 把A的最后一个元素移动到B
+     */
+    public void move(List<Integer> A, List<Integer> B) {
+        B.add(A.remove(A.size() - 1));
+    }
+
+
 
 }
