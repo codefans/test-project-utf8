@@ -37,6 +37,9 @@ public class LockCondition2Impl {
 
                         System.out.print(c);
 
+                        /**
+                         * 最后一个signal是为了保证程序能正常结束，否则for结束后会有一个线程处于阻塞无人唤醒的状态
+                         */
                         conditionL1.signal();
                     }
                 } catch (Exception e) {
