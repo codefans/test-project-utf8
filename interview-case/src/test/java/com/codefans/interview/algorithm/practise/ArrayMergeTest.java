@@ -44,4 +44,37 @@ public class ArrayMergeTest {
         int[] resultArr = arrayMerge.mergeSortedArray(arr1, arr2);
         ArrayUtils.print(resultArr);
     }
+
+    @Test
+    public void mergeSortedArrayTest2() {
+
+        int[] arr1 = new int[]{1,2,3,0,0,0};
+        int m = 3;
+        int[] arr2 = new int[]{2,5,6};
+        int n = 3;
+        arrayMerge.mergeSortedArray(arr1, m, arr2, n);
+        ArrayUtils.print(arr1);
+
+        arr1 = new int[]{1};
+        m = 1;
+        arr2 = new int[]{};
+        n = 0;
+        arrayMerge.mergeSortedArray(arr1, m, arr2, n);
+        ArrayUtils.print(arr1);
+
+        arr1 = new int[]{0};
+        m = 0;
+        arr2 = new int[]{1};
+        n = 1;
+        arrayMerge.mergeSortedArray(arr1, m, arr2, n);
+        ArrayUtils.print(arr1);
+
+        arr1 = new int[]{0,0,0,0,0};
+        m = 0;
+        arr2 = new int[]{1,2,3,4,5};
+        n = 5;
+        arrayMerge.mergeSortedArray(arr1, m, arr2, n);
+        ArrayUtils.print(arr1);
+
+    }
 }

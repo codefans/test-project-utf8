@@ -58,6 +58,7 @@ public class PrintUtils {
                 }
                 System.out.print(arr[i]);
             }
+            System.out.println();
         } else {
             System.out.println("arr为空！！！");
         }
@@ -74,6 +75,21 @@ public class PrintUtils {
                     System.out.print(", ");
                 }
                 System.out.print(list.get(i));
+            }
+        } else {
+            System.out.println("list为空！！！");
+        }
+    }
+
+    /**
+     * 打印list
+     * @param list
+     */
+    public static final void printIntListList(List<List<Integer>> list) {
+        if(list != null && list.size() > 0) {
+            for(List<Integer> data : list) {
+                printIntList(data);
+                System.out.println();
             }
         } else {
             System.out.println("list为空！！！");
