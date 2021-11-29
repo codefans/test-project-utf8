@@ -20,7 +20,8 @@ public class No46PermutationTest {
 
         No46Permutation no46Permutation = new No46Permutation();
         int[] nums = new int[]{1,2,3};
-        List<List<Integer>> permutationList = no46Permutation.permute(nums);
+//        List<List<Integer>> permutationList = no46Permutation.permute(nums);
+        List<List<Integer>> permutationList = no46Permutation.permuteOpti(nums);
         PrintUtils.printIntListList(permutationList);
     }
 
