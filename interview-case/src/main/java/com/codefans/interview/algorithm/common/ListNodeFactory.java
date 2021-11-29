@@ -63,4 +63,18 @@ public class ListNodeFactory {
         return head;
     }
 
+    /**
+     * 创建一个循环链表
+     * @return
+     */
+    public static ListNode createCycleListNode() {
+        ListNode head = new ListNode(1);
+        ListNode mid = new ListNode(2);
+        ListNode tail = new ListNode(3);
+        head.next = mid;
+        mid.next = tail;
+        tail.next = head;
+        return head;
+    }
+
 }
