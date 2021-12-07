@@ -16,6 +16,8 @@ private DoubleCheck() {
 private Object readResolve(){
     return getInstance();
 }
+怎么破坏单例模式和怎么防止单例模式被破坏
+http://www.justdojava.com/2019/08/21/Java-single-destroy-prevent/
 
 枚举类型的单例，天然就具备防止反射和反序列化对单例的破坏的能力。
 
