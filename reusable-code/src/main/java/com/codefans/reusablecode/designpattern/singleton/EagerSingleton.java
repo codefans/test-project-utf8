@@ -21,7 +21,11 @@ public class EagerSingleton {
     /**
      *
      */
-    private static EagerSingleton eagerSingleton = new EagerSingleton();
+    private static final EagerSingleton eagerSingleton = new EagerSingleton();
+
+    private EagerSingleton() {
+
+    }
 
     /**
      *

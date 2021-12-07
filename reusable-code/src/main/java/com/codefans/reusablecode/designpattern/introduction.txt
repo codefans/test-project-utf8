@@ -1,5 +1,25 @@
 1.单例模式singleton
 
+private DoubleCheck() {
+    /**
+     * 防止反射破坏单例
+     */
+    if(instance != null) {
+        throw new IllegalStateException("不能重复创建实例!!!");
+    }
+}
+
+/**
+ * 防止序列化创建多个对象
+ * @return
+ */
+private Object readResolve(){
+    return getInstance();
+}
+
+枚举类型的单例，天然就具备防止反射和反序列化对单例的破坏的能力。
+
+
 
 
 
