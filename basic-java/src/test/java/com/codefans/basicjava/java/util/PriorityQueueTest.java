@@ -21,7 +21,7 @@ public class PriorityQueueTest {
         /**
          * 默认是小顶堆, 最小值在第一个位置
          */
-        PriorityQueue<Integer> queue = new PriorityQueue<>(2);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(6);
         queue.add(12);
         queue.add(6);
         queue.add(24);
@@ -75,15 +75,14 @@ public class PriorityQueueTest {
     class IntegerComparetor implements Comparator<Integer> {
         @Override
         public int compare(Integer o1, Integer o2) {
-            int result = -2;
-            if(o1 > o2) {
-                result = -1;
-            } else if(o1 == o2) {
-                result = 0;
-            } else {
-                result = 1;
-            }
-            return result;
+            /**
+             * 小顶堆，默认就是这种
+             */
+//            return o1 - o2;
+            /**
+             * 大顶堆
+             */
+            return o2 - o1;
         }
     }
     private void print(PriorityQueue<Integer> queue) {
