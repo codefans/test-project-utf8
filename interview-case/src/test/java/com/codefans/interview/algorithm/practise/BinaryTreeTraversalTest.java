@@ -14,6 +14,7 @@ import com.codefans.interview.algorithm.common.TreeNodeUtils;
 import com.google.common.base.Stopwatch;
 import org.junit.Before;
 import org.junit.Test;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +44,10 @@ public class BinaryTreeTraversalTest {
     @Test
     public void fisrtOrderTraversalTest() {
 
-        TreeNode treeNode = new TreeNode(1);
-        TreeNode left = new TreeNode(3);
-        TreeNode right = new TreeNode(2);
-        right.left = left;
-        treeNode.right = right;
+
+        Integer[] arr = new Integer[]{1,2,3,4,5,6};
+        TreeNode treeNode = TreeNodeFactory.createTreeNode(arr);
+
         binaryTreeTraversal.fisrtOrderTraversal(treeNode);
 //        binaryTreeTraversal.fisrtOrderTraversal2(treeNode);
 
@@ -68,11 +68,9 @@ public class BinaryTreeTraversalTest {
     @Test
     public void middleOrderTraversalTest() {
 
-        TreeNode treeNode = new TreeNode(1);
-        TreeNode left = new TreeNode(3);
-        TreeNode right = new TreeNode(2);
-        right.left = left;
-        treeNode.right = right;
+        Integer[] arr = new Integer[]{1,2,3,4,5,6};
+        TreeNode treeNode = TreeNodeFactory.createTreeNode(arr);
+
         binaryTreeTraversal.middleOrderTraversal(treeNode);
 
     }
@@ -81,7 +79,7 @@ public class BinaryTreeTraversalTest {
     public void postOrderTraversalTest() {
 
         Integer[][] arr = new Integer[][]{
-            {2,1,3}
+            {1,2,3,4,5,6}
         };
         for(int i = 0; i < arr.length; i ++) {
             TreeNode treeNode = TreeNodeFactory.createTreeNode(arr[i]);
