@@ -1,5 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * @author: codefans
  * @date: 2017-11-07 21:36
@@ -113,6 +115,50 @@ public class QuickSort extends SortBase {
             }
         }
     }
+
+    /**
+     * 快速排序
+     * @param nums
+     * @return
+     */
+    public int[] quickSort(int[] nums) {
+        int[] newArr = Arrays.copyOf(nums, nums.length);
+        quickSort(newArr, 0, newArr.length - 1);
+        return newArr;
+    }
+
+    private void quickSort(int[] nums, int low, int high) {
+        if(low < high) {
+            int partitionIndex = partition(nums, low, high);
+            quickSort(nums, low, partitionIndex - 1);
+            quickSort(nums, partitionIndex + 1, high);
+        }
+    }
+
+    /**
+     * 该方法的作用是：
+     *    將小于基准值的挪到左边,大于基准值的挪到右边,然后返回基准值所在的下标.
+     *
+     * @param nums
+     * @param low
+     * @param high
+     * @return
+     */
+    private int partition(int[] nums, int low, int high) {
+        int partitionIndex = -1;
+        int baseIndex = low;
+        int index = baseIndex + 1;
+        for(int i = index; i <= high; i ++) {
+            if(nums[i] < nums[baseIndex]) {
+                swap(nums, i, index);
+                index++;
+            }
+        }
+        swap(nums, baseIndex, index - 1);
+        partitionIndex = index - 1;
+        return partitionIndex;
+    }
+
 
 
 }
