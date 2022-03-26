@@ -98,5 +98,7 @@ public class DefaultThreadPool {
         threadPoolExecutor.shutdownNow();
     }
 
-
+    public ThreadPoolExecutor getThreadPoolExecutor() {
+        return threadPoolExecutor;
+    }
 }

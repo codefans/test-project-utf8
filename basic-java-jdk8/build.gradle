@@ -4,9 +4,8 @@ apply plugin: 'java'
 group 'com.codefans'
 version '1.0.0-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-
 dependencies {
+    implementation project(':reusable-code')
     implementation 'com.alibaba:fastjson:1.2.47'
     implementation 'commons-collections:commons-collections:3.2.2'
     implementation group: 'junit', name: 'junit', version: '4.12'
