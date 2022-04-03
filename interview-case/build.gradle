@@ -12,7 +12,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
     implementation project(':basic-java')
-    implementation project(':reusable-code')
+    api project(':reusable-code')
     implementation 'com.google.guava:guava:23.0'
     implementation 'junit:junit:4.12'
     testImplementation 'org.hamcrest:hamcrest-core:2.2'

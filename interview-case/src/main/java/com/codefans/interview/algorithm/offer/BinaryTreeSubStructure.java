@@ -8,7 +8,7 @@
 package com.codefans.interview.algorithm.offer;
 
 
-import com.codefans.interview.algorithm.common.TreeNode;
+import com.codefans.reusablecode.datastructure.TreeNode;
 import lombok.val;
 
 import java.util.Stack;

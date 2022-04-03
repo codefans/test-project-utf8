@@ -33,12 +33,16 @@ public class No206ReverseLinkedListTest {
 
     @Test
     public void reverseListTest() {
-        ListNodeUtils.print(node);
+
+
+//        ListNodeUtils.print(node);
+        node = ListNodeFactory.createCycleListNode();
         No206ReverseLinkedList no206ReverseLinkedList = new No206ReverseLinkedList();
         ListNode newHead = null;
 //        ListNode resultNode = no206ReverseLinkedList.reverseListRecursively(node, newHead);
         ListNode resultNode = no206ReverseLinkedList.reverseListIterator(node);
         ListNodeUtils.print(resultNode);
+
     }
 
 }

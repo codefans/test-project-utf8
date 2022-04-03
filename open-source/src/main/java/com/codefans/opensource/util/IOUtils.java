@@ -140,6 +140,23 @@ public class IOUtils {
     }
 
     /**
+     *
+     * @param is
+     * @return
+     * @throws IOException
+     */
+    public static String readLine(InputStream is) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        byte[] bytes = new byte[1024];
+        int n = 0;
+        while((n = is.read(bytes)) != -1) {
+            baos.write(bytes, 0, n);
+        }
+        baos.flush();
+        return baos.toString("UTF-8");
+    }
+
+    /**
      * read lines.
      *
      * @param is input stream.

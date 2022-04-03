@@ -1,8 +1,6 @@
 package com.codefans.interview.algorithm.leetcode;
 
 
-import sun.misc.LRUCache;
-
 import java.util.HashMap;
 import java.util.Map;
 

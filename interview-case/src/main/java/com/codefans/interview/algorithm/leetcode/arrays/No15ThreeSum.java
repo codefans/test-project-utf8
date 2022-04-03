@@ -1,9 +1,6 @@
 package com.codefans.interview.algorithm.leetcode.arrays;
 
 
-import com.codefans.reusablecode.util.PrintUtils;
-import org.apache.commons.collections4.CollectionUtils;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

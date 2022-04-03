@@ -1,6 +1,6 @@
 package com.codefans.interview.algorithm.leetcode.linkedlist;
 
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 /**
  * @Author: codefans
@@ -13,7 +13,17 @@ import com.codefans.interview.algorithm.common.ListNode;
  */
 
 public class No237DeleteNodeInALinkedList {
+
     public void deleteNode(ListNode node) {
+        ListNode cur = node;
+        if(cur != null) {
+            ListNode next = cur.next;
+            cur.val = next.val;
+            cur.next = next.next;
+        }
+    }
+
+    public void deleteNode02(ListNode node) {
         ListNode next = node;
         while(next != null) {
             if(next.next != null) {

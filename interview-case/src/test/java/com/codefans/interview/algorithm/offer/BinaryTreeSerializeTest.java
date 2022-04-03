@@ -1,8 +1,13 @@
 package com.codefans.interview.algorithm.offer;
 
+import com.codefans.interview.algorithm.common.ArrayUtils;
 import com.codefans.interview.algorithm.common.TreeNode;
 import com.codefans.interview.algorithm.common.TreeNodeFactory;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Author: codefans
@@ -34,6 +39,21 @@ public class BinaryTreeSerializeTest {
             TreeNodeFactory.printByLevel(deSerializeTreeNode);
 
         }
+
+        int[] dataArr = new int[10];
+        dataArr[0] = 1;
+        dataArr[1] = 2;
+        dataArr[2] = 3;
+        int[] newArr = new int[3];
+        System.arraycopy(dataArr, 0, newArr, 0, 3);
+//        System.out.println(newArr);
+        ArrayUtils.print(newArr);
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
 
     }
 

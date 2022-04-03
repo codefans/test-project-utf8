@@ -8,9 +8,8 @@
 package com.codefans.interview.algorithm.leetcode.linkedlist;
 
 
-import com.codefans.interview.algorithm.common.ListNode;
-import com.codefans.interview.algorithm.common.ListNodeUtils;
-import com.codefans.interview.datastructure.LinkedNode;
+import com.codefans.reusablecode.datastructure.ListNode;
+import com.codefans.reusablecode.datastructure.ListNodeUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -99,22 +98,22 @@ public class No2AddTwoNumbers {
         return resListNode;
     }
 
-    public LinkedNode addTwoNumbers(LinkedNode l1, LinkedNode l2) {
-        LinkedNode resNode = null;
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        ListNode resNode = null;
         int upStep = 0;
         if(l1 != null && l2 != null) {
             int tmp = l1.val + l2.val;
             if(tmp >= 10) {
-                resNode = new LinkedNode(tmp%10);
+                resNode = new ListNode(tmp%10);
                 upStep = tmp/10;
             } else {
-                resNode = new LinkedNode(tmp);
+                resNode = new ListNode(tmp);
             }
         }
-        LinkedNode nextNode01 = l1.next;
-        LinkedNode nextNode02 = l2.next;
-        LinkedNode nextNode = resNode;
-        LinkedNode next = null;
+        ListNode nextNode01 = l1.next;
+        ListNode nextNode02 = l2.next;
+        ListNode nextNode = resNode;
+        ListNode next = null;
 
         while(nextNode01 != null || nextNode02 != null) {
 
@@ -122,10 +121,10 @@ public class No2AddTwoNumbers {
                 int tmp = nextNode01.val + nextNode02.val + upStep;
                 upStep = 0;
                 if(tmp >= 10) {
-                    next = new LinkedNode(tmp%10);
+                    next = new ListNode(tmp%10);
                     upStep = tmp/10;
                 } else {
-                    next = new LinkedNode(tmp);
+                    next = new ListNode(tmp);
                 }
                 nextNode01 = nextNode01.next;
                 nextNode02 = nextNode02.next;
@@ -133,10 +132,10 @@ public class No2AddTwoNumbers {
                 int tmp = nextNode01.val + upStep;
                 upStep = 0;
                 if(tmp >= 10) {
-                    next = new LinkedNode(tmp%10);
+                    next = new ListNode(tmp%10);
                     upStep = tmp/10;
                 } else {
-                    next = new LinkedNode(tmp);
+                    next = new ListNode(tmp);
                 }
 
                 nextNode01 = nextNode01.next;
@@ -144,10 +143,10 @@ public class No2AddTwoNumbers {
                 int tmp = nextNode02.val + upStep;
                 upStep = 0;
                 if(tmp >= 10) {
-                    next = new LinkedNode(tmp%10);
+                    next = new ListNode(tmp%10);
                     upStep = tmp/10;
                 } else {
-                    next = new LinkedNode(tmp);
+                    next = new ListNode(tmp);
                 }
                 nextNode02 = nextNode02.next;
             } else {
@@ -157,7 +156,7 @@ public class No2AddTwoNumbers {
             nextNode = nextNode.next;
         }
         if(upStep > 0) {
-            nextNode.next = new LinkedNode(upStep);
+            nextNode.next = new ListNode(upStep);
         }
         nextNode = resNode;
         return nextNode;
@@ -172,11 +171,11 @@ public class No2AddTwoNumbers {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
         while ((line = in.readLine()) != null) {
-            LinkedNode l1 = ListNodeUtils.stringToListNode(line);
+            ListNode l1 = ListNodeUtils.stringToListNode(line);
             line = in.readLine();
-            LinkedNode l2 = ListNodeUtils.stringToListNode(line);
+            ListNode l2 = ListNodeUtils.stringToListNode(line);
 
-            LinkedNode ret = addTwoNumbers(l1, l2);
+            ListNode ret = addTwoNumbers(l1, l2);
 
             String out = ListNodeUtils.listNodeToString(ret);
 

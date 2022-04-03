@@ -8,8 +8,8 @@
 package com.codefans.interview.algorithm.leetcode.tree;
 
 
-import com.codefans.interview.algorithm.common.TreeNode;
-import com.codefans.interview.algorithm.common.TreeNodeFactory;
+import com.codefans.reusablecode.datastructure.TreeNode;
+import com.codefans.reusablecode.datastructure.TreeNodeFactory;
 
 import java.util.LinkedList;
 import java.util.Stack;

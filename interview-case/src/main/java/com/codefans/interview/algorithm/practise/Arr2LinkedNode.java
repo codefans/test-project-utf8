@@ -1,7 +1,9 @@
 package com.codefans.interview.algorithm.practise;
 
-import com.codefans.interview.datastructure.LinkedNode;
-import static com.codefans.interview.datastructure.LinkedNodeUtils.print;
+
+import com.codefans.reusablecode.datastructure.ListNode;
+
+import static com.codefans.reusablecode.datastructure.ListNodeUtils.print;
 
 /**
  * @author: codefans
@@ -16,21 +18,21 @@ public class Arr2LinkedNode {
 
     public void generate() {
         int[] arr = new int[]{1,2,1};
-        LinkedNode linkedNode = this.generate(arr);
+        ListNode linkedNode = this.generate(arr);
         print(linkedNode);
     }
 
-    public LinkedNode generate(int[] arr) {
-        LinkedNode head = null;
-        LinkedNode current = null;
-        LinkedNode next = null;
+    public ListNode generate(int[] arr) {
+        ListNode head = null;
+        ListNode current = null;
+        ListNode next = null;
         if(arr != null && arr.length > 0) {
             for(int i = 0; i < arr.length; i ++) {
                 if(i == 0) {
-                    head = new LinkedNode(arr[0]);
+                    head = new ListNode(arr[0]);
                     next = head;
                 } else {
-                    current = new LinkedNode(arr[i]);
+                    current = new ListNode(arr[i]);
                     next.next = current;
                     next = current;
                 }

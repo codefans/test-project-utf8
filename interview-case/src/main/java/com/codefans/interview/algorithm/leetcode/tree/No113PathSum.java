@@ -7,7 +7,7 @@
  */
 package com.codefans.interview.algorithm.leetcode.tree;
 
-import com.codefans.interview.algorithm.common.TreeNode;
+import com.codefans.reusablecode.datastructure.TreeNode;
 
 import java.util.*;
 

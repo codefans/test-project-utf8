@@ -8,7 +8,7 @@
 package com.codefans.interview.algorithm.practise;
 
 
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 /**
  *

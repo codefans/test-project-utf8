@@ -24,7 +24,7 @@ public class No237DeleteNodeInALinkedListTest {
 
         ListNode thirdNode = node.next.next;
         int deleteNodeVal = thirdNode.val;
-        System.out.println("愿列表为:");
+        System.out.println("原列表为:");
         ListNodeUtils.print(node);
         No237DeleteNodeInALinkedList deleteNodeInALinkedList = new No237DeleteNodeInALinkedList();
         deleteNodeInALinkedList.deleteNode(thirdNode);

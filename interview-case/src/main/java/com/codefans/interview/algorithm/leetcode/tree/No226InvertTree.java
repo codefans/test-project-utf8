@@ -7,7 +7,7 @@
  */
 package com.codefans.interview.algorithm.leetcode.tree;
 
-import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
+import com.codefans.reusablecode.datastructure.BinaryTreeNode;
 
 import java.util.LinkedList;
 

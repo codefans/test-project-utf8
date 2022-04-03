@@ -1,7 +1,7 @@
 package com.codefans.interview.algorithm.leetcode.linkedlist;
 
-import com.codefans.interview.algorithm.common.ComplexListNode;
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ComplexListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -8,8 +8,8 @@
 package com.codefans.interview.algorithm.offer;
 
 
-import com.codefans.interview.algorithm.common.ComplexListNode;
-import com.codefans.interview.algorithm.common.ListNodeUtils;
+import com.codefans.reusablecode.datastructure.ComplexListNode;
+import com.codefans.reusablecode.datastructure.ListNodeUtils;
 
 import java.util.HashMap;
 import java.util.Map;

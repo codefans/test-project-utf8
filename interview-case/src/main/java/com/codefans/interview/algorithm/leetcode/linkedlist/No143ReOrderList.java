@@ -7,7 +7,7 @@
  */
 package com.codefans.interview.algorithm.leetcode.linkedlist;
 
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;

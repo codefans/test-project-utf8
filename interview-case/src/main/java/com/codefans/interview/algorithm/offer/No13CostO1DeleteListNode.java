@@ -1,6 +1,6 @@
 package com.codefans.interview.algorithm.offer;
 
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 /**
  * @Author: codefans

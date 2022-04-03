@@ -1,6 +1,6 @@
 package com.codefans.opensource.redis.cluster;
 
-import com.codefans.reusablecode.util.IOUtils;
+import com.codefans.opensource.util.IOUtils;
 import redis.clients.util.JedisClusterCRC16;
 import redis.clients.util.SafeEncoder;
 
@@ -75,7 +75,7 @@ public class JedisClusterNodeRoute {
         try {
             String fileName = "cluster_slots.txt";
             InputStream is = JedisClusterNodeRoute.class.getResourceAsStream(fileName);
-            String content = IOUtils.getStr(is);
+            String content = IOUtils.readLine(is);
             Scanner sc = new Scanner(new StringReader(content));
             boolean newPart = true;
 

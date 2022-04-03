@@ -1,6 +1,6 @@
 package com.codefans.interview.algorithm.leetcode.linkedlist;
 
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 /**
  * 876. 链表的中间结点

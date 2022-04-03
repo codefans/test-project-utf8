@@ -1,12 +1,13 @@
 package com.codefans.interview.algorithm.leetcode;
 
-import com.codefans.interview.datastructure.LinkedNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codefans.interview.datastructure.LinkedNodeUtils.generate;
-import static com.codefans.interview.datastructure.LinkedNodeUtils.toNodeString;
+import static com.codefans.reusablecode.datastructure.ListNodeUtils.generate;
+import static com.codefans.reusablecode.datastructure.ListNodeUtils.toNodeString;
+
 
 /**
  * @author: codefans
@@ -51,7 +52,7 @@ public class No234PalindromeLinkedList {
         int num11 = 1234554321;
 
         int[] arr = new int[]{1};
-        LinkedNode linkedNode = generate(arr);
+        ListNode linkedNode = generate(arr);
         String nodeStr = toNodeString(linkedNode);
         System.out.printf("%s " + (isPalindrome(linkedNode) ? "is" : " is not ") + " palindrome", nodeStr);System.out.println();
 
@@ -110,7 +111,7 @@ public class No234PalindromeLinkedList {
 
     }
 
-    public boolean isPalindrome(LinkedNode head) {
+    public boolean isPalindrome(ListNode head) {
         if(head == null || head.next == null) {
             return true;
         }

@@ -1,7 +1,7 @@
 package com.codefans.interview.algorithm.leetcode.BiweeklyContest4;
 
 
-import com.codefans.interview.algorithm.common.TreeNode;
+import com.codefans.reusablecode.datastructure.TreeNode;
 
 /**
  * @author: codefans
