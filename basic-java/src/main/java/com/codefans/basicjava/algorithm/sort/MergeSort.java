@@ -1,5 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * @author: codefans
  * @date: 2017-11-08 14:24
@@ -200,10 +202,54 @@ public class MergeSort extends SortBase {
     }
 
 
-    public void sortAsc() {
+    public int[] sortAsc(int[] arr) {
+//        System.out.println("归并排序->升序: ");
+        if(arr.length < 2) {
+            return arr;
+        }
+        int len = arr.length;
+        int low = 0;
+        int high = len;
+        int midIndex = (high - low)/2 + low;
+//        int midIndex = (int)Math.floor(arr.length/2);
 
-        System.out.println("归并排序->升序: ");
+        int[] leftArr = Arrays.copyOfRange(arr, 0, midIndex);
+        int[] rightArr = Arrays.copyOfRange(arr, midIndex, arr.length);
 
+        return mergeArr(sortAsc(leftArr), sortAsc(rightArr));
+    }
+
+    /**
+     * 合并两个数组
+     * @param arr1
+     * @param arr2
+     * @return
+     */
+    private int[] mergeArr(int[] arr1, int[] arr2) {
+        int[] resultArr = new int[arr1.length + arr2.length];
+        int index = 0;
+        int index1 = 0;
+        int index2 = 0;
+        int len1 = arr1.length;
+        int len2 = arr2.length;
+
+        while(index1 < len1 && index2 < len2) {
+            if(arr1[index1] < arr2[index2]) {
+                resultArr[index++] = arr1[index1++];
+            } else {
+                resultArr[index++] = arr2[index2++];
+            }
+        }
+
+        while(index1 < len1) {
+            resultArr[index++] = arr1[index1++];
+        }
+
+        while(index2 < len2) {
+            resultArr[index++] = arr2[index2++];
+        }
+
+        return resultArr;
     }
 
     public void sortDesc() {

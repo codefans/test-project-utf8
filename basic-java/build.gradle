@@ -21,6 +21,10 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.2.47'
     implementation 'joda-time:joda-time:2.10'
     implementation 'com.caucho:hessian:4.0.62'
+    // https://mvnrepository.com/artifact/org.openjdk.jol/jol-core
+//    compileOnly group: 'org.openjdk.jol', name: 'jol-core', version: '0.16'
+    implementation group: 'org.openjdk.jol', name: 'jol-core', version: '0.16'
+
 }
 
 description = 'basic-java'

@@ -4,6 +4,7 @@ package com.codefans.basicjava.java.util;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
@@ -43,6 +44,36 @@ public class PriorityQueueTest {
          *     6、7、8、10、12、24
          */
         this.print(queue);
+
+    }
+
+    @Test
+    public void iteratorTest() {
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(8);
+        queue.add(12);
+        queue.add(6);
+        queue.add(24);
+        queue.add(8);
+        queue.add(7);
+        queue.add(10);
+
+        System.out.println("iterator:");
+        Iterator<Integer> iter = queue.iterator();
+        while(iter.hasNext()) {
+            System.out.print(iter.next() + ",");
+        }
+        System.out.println();
+
+        System.out.println("poll:");
+        int size = queue.size();
+        for(int i = 0; i < size; i ++) {
+            System.out.print(queue.poll() + ",");
+        }
+
+        System.out.println();
+        System.out.println(Math.abs(3));
+        System.out.println(Math.abs(-2));
 
     }
 

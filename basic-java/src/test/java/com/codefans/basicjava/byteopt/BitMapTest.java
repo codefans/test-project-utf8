@@ -150,4 +150,33 @@ public class BitMapTest {
 
     }
 
+    @Test
+    public void bitMoveTest() {
+
+        int data = 1;
+        System.out.println("%2=" + data%2);
+        System.out.println("/2=" + data/2);
+        System.out.println(">>1=" + (data>>1));
+        System.out.println("*2=" + data*2);
+        System.out.println("<<1=" + (data<<1));
+        System.out.println("----------------------");
+
+        data = 2;
+        System.out.println(data + "%2=" + data%2);
+        System.out.println(data + "/2=" + data/2);
+        System.out.println(data + ">>1=" + (data>>1));
+        System.out.println(data + "*2=" + data*2);
+        System.out.println(data + "<<1=" + (data<<1));
+        System.out.println("----------------------");
+
+        data = 3;
+        System.out.println(data + "%2=" + data%2);
+        System.out.println(data + "/2=" + data/2);
+        System.out.println(data + ">>1=" + (data>>1));
+        System.out.println(data + "*2=" + data*2);
+        System.out.println(data + "<<1=" + (data<<1));
+
+    }
+
+
 }

@@ -103,8 +103,8 @@ public class ThreadPoolExecutorTest {
              * 在 ThreadPoolExecutor.DiscardOldestPolicy 中，如果执行程序尚未关闭，则位于工作队列头部的任务将被删除，然后重试执行程序（如果再次失败，则重复此过程）。
              */
 
-//            RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
-            RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();
+            RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
+//            RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();
 
             poolExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
 //            executorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
@@ -133,6 +133,7 @@ public class ThreadPoolExecutorTest {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Thread.sleep(2000);
                 }
 
             }

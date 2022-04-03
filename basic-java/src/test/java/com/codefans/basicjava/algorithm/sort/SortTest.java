@@ -52,9 +52,9 @@ public class SortTest extends SortBase {
 
     @Test
     public void mergeSortTest() {
-        System.out.println("归并排序->降序: ");
-        new MergeSort().sortAsc();
-        this.print(arr);
+        System.out.println("归并排序->升序: ");
+        int[] newArr = new MergeSort().sortAsc(arr);
+        this.print(newArr);
     }
 
 
