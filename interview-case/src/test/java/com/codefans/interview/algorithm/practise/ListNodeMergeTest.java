@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ListNodeMergeTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/24 15:56
  * Description: 链表穿插合并
  */

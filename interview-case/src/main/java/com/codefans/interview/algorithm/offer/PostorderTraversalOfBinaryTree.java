@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: PostorderTraversalOfBinaryTree
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/13 14:25
  * Description: 判断数据是否是二叉树的后序遍历
  */

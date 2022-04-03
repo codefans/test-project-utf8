@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No92ReverseLinkedList2
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/12 17:33
  * Description: leetcode第92题反转链表2-中等难度
  */

@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ListNodeSplit
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/26 14:07
  * Description: 链表拆分
  */

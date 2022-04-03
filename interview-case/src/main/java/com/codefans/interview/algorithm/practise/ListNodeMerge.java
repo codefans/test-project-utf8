@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ListNodeAlternate
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/24 9:28
  * Description: 链表交叉
  */

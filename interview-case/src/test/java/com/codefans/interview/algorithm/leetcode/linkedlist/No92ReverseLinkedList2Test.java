@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No92ReverseLinkedList2Test
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/12 18:23
  * Description: No92ReverseLinkedList2测试类
  */

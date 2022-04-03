@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No226InvertTreeTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/8/24 19:03
  * Description: 翻转二叉树（二叉树镜像）测试
  */

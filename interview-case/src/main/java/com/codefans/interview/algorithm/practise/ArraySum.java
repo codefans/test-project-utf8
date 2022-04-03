@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ArraySum
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/29 21:31
  * Description: 数组求和
  */

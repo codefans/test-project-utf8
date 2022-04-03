@@ -58,9 +58,9 @@ public class FileUtil {
 		
 //		String filePath = "D:/tmp/收入确认表(新).txt";
 //		String newFilePath = "D:/tmp/收入确认表(新改)_out.txt";
-		String filePath = "D:\\caishengzhi\\Desktop/jdos-rsp-汇天.txt";
+		String filePath = "D:\\codefans\\Desktop/jdos-rsp-汇天.txt";
 //		String newFilePath = "D:/tmp/excel.txt";
-		String newFilePath = "D:\\caishengzhi\\Desktop/rsp-汇天.txt";
+		String newFilePath = "D:\\codefans\\Desktop/rsp-汇天.txt";
 		util.compareFile(filePath, newFilePath);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";

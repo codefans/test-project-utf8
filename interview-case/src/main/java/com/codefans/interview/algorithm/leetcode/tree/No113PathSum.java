@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No113PathSum
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/9 11:36
  * Description: 二叉树中和位某一个值的路径
  */

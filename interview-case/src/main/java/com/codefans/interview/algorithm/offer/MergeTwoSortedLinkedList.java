@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: MergeTwoSortedLinkedList
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/21 10:52
  * Description: 合并两个有序链表
  */

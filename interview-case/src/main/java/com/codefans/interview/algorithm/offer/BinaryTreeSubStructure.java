@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: BinaryTreeSubStructure
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/15 10:50
  * Description: 判断是否是二叉树的子结构
  */

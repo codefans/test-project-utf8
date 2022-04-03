@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No143ReOrderList
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/27 15:17
  * Description: 重排链表
  */

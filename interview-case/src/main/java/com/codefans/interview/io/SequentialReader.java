@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: SequentialReader
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/12/4 17:46
  * Description: 顺序读
  */

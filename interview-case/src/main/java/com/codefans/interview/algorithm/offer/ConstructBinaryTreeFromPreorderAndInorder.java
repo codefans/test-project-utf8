@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ConstructBinaryTreeFromPreorderAndInorder
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/14 10:08
  * Description: 从先序遍历和中序遍历数列中构建二叉树
  */

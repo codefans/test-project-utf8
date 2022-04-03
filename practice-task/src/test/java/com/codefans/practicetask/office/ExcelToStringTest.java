@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ExcelToStringTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/23 15:28
  * Description: 读取excel内容拼装成字符串
  */
@@ -30,7 +30,7 @@ public class ExcelToStringTest extends BaseExcel {
     @Test
     public void excel2str() throws IOException {
 
-        String inExcelPath = "D:\\caishengzhi\\Downloads\\会员开站城市-映射.xlsx";
+        String inExcelPath = "D:\\codefans\\Downloads\\会员开站城市-映射.xlsx";
 
         long startTime = System.currentTimeMillis();
         Workbook workbook = getWorkbook(inExcelPath);

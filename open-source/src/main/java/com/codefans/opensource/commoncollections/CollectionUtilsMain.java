@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: CollectionUtilsMain
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/8/24 16:21
  * Description: CollectionUtils测试
  */

@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No83RemoveDuplicatesFromSortedListTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/28 11:53
  * Description: 链表重复数据删除
  */

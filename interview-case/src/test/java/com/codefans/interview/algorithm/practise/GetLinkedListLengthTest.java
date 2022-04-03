@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: GetLinkedListLengthTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/7/20 18:14
  * Description: 获取链表长度测试
  */

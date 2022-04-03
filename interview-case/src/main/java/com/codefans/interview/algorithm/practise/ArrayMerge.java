@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ArrayMerge
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/6/2 16:55
  * Description: 数组合并
  */

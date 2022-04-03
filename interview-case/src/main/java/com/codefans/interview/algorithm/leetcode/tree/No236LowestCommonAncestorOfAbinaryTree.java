@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No236LowestCommonAncestorOfAbinaryTree
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/10 18:12
  * Description: 二叉树的最近公共祖先
  */

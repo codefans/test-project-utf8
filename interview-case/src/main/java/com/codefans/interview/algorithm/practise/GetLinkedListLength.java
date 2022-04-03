@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: GetLinkedListLength
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/7/20 18:11
  * Description: 获取链表长度
  */

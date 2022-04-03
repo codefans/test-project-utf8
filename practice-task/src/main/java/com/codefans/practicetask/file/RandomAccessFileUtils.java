@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: RandomAccessFileUtils
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/11/23 11:42
  * Description: 随机文件读写
  */

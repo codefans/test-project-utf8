@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: ReaderPerformanceCompareTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/12/4 17:51
  * Description: 读性能测试
  */

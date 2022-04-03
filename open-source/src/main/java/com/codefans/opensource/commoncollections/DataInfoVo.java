@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: DataInfoVo
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/8/24 16:22
  * Description:
  */

@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: BaniryTreeIterator
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/6/8 16:13
  * Description: 二叉树的遍历
  */

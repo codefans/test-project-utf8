@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: RegexAndStringSplitPerformanceCompare
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/4/9 18:17
  * Description: 正则和字符串切割性能比较
  */

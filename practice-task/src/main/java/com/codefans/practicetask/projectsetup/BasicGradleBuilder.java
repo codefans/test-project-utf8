@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: BasicGradleBuilder
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/28 16:28
  * Description: gradle文件构建基础类
  */

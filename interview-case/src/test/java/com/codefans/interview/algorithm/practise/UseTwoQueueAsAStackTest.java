@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: UseTwoQueueAsAStackTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/24 11:38
  * Description: 用两个队列模拟栈-测试类
  */

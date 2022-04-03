@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ArraySorterTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/6/1 16:40
  * Description: 数组排序测试类
  */

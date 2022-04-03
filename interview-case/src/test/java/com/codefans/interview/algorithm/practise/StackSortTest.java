@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: StackSortTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/26 16:57
  * Description: 栈排序测试类
  */

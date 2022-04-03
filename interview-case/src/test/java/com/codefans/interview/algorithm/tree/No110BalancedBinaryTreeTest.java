@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No110BalancedBinaryTreeTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/8 10:30
  * Description: 判断是否是平衡二叉树
  */

@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No19RemoveNthNodeFromEndOfListTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/7/20 17:32
  * Description: 删除链表的倒数第N个节点测试
  */

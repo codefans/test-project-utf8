@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ClimbingStairs
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/24 14:07
  * Description: 爬楼梯问题
  */

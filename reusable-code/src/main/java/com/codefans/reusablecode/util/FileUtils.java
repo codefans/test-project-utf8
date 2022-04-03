@@ -57,11 +57,11 @@ public class FileUtils {
 //		util.copyAllFilesToPath(dirPath, destPath);
 		
 //		String filePath = "D:\\codefans\\Desktop\\jone-部署251台机器-部署成功机器.txt";
-//		String filePath = "D:\\caishengzhi\\Desktop\\2020年10月16日-全链路压测\\m-汇天-np88台.txt";
-		String filePath = "D:\\caishengzhi\\Desktop\\m-廊坊-74台.txt";
-//		String newFilePath = "D:\\caishengzhi\\Desktop\\2020年10月16日-全链路压测\\m-汇天-n台.txt";
-//		String newFilePath = "D:\\caishengzhi\\Desktop\\2020年10月16日-全链路压测\\rsp-汇天-np-local-139台.txt";
-		String newFilePath = "D:\\caishengzhi\\Desktop\\m-廊坊-jone-76台.txt";
+//		String filePath = "D:\\codefans\\Desktop\\2020年10月16日-全链路压测\\m-汇天-np88台.txt";
+		String filePath = "D:\\codefans\\Desktop\\m-廊坊-74台.txt";
+//		String newFilePath = "D:\\codefans\\Desktop\\2020年10月16日-全链路压测\\m-汇天-n台.txt";
+//		String newFilePath = "D:\\codefans\\Desktop\\2020年10月16日-全链路压测\\rsp-汇天-np-local-139台.txt";
+		String newFilePath = "D:\\codefans\\Desktop\\m-廊坊-jone-76台.txt";
 		util.compareFile(filePath, newFilePath);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";

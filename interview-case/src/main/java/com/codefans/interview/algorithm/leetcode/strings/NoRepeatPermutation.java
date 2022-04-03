@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: NoRepeatPermutation
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/27 10:16
  * Description: 无重复字符的排列
  */

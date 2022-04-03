@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ArraySorter
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/6/1 16:30
  * Description: 数组排序
  */

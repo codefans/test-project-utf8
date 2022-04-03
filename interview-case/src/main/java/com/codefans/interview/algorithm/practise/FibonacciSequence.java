@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: FibonacciSequence
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/13 10:22
  * Description: 斐波那契数列计算类
  */

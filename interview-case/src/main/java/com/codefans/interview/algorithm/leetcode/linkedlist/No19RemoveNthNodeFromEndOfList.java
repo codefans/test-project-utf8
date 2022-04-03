@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: No19RemoveNthNodeFromEndOfList
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/7/20 17:02
  * Description: 删除链表的倒数第 N 个结点
  */

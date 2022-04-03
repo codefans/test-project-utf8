@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ArraySumTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/29 21:34
  * Description: 数组求和测试类
  */

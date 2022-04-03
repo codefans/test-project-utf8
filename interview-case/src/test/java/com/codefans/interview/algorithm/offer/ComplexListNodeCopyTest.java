@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ComplexListNodeCopyTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/23 17:44
  * Description: 复杂链表的复制
  */

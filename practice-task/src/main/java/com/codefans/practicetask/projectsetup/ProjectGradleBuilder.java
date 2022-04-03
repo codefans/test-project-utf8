@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ProjectGradleBuilder
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/28 16:21
  * Description: 项目gradle配置文件构建
  */

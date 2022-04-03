@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: TreeToDoublyList
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/18 18:50
  * Description: 二叉搜索树转双向链表
  */

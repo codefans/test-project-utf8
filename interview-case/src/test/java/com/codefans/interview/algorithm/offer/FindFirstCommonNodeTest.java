@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: FindFirstCommonNodeTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/5/21 15:13
  * Description: 查询链表第一个公共节点
  */

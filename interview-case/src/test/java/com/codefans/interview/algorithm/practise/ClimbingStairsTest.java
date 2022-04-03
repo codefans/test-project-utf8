@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2021, 京东
  * FileName: ClimbingStairsTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2021/9/24 14:08
  * Description: 爬楼梯测试类
  */
