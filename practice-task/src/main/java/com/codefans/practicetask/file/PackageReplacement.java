@@ -1,6 +1,8 @@
 package com.codefans.practicetask.file;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: codefans
@@ -16,43 +18,38 @@ public class PackageReplacement {
 
     public void startup() {
 
-        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\";
+//        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\";
+        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\test\\java\\com\\codefans\\interview\\algorithm\\tree\\";
 //        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\leetcode\\linkedlist\\";
 //        String rootPath = "G:\\GitHub\\test-project-utf8 - 副本2\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\leetcode\\linkedlist\\";
-//        String packageName = "com.codefans.interview.algorithm.common.ListNode";
-//        String replacementName = "com.codefans.reusablecode.datastructure.ListNode";
-        String packageName = "com.codefans.interview.algorithm.offer.TreeNode";
-        String replacementName = "com.codefans.reusablecode.datastructure.TreeNode";
-        replacementRecursion(rootPath, packageName, replacementName);
-        String[][] arr = new String[][]{
-//            {"com.codefans.interview.algorithm.common.ComplexListNode", "com.codefans.reusablecode.datastructure.ComplexListNode"},
-//            {"com.codefans.interview.algorithm.common.ArrayUtils", "com.codefans.reusablecode.util.ArrayUtils"},
-            {"com.codefans.interview.algorithm.common.ListUtils", "com.codefans.reusablecode.datastructure.ListUtils"},
-        };
-        for(String[] subArr : arr) {
-            this.replacementRecursion(rootPath, subArr[0], subArr[1]);
-        }
+        Map<String, String> dataMap = new HashMap<>(8);
+        dataMap.put("com.codefans.interview.algorithm.common.TreeNode", "com.codefans.reusablecode.datastructure.TreeNode");
+        dataMap.put("com.codefans.interview.algorithm.common.TreeNodeFactory", "com.codefans.reusablecode.datastructure.TreeNodeFactory");
+        dataMap.put("com.codefans.interview.algorithm.common.ComplexListNode", "com.codefans.reusablecode.datastructure.ComplexListNode");
+        dataMap.put("com.codefans.interview.algorithm.common.ArrayUtils", "com.codefans.reusablecode.util.ArrayUtils");
+        dataMap.put("com.codefans.interview.algorithm.common.ListUtils", "com.codefans.reusablecode.datastructure.ListUtils");
+        this.replacementRecursion(rootPath, dataMap);
 
 //        this.deleteBak(rootPath);
     }
 
-    private void replacementRecursion(String path, String packageName, String replacementName) {
+    private void replacementRecursion(String path, Map<String, String> dataMap) {
         File file = new File(path);
         if(file.isDirectory()) {
             File[] fileArr = file.listFiles();
             for(File f : fileArr) {
                 if(f.isDirectory()) {
-                    replacementRecursion(path + File.separator + f.getName(), packageName, replacementName);
+                    replacementRecursion(path + File.separator + f.getName(), dataMap);
                 } else {
-                    this.replacement(path + File.separator + f.getName(), packageName, replacementName);
+                    this.replacement(path + File.separator + f.getName(), dataMap);
                 }
             }
         } else {
-            this.replacement(path, packageName, replacementName);
+            this.replacement(path, dataMap);
         }
     }
 
-    private void replacement(String filePath, String packageName, String replacementName) {
+    private void replacement(String filePath, Map<String, String> dataMap) {
         File sourceFile = null;
         File targetFile = null;
         BufferedReader br = null;
@@ -65,17 +62,18 @@ public class PackageReplacement {
             sourceFile = new File(filePath);
             targetFile = new File(tmpFilePath);
 
-//            String packageName = "com.codefans.reusablecode.datastructure.ListNode";
-//            String replacementPackageName = "com.codefans.reusablecode.datastructure.aaa.ListNode";
-
             br = new BufferedReader(new FileReader(sourceFile));
             bw = new BufferedWriter(new FileWriter(targetFile));
             String line = "";
-
+            String packageName = "";
+            String importPrefix = "import ";
             while((line = br.readLine()) != null) {
-                if(line.contains(packageName)) {
-                    line = line.replace(packageName, replacementName);
-                    found = true;
+                if(line.startsWith(importPrefix) && line.endsWith(";")) {
+                    packageName = line.substring(line.indexOf(importPrefix) + importPrefix.length(), line.indexOf(";"));
+                    if(dataMap.containsKey(packageName)) {
+                        line = line.replace(packageName, dataMap.get(packageName));
+                        found = true;
+                    }
                 }
                 bw.write(line);
                 bw.newLine();

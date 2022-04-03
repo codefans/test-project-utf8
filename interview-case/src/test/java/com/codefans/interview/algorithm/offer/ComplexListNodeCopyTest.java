@@ -8,7 +8,7 @@
 package com.codefans.interview.algorithm.offer;
 
 
-import com.codefans.interview.algorithm.common.ComplexListNode;
+import com.codefans.reusablecode.datastructure.ComplexListNode;
 import com.codefans.interview.algorithm.common.ComplexListNodeFactory;
 import com.codefans.interview.algorithm.common.ListNodeUtils;
 import org.junit.Before;

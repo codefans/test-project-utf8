@@ -1,8 +1,8 @@
 package com.codefans.interview.algorithm.offer;
 
-import com.codefans.interview.algorithm.common.ArrayUtils;
+import com.codefans.reusablecode.util.ArrayUtils;
 import com.codefans.interview.algorithm.common.TreeNode;
-import com.codefans.interview.algorithm.common.TreeNodeFactory;
+import com.codefans.reusablecode.datastructure.TreeNodeFactory;
 import org.junit.Test;
 
 import java.util.ArrayList;

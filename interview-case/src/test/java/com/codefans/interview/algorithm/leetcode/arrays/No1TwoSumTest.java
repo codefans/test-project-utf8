@@ -1,7 +1,7 @@
 package com.codefans.interview.algorithm.leetcode.arrays;
 
 
-import com.codefans.interview.algorithm.common.ArrayUtils;
+import com.codefans.reusablecode.util.ArrayUtils;
 import org.junit.Test;
 
 /**
