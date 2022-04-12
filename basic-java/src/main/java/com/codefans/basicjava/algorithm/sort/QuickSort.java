@@ -203,6 +203,10 @@ public class QuickSort extends SortBase {
     private int partition2(int[] nums, int low, int high) {
         int index = low - 1;
         for(int i = low; i <= high - 1; i ++) {
+            /**
+             * 小的交换到前面，是递增排序；
+             * 要想实现递减排序，则改成nums[i]>=nums[high]即可。
+             */
             if(nums[i] < nums[high]) {
                 index++;
                 swap(nums, i, index);
