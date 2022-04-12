@@ -1,5 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
+import com.codefans.basicjava.util.CommonUtils;
+
 import java.util.Arrays;
 
 /**
@@ -157,6 +159,60 @@ public class QuickSort extends SortBase {
         swap(nums, baseIndex, index - 1);
         partitionIndex = index - 1;
         return partitionIndex;
+    }
+
+    /**
+     * 算法导论写法-快速排序
+     * @param nums
+     * @return
+     */
+    public int[] quickSort2(int[] nums) {
+        int[] newArr = Arrays.copyOf(nums, nums.length);
+        quickSort2(newArr, 0, newArr.length - 1);
+        return newArr;
+    }
+
+    private void quickSort2(int[] nums, int low, int high) {
+        if(low < high) {
+            int partitionIndex = partition2(nums, low, high);
+            quickSort2(nums, low, partitionIndex - 1);
+            quickSort2(nums, partitionIndex + 1, high);
+        }
+    }
+
+    /**
+     * 算法导论写法
+     * 7.1章节
+     *
+     * 例如：13,19,9,5,12,8,7,4,21,2,6,11
+     * 执行完一次下面的方法后，输出如下：
+     * 9,19,13,5,12,8,7,4,21,2,6,11
+     * 9,5,13,19,12,8,7,4,21,2,6,11
+     * 9,5,8,19,12,13,7,4,21,2,6,11
+     * 9,5,8,7,12,13,19,4,21,2,6,11
+     * 9,5,8,7,4,13,19,12,21,2,6,11
+     * 9,5,8,7,4,2,19,12,21,13,6,11
+     * 9,5,8,7,4,2,6,12,21,13,19,11
+     * 9,5,8,7,4,2,6,11,21,13,19,12
+     *
+     * @param nums
+     * @param low
+     * @param high
+     * @return
+     */
+    private int partition2(int[] nums, int low, int high) {
+        int index = low - 1;
+        for(int i = low; i <= high - 1; i ++) {
+            if(nums[i] < nums[high]) {
+                index++;
+                swap(nums, i, index);
+                CommonUtils.printInLine(nums);
+            }
+        }
+        index++;
+        swap(nums, index, high);
+        CommonUtils.printInLine(nums);
+        return index;
     }
 
 

@@ -1,5 +1,7 @@
 package com.codefans.basicjava.algorithm.sort;
 
+import com.codefans.basicjava.util.CommonUtils;
+import org.apache.commons.lang.ArrayUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -16,7 +18,7 @@ import java.util.Scanner;
 public class QuickSortTest {
 
     @Test
-    public void quickSortTest() throws FileNotFoundException {
+    public void quickSortLongInTest() throws FileNotFoundException {
 
         String filePath = "G:\\GitHub\\test-project-utf8\\basic-java\\src\\test\\java\\com\\codefans\\basicjava\\algorithm\\sort\\nums.txt";
         InputStream is = new FileInputStream(new File(filePath));
@@ -40,6 +42,19 @@ public class QuickSortTest {
             intArr[i] = Integer.parseInt(arr[i]);
         }
         return intArr;
+    }
+
+    @Test
+    public void quickSort2Test() {
+
+        int[][] dataArr = new int[][]{
+            {13,19,9,5,12,8,7,4,21,2,6,11}
+        };
+        QuickSort quickSort = new QuickSort();
+        for(int[] arr : dataArr) {
+            int[] newArr = quickSort.quickSort2(arr);
+            CommonUtils.printInLine(newArr);
+        }
     }
 
 }
