@@ -1,6 +1,6 @@
 package com.codefans.interview.algorithm.leetcode.linkedlist;
 
-import com.codefans.interview.algorithm.common.ListNode;
+import com.codefans.reusablecode.datastructure.ListNode;
 import org.junit.Before;
 import org.junit.Test;
 

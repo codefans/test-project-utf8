@@ -7,10 +7,9 @@
  */
 package com.codefans.interview.algorithm.tree;
 
-import com.codefans.interview.algorithm.common.TreeNodeUtils;
 import com.codefans.interview.algorithm.leetcode.tree.No226InvertTree;
-import com.codefans.reusablecode.common.BinaryTreeFactory;
-import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
+import com.codefans.reusablecode.datastructure.BinaryTreeFactory;
+import com.codefans.reusablecode.datastructure.BinaryTreeNode;
 import org.junit.Test;
 
 /**

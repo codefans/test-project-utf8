@@ -11,7 +11,7 @@ package com.codefans.interview.algorithm.tree;
 import com.codefans.reusablecode.datastructure.TreeNode;
 import com.codefans.reusablecode.datastructure.TreeNodeFactory;
 import com.codefans.interview.algorithm.leetcode.tree.No101SymmetricTree;
-import com.codefans.reusablecode.common.BinaryTreeFactory;
+import com.codefans.reusablecode.datastructure.BinaryTreeFactory;
 import com.codefans.reusablecode.datastructure.binarytree.BinaryTreeNode;
 import org.junit.Test;
 

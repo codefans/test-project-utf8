@@ -19,15 +19,22 @@ public class PackageReplacement {
     public void startup() {
 
 //        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\";
-        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\test\\java\\com\\codefans\\interview\\algorithm\\tree\\";
+        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\test\\java\\com\\codefans\\interview\\";
 //        String rootPath = "G:\\GitHub\\test-project-utf8\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\leetcode\\linkedlist\\";
 //        String rootPath = "G:\\GitHub\\test-project-utf8 - 副本2\\interview-case\\src\\main\\java\\com\\codefans\\interview\\algorithm\\leetcode\\linkedlist\\";
         Map<String, String> dataMap = new HashMap<>(8);
         dataMap.put("com.codefans.interview.algorithm.common.TreeNode", "com.codefans.reusablecode.datastructure.TreeNode");
         dataMap.put("com.codefans.interview.algorithm.common.TreeNodeFactory", "com.codefans.reusablecode.datastructure.TreeNodeFactory");
+        dataMap.put("com.codefans.interview.algorithm.common.TreeNodeUtils", "com.codefans.reusablecode.datastructure.TreeNodeUtils");
         dataMap.put("com.codefans.interview.algorithm.common.ComplexListNode", "com.codefans.reusablecode.datastructure.ComplexListNode");
         dataMap.put("com.codefans.interview.algorithm.common.ArrayUtils", "com.codefans.reusablecode.util.ArrayUtils");
         dataMap.put("com.codefans.interview.algorithm.common.ListUtils", "com.codefans.reusablecode.datastructure.ListUtils");
+        dataMap.put("com.codefans.reusablecode.common.BinaryTreeFactory", "com.codefans.reusablecode.datastructure.BinaryTreeFactory");
+        dataMap.put("com.codefans.reusablecode.common.TreeFactory", "com.codefans.reusablecode.datastructure.TreeFactory");
+        dataMap.put("com.codefans.interview.algorithm.common.ListNodeUtils", "com.codefans.reusablecode.datastructure.ListNodeUtils");
+        dataMap.put("com.codefans.interview.algorithm.common.ComplexListNodeFactory", "com.codefans.reusablecode.datastructure.ComplexListNodeFactory");
+        dataMap.put("com.codefans.interview.algorithm.common.ListNode", "com.codefans.reusablecode.datastructure.ListNode");
+        dataMap.put("com.codefans.interview.algorithm.common.ListNodeFactory", "com.codefans.reusablecode.datastructure.ListNodeFactory");
         this.replacementRecursion(rootPath, dataMap);
 
 //        this.deleteBak(rootPath);

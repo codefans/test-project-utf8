@@ -1,7 +1,7 @@
 package com.codefans.interview.algorithm.offer;
 
 import com.codefans.reusablecode.util.ArrayUtils;
-import com.codefans.interview.algorithm.common.TreeNode;
+import com.codefans.reusablecode.datastructure.TreeNode;
 import com.codefans.reusablecode.datastructure.TreeNodeFactory;
 import org.junit.Test;
 

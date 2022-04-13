@@ -8,9 +8,9 @@
 package com.codefans.interview.algorithm.practise;
 
 
-import com.codefans.interview.algorithm.common.TreeNode;
+import com.codefans.reusablecode.datastructure.TreeNode;
 import com.codefans.reusablecode.datastructure.TreeNodeFactory;
-import com.codefans.interview.algorithm.common.TreeNodeUtils;
+import com.codefans.reusablecode.datastructure.TreeNodeUtils;
 import com.google.common.base.Stopwatch;
 import org.junit.Before;
 import org.junit.Test;

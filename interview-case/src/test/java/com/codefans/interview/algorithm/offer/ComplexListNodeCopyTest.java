@@ -9,8 +9,8 @@ package com.codefans.interview.algorithm.offer;
 
 
 import com.codefans.reusablecode.datastructure.ComplexListNode;
-import com.codefans.interview.algorithm.common.ComplexListNodeFactory;
-import com.codefans.interview.algorithm.common.ListNodeUtils;
+import com.codefans.reusablecode.datastructure.ComplexListNodeFactory;
+import com.codefans.reusablecode.datastructure.ListNodeUtils;
 import org.junit.Before;
 import org.junit.Test;
 

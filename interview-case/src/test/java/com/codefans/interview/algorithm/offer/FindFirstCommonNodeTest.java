@@ -8,8 +8,8 @@
 package com.codefans.interview.algorithm.offer;
 
 
-import com.codefans.interview.algorithm.common.ListNode;
-import com.codefans.interview.algorithm.common.ListNodeUtils;
+import com.codefans.reusablecode.datastructure.ListNode;
+import com.codefans.reusablecode.datastructure.ListNodeUtils;
 import org.junit.Test;
 
 /**
