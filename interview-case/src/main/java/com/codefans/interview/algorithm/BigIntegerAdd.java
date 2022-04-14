@@ -49,6 +49,55 @@ public class BigIntegerAdd {
 
     }
 
+    public String addStrings(String num1, String num2) {
+        num1 = this.filtePrefixZero(num1);
+        num2 = this.filtePrefixZero(num2);
+        StringBuilder res = new StringBuilder();
+        int i = num1.length() - 1;
+        int j = num2.length() - 1;
+        int cur = 0;
+        int added = 0;
+        while(i >= 0 || j >= 0) {
+            if(i >= 0 && j >= 0) {
+                cur = toInt(num1.charAt(i)) + toInt(num2.charAt(j)) + added;
+                //System.out.println(cur + ":" + toInt(num1.charAt(i)) + ":" + toInt(num2.charAt(j)));
+            } else if(i >= 0) {
+                cur = toInt(num1.charAt(i)) + added;
+            } else if(j >= 0) {
+                cur = toInt(num2.charAt(j)) + added;
+            }
+            added = cur / 10;
+            cur = cur % 10;
+            res.insert(0, cur);
+            i--;
+            j--;
+        }
+        if(added != 0) {
+            res.insert(0, added);
+        }
+        return res.toString();
+    }
+
+    private int toInt(char c) {
+        return c - 48;
+    }
+
+    /**
+     * 过滤字符串最前面的0
+     * @param str
+     * @return
+     */
+    private String filtePrefixZero(String str) {
+        int index = 0;
+        for(int i = 0; i < str.length(); i ++) {
+            if(str.charAt(i) != '0') {
+                index = i;
+                break;
+            }
+        }
+        return str.substring(index, str.length());
+    }
+
     public String add(String num1, String num2) {
         String result = "";
 

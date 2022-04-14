@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codefans.interview.algorithm.common.ListNodeUtils.print;
 
 /**
  * @author: codefans

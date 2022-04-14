@@ -7,17 +7,11 @@
  */
 package com.codefans.interview.algorithm.practise;
 
-
 import com.codefans.reusablecode.datastructure.TreeNode;
 import com.codefans.reusablecode.datastructure.TreeNodeFactory;
-import com.codefans.reusablecode.datastructure.TreeNodeUtils;
 import com.google.common.base.Stopwatch;
 import org.junit.Before;
 import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import java.util.concurrent.TimeUnit;
 
