@@ -46,4 +46,20 @@ public class ArrayUtils {
         }
     }
 
+    /**
+     * 打印数组
+     * @param arr
+     */
+    public static void print(int[][] arr) {
+        if(arr != null) {
+            for(int i = 0; i < arr.length; i ++) {
+                if (i != 0) {
+                    System.out.print(", ");
+                }
+                System.out.print("[" + arr[i][0] + "," + arr[i][1] + "]");
+            }
+            System.out.println();
+        }
+    }
+
 }
