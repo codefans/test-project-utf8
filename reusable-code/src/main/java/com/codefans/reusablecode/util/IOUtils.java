@@ -12,14 +12,16 @@ public class IOUtils {
 
     String path;
 
-    FileWriter fw = null;
+    BufferedWriter bw = null;
 
     public IOUtils(String path) throws IOException {
-        fw = new FileWriter(new File(path));
+        bw = new BufferedWriter(new FileWriter(new File(path)));
     }
 
-    public void append(String path) throws IOException {
-        fw.append(path).append("/r/n");
+    public IOUtils append(String path) throws IOException {
+        bw.write(path);
+        bw.newLine();
+        return this;
     }
 
     public void append(List<String> strs) {
@@ -28,7 +30,8 @@ public class IOUtils {
         }
         try {
             for (int i = 0; i < strs.size(); i++) {
-                fw.append(strs.get(i) + "\r\n");
+                bw.write(strs.get(i));
+                bw.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,10 +39,10 @@ public class IOUtils {
     }
 
     public void close() throws IOException {
-        if(fw != null) {
-            fw.flush();
-            fw.close();
-            fw = null;
+        if(bw != null) {
+            bw.flush();
+            bw.close();
+            bw = null;
         }
     }
 

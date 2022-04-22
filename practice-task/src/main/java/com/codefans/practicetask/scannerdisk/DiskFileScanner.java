@@ -5,7 +5,9 @@ import com.codefans.reusablecode.util.IOUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DiskFileScanner {
 
@@ -26,13 +28,39 @@ public class DiskFileScanner {
 	 */
 	public static void main(String[] args) throws IOException {
 		DiskFileScanner diskFileScanner = new DiskFileScanner();
-		diskFileScanner.scannerDiskFile();
+		diskFileScanner.diskSizeScan();
+//		diskFileScanner.scannerDiskFile();
+
+	}
+
+	public void diskSizeScan() {
+		DiskSizeScanner diskSizeScanner = new DiskSizeScanner();
+		String[] dirArr = new String[] {
+			"C:\\Users\\Adminstrator",
+
+		};
+		String outFilePath = "D:/paths.txt";
+		try {
+			long startTime = System.currentTimeMillis();
+			for(String dir : dirArr) {
+				diskSizeScanner.scan(dir, outFilePath);
+			}
+			System.out.println("总耗时:[" + (System.currentTimeMillis() - startTime)/1000 + "s]");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			diskSizeScanner.shutdown();
+		}
 	}
 
 	public void scannerDiskFile() throws IOException {
+
+
+
 		// String dir = "D:\\software";
 		// String dir = "D:\\360云盘";
-		String dir = "H:\\csz";
+//		String dir = "C:\\Users";
+		String dir = "C:\\Users\\Adminstrator";
 		// FileType fileType = FileType.App;
 //		FileType fileType = FileType.Video;
 		FileType fileType = FileType.All;
@@ -102,6 +130,7 @@ public class DiskFileScanner {
 
 	public void scannerInLevels(String dir, FileType fileType, List<String> foldersInThisLevel, int levelCount,
                                 int level) throws IOException {
+
 		// System.out.println("level:[" + level + "]");
 		File path = new File(dir);
 		if (path.isDirectory()) {

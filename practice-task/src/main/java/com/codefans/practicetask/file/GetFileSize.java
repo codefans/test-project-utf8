@@ -401,10 +401,10 @@ public class GetFileSize extends FileBase {
 
 	public void scan() throws Throwable {
 		String[] dirs = new String[]{
-			"D:\\github\\test-project-utf8\\interview-case\\build\\test-results\\test\\binary",
+//			"D:\\github\\test-project-utf8\\interview-case\\build\\test-results\\test\\binary",
 //			"E:\\Films",
 //			"F:\\Films",
-//			"G:\\Films",
+			"C:\\Users\\",
 		};
 		for(int i = 0; i < dirs.length; i ++) {
 			String path = dirs[i];
