@@ -1,10 +1,7 @@
 package com.codefans.interview.classload;
 
-import com.codefans.interview.algorithm.ClockwisePrintMatrix;
-import com.codefans.interview.concurrent.CatchThreadException;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.codefans.interview.algorithm.offer.ClockwisePrintMatrix;
 
 /**
  * @author: codefans
@@ -33,7 +30,7 @@ public class ClassLoaderPractise {
             Object clsObj = myClassLoader.loadClass(clsName).newInstance();
 
             System.out.println(clsObj.getClass());
-            System.out.println(clsObj instanceof com.codefans.interview.algorithm.ClockwisePrintMatrix);
+            System.out.println(clsObj instanceof com.codefans.interview.algorithm.offer.ClockwisePrintMatrix);
 
             ClassLoader clsLoader = ClockwisePrintMatrix.class.getClassLoader();
             System.out.println("clsLoader:" + clsLoader);
@@ -51,7 +48,7 @@ public class ClassLoaderPractise {
             Object clsObj03 = clsClass.newInstance();
             System.out.println("clsObj03.getClass()-->" + clsObj03.getClass());
             System.out.println("clsObj.equals(clsObj03):" + clsObj.equals(clsObj03));
-            System.out.println(clsObj03 instanceof com.codefans.interview.algorithm.ClockwisePrintMatrix);
+            System.out.println(clsObj03 instanceof com.codefans.interview.algorithm.offer.ClockwisePrintMatrix);
 
 //            ClassLoader classLoader = new ClassLoader() {
 //                @Override
