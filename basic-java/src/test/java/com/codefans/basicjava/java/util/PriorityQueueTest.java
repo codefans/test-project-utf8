@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 /**
  * PriorityQueue优先队列测试类
@@ -99,6 +100,27 @@ public class PriorityQueueTest {
 //        queue.add(2);
 
         System.out.println("size=" + queue.size());
+        this.print(queue);
+
+    }
+
+    @Test
+    public void smallHeapTest() {
+        int heapSize = 6;
+        PriorityQueue<Integer> queue = new PriorityQueue<>(heapSize, new IntegerComparetor());
+        int dataCount = 100;
+        Random random = new Random();
+        for(int i = 0; i < dataCount; i ++) {
+            if(queue.size() < heapSize) {
+                queue.add(i);
+            } else {
+                if(i < queue.peek()) {
+                    queue.poll();
+                    queue.add(i);
+                }
+            }
+        }
+
         this.print(queue);
 
     }

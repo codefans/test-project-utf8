@@ -31,6 +31,11 @@ public class HashMapMain {
         dataMap.put("5555", "ooo");
         dataMap.put("6666", "ppp");
         dataMap.put("7777", "qqq");
+        dataMap.put("7777", "qqq2");
+        dataMap.put(null, "qqq");
+        dataMap.put(null, "bbb");
+        dataMap.put("8888", null);
+        dataMap.put(null, null);
 
         CollectionHelper.print(dataMap);
 
