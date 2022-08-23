@@ -24,5 +24,14 @@ public interface PropertyKeyConstants {
     public static final String LINE_SEPERATOR = "\r\n";
     public static final String PROPERTY_SEPERATOR = ";";
 
+    /**
+     *
+     */
+    public static final String GRADLE = "GRADLE";
+
+    /**
+     *
+     */
+    public static final String MAVEN = "MAVEN";
 
 }

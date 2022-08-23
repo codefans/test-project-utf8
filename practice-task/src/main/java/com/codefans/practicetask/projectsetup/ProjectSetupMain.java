@@ -40,7 +40,7 @@ public class ProjectSetupMain implements PropertyKeyConstants {
 
             this.initProperties();
             this.setupDir();
-            if(projectType.equals("pom")) {
+            if(projectType.equals(MAVEN)) {
                 this.setupPom();
             } else {
                 this.setupGradle();
