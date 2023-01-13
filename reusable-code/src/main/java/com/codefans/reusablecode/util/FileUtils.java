@@ -58,11 +58,15 @@ public class FileUtils {
 		
 //		String filePath = "D:\\codefans\\Desktop\\jone-部署251台机器-部署成功机器.txt";
 //		String filePath = "D:\\codefans\\Desktop\\2020年10月16日-全链路压测\\m-汇天-np88台.txt";
-		String filePath = "D:\\codefans\\Desktop\\m-廊坊-74台.txt";
+		String filePath = "D:\\2126_lib";
 //		String newFilePath = "D:\\codefans\\Desktop\\2020年10月16日-全链路压测\\m-汇天-n台.txt";
 //		String newFilePath = "D:\\codefans\\Desktop\\2020年10月16日-全链路压测\\rsp-汇天-np-local-139台.txt";
-		String newFilePath = "D:\\codefans\\Desktop\\m-廊坊-jone-76台.txt";
-		util.compareFile(filePath, newFilePath);
+		String newFilePath = "D:\\master_lib";
+//		util.compareFile(filePath, newFilePath);
+//		util.compareDirectory(filePath, newFilePath);
+		
+		String path = "D:\\eciticcfc-projects\\loan-front\\loan-front\\loan-promotion-gateway\\target\\lib";
+		util.collectJarNames(path);
 		
 //		String filePath = "D:/tmp/寄卖商品撤卖报表.txt";
 //		String newFilePath = "D:/tmp/寄卖商品收货报表.txt";
@@ -85,6 +89,16 @@ public class FileUtils {
 
 	}
 
+	public void collectJarNames(String jarDir) {
+		File dir = new File(jarDir);
+		if(dir.isDirectory()) {
+			File[] files = dir.listFiles();
+			for(File f : files) {
+				System.out.println(f.getName());
+			}
+		}
+	}
+	
 	public void removeRepeatedLines(String file) {
 		File f = new File(file);
 		try {
@@ -194,6 +208,47 @@ public class FileUtils {
 		
 	}
 	
+	/**
+	 * 求两个文件的差集、交集、并集,文件每行一条记录
+	 * @param sourceDir
+	 * @param destDir
+	 */
+	public void compareDirectory(String sourceDir, String destDir) {
+		
+		List<String> sourceList = this.dirToList(sourceDir);
+		List<String> destList = this.dirToList(destDir);
+		
+		System.out.println(sourceDir + ":共" + sourceList.size() + "行.");
+		System.out.println(destDir + ":共" + destList.size() + "行.");
+		
+		List<String> result = new ArrayList<String>();
+		result.addAll(sourceList);
+		result.removeAll(destList);
+		System.out.println("只存在于[" + sourceDir + "]文件中,共:" + result.size() + "个:");
+		print(result);
+		
+		result.clear();
+		result.addAll(destList);
+		result.removeAll(sourceList);
+		System.out.println("只存在于[" + destDir + "]文件中,共:" + result.size() + "个:");
+		print(result);
+		
+		result.clear();
+		result.addAll(destList);
+		result.retainAll(sourceList);
+		System.out.println("两个文件的交集,共:" + result.size() + "个:");
+		print(result);
+		
+		result.clear();
+		Set<String> noDupli = new HashSet<>();
+		noDupli.addAll(destList);
+		noDupli.addAll(sourceList);
+		System.out.println("两个文件的并集(无重复),共:" + noDupli.size() + "个:");
+		print(noDupli);
+		
+	}
+	
+	
 	public List<String> fileToList(String filePath) {
 		List<String> list = new ArrayList<String>();
 		Scanner sc = null;
@@ -209,6 +264,22 @@ public class FileUtils {
 			e.printStackTrace();
 		} finally {
 			this.close(sc);
+		}
+		return list;
+	}
+	
+	public List<String> dirToList(String filePath) {
+		List<String> list = new ArrayList<String>();
+		try {
+			File file = new File(filePath);
+			if(file.isDirectory()) {
+				File[] files = file.listFiles();
+				for(File f : files) {
+					list.add(f.getName());
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return list;
 	}
