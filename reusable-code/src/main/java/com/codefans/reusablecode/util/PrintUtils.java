@@ -9,7 +9,9 @@ package com.codefans.reusablecode.util;
 
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -33,6 +35,7 @@ public class PrintUtils {
                 }
                 System.out.print(list.get(i));
             }
+            System.out.println();
         } else {
             System.out.println("list为空！！！");
         }
@@ -76,6 +79,7 @@ public class PrintUtils {
                 }
                 System.out.print(list.get(i));
             }
+            System.out.println();
         } else {
             System.out.println("list为空！！！");
         }
@@ -93,6 +97,23 @@ public class PrintUtils {
             }
         } else {
             System.out.println("list为空！！！");
+        }
+    }
+
+    public static final void printMapKeySets(Map map) {
+        if(map != null && map.size() > 0) {
+            Iterator iter = map.keySet().iterator();
+            boolean isFirst = true;
+            while(iter.hasNext()) {
+                if(!isFirst) {
+                    System.out.print(",");
+                }
+                System.out.print(iter.next());
+                isFirst = false;
+            }
+            System.out.println();
+        } else {
+            System.out.println("map为空！！！");
         }
     }
 
