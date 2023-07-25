@@ -20,19 +20,21 @@ public class RedisHelper {
     public static void main(String[] args) {
 
         RedisHelper redisHelper = new RedisHelper();
-        String key = "18245457878";
+        String key = "13141772889";
 //        String key = "App:Disc:20230414002-3-018112349874";
-//        String clusterAddr = "10.18.1.76:7000,10.18.1.76:7001,10.18.1.76:7002,10.18.1.76:7003,10.18.1.76:7004,10.18.1.76:7005";
-        String clusterAddr = "10.18.1.111:7000,10.18.1.111:7001,10.18.1.111:7002,10.18.1.111:7003,10.18.1.111:7004,10.18.1.111:7005";
-        redisHelper.search(key, clusterAddr);
+//        String key = "App:Disc:8820230711143635000000021";
+        String clusterAddr = "xxx.xxx.xxx.xxx:port";
+        String password = "pwd";
+        redisHelper.search(key, clusterAddr, password);
 
     }
 
 
-    public void search(String key, String clusterAddr) {
+    public void search(String key, String clusterAddr, String password) {
         String storeAddr = "";
+        String redisKey = null;
         String val = "";
-        JedisCluster jedisCluster = this.jedisCluster(clusterAddr);
+        JedisCluster jedisCluster = this.jedisCluster(clusterAddr, password);
 
         AtomicInteger count = new AtomicInteger();
 
@@ -65,8 +67,9 @@ public class RedisHelper {
                             if (jedis.exists(keyStr)) { // && keyStr.equals(key)
                                 matchCount++;
                                 String keyVal = jedis.get(keyStr);
-                                System.out.println(keyVal);
+//                                System.out.println("keyStr=" + keyStr + ", keyVal=" + keyVal);
                                 val = keyVal;
+                                redisKey = keyStr;
                             }
                         } catch (Exception e) {
                             if(e instanceof JedisMovedDataException) {
@@ -90,10 +93,10 @@ public class RedisHelper {
                     jedis.close();
             }
         }
-        System.out.println(key + "=" + val);
+        System.out.println(redisKey + "=" + val);
     }
 
-    public JedisCluster jedisCluster(String clusterAddr){
+    public JedisCluster jedisCluster(String clusterAddr, String password){
 
         int connectionTimeout = 3000;
         int soTimeout = 3000;
@@ -122,7 +125,7 @@ public class RedisHelper {
             nodes.add(new HostAndPort(ipPortPair[0].trim(), Integer.valueOf(ipPortPair[1].trim())));
         }
         //构建对象并返回；
-        return new JedisCluster(nodes, connectionTimeout, soTimeout, maxAttempts, poolConfig);
+        return new JedisCluster(nodes, connectionTimeout, soTimeout, maxAttempts, password, poolConfig);
     }
 
 }
