@@ -18,6 +18,9 @@ practice-task模块：
 3.com.codefans.practicetask.file.SortFileBySizeTask
     扫描多个目录下某个文件类型的所有文件及文件大小，并按文件大小进行排序输出
 
+4、com.codefans.practicetask.file.SearchInJarFiles
+    在多个jar文件中搜索内容
+
 reusable-code模块：
 1、将str列表转换为int数组
     com.codefans.reusablecode.util.CollectionUtils.strListToIntArr()
