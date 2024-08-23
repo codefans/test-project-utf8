@@ -40,6 +40,9 @@ reusable-code模块：
 6、解析项目中的http接口uri
   ParseUrlFromSpringMVCProjectByScanFile
 
+7、csv文件转sql工具类
+  Csv2SqlUtils
+
 
 
 
