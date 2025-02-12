@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts拓扑图示例</title>
+    <!-- 引入ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 图表容器 -->
+    <div id="main" style="width: 1000px;height:800px;"></div>
+
+    <script type="text/javascript">
+        // 初始化图表
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 拓扑图数据
+        var graphData = {
+            "nodes": [
+                {
+                    "id": "router1",
+                    "name": "核心路由器",
+                    "symbolSize": 50,
+                    "itemStyle": {"color": "#4b8aeb"},
+                    "label": {"show": true}
+                },
+                {
+                    "id": "switch1",
+                    "name": "接入交换机1",
+                    "symbolSize": 35,
+                    "itemStyle": {"color": "#37c837"},
+                    "label": {"show": true}
+                },
+                {
+                    "id": "switch2",
+                    "name": "接入交换机2",
+                    "symbolSize": 35,
+                    "itemStyle": {"color": "#37c837"},
+                    "label": {"show": true}
+                },
+                {
+                    "id": "server1",
+                    "name": "Web服务器",
+                    "symbolSize": 25,
+                    "itemStyle": {"color": "#ff6f20"},
+                    "label": {"show": true}
+                },
+                {
+                    "id": "server2",
+                    "name": "数据库服务器",
+                    "symbolSize": 25,
+                    "itemStyle": {"color": "#ff6f20"},
+                    "label": {"show": true}
+                }
+            ],
+            "links": [
+                {
+                    "source": "router1",
+                    "target": "switch1",
+                    "label": {"show": true, "formatter": "10Gbps"}
+                },
+                {
+                    "source": "router1",
+                    "target": "switch2",
+                    "label": {"show": true, "formatter": "10Gbps"}
+                },
+                {
+                    "source": "switch1",
+                    "target": "server1",
+                    "label": {"show": true, "formatter": "1Gbps"}
+                },
+                {
+                    "source": "switch2",
+                    "target": "server2",
+                    "label": {"show": true, "formatter": "1Gbps"}
+                }
+            ]
+        };
+
+        // 配置选项
+        var option = {
+            title: {
+                text: '网络拓扑结构图',
+                subtext: '示例网络拓扑'
+            },
+            tooltip: {},
+            legend: [{
+                data: ['路由器', '交换机', '服务器']
+            }],
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series: [{
+                type: 'graph',
+                layout: 'force',
+                legendHoverLink: true,
+                draggable: true,
+                data: graphData.nodes.map(function (node) {
+                    return {
+                        id: node.id,
+                        name: node.name,
+                        symbolSize: node.symbolSize,
+                        itemStyle: node.itemStyle,
+                        label: node.label,
+                        // 分类信息用于图例
+                        category: node.itemStyle.color === '#4b8aeb' ? '路由器' : 
+                                 node.itemStyle.color === '#37c837' ? '交换机' : '服务器'
+                    };
+                }),
+                links: graphData.links,
+                categories: [
+                    {name: '路由器'},
+                    {name: '交换机'},
+                    {name: '服务器'}
+                ],
+                roam: true,
+                label: {
+                    position: 'right',
+                    formatter: '{b}'
+                },
+                edgeLabel: {
+                    show: true,
+                    formatter: '{c}'
+                },
+                force: {
+                    repulsion: 1000,
+                    edgeLength: [100, 300]
+                },
+                lineStyle: {
+                    color: 'source',
+                    curveness: 0.3
+                },
+                emphasis: {
+                    focus: 'adjacency',
+                    lineStyle: {
+                        width: 5
+                    }
+                }
+            }]
+        };
+
+        // 使用配置项显示图表
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
