@@ -1,5 +1,6 @@
 package com.codefans.practicetask.topologygraph;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 
 /**
@@ -26,9 +27,14 @@ public class GraphNode {
     private int symbolSize;
 
     /**
-     * 节点颜色
+     * 节点样式
      */
-    private String color;
+    private JSONObject itemStyle;
+
+    /**
+     * 节点标签样式
+     */
+    private JSONObject label;
 
     public GraphNode(String id, String name) {
         this.id = id;

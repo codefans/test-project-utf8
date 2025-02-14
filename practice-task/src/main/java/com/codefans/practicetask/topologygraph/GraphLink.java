@@ -1,5 +1,6 @@
 package com.codefans.practicetask.topologygraph;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 
 /**
@@ -24,5 +25,5 @@ public class GraphLink {
     /**
      * 边的格式化字符串
      */
-    private String formatter;
+    private JSONObject label;
 }
