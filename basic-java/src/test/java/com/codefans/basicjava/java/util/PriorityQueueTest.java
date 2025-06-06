@@ -23,13 +23,16 @@ public class PriorityQueueTest {
         /**
          * 默认是小顶堆, 最小值在第一个位置
          */
-        PriorityQueue<Integer> queue = new PriorityQueue<>(6);
+        int heapSize = 6;
+        PriorityQueue<Integer> queue = new PriorityQueue<>(heapSize);
         queue.add(12);
         queue.add(6);
         queue.add(24);
         queue.add(8);
         queue.add(7);
         queue.add(10);
+        queue.add(11);
+        queue.add(15);
         /**
          * 实际在队列中的顺序是：6、7、10、12、8、24
          */
@@ -38,13 +41,13 @@ public class PriorityQueueTest {
 //        queue.add(3);
 //        queue.add(2);
 
-        System.out.println("size=" + queue.size());
+        System.out.println("offerTest()-->size=" + queue.size());
 
         /**
          * 如果连续调用6次poll()方法，输出的值依次为：
          *     6、7、8、10、12、24
          */
-        this.print(queue);
+        this.print(queue, heapSize);
 
     }
 
@@ -59,6 +62,10 @@ public class PriorityQueueTest {
         queue.add(7);
         queue.add(10);
 
+        /**
+         * 按数组中的存放顺序输出
+         * 注意：非插入顺序
+         */
         System.out.println("iterator:");
         Iterator<Integer> iter = queue.iterator();
         while(iter.hasNext()) {
@@ -66,6 +73,9 @@ public class PriorityQueueTest {
         }
         System.out.println();
 
+        /**
+         * 按从小到大升序输出
+         */
         System.out.println("poll:");
         int size = queue.size();
         for(int i = 0; i < size; i ++) {
@@ -82,46 +92,42 @@ public class PriorityQueueTest {
      * 大顶堆
      */
     @Test
-    public void bigHeapTest() {
-        IntegerComparetor comparetor = new IntegerComparetor();
-        PriorityQueue<Integer> queue = new PriorityQueue<>(2, comparetor);
-        queue.add(12);
-        queue.add(6);
-        queue.add(24);
-        queue.add(8);
-        queue.add(7);
-        queue.add(10);
-        /**
-         * 实际在队列中的顺序是：6、7、10、12、8、24
-         */
-
-//        queue.add(1);
-//        queue.add(3);
-//        queue.add(2);
-
-        System.out.println("size=" + queue.size());
-        this.print(queue);
+    public void maxHeapTest() {
+        int heapSize = 6;
+        PriorityQueue<Integer> queue = new PriorityQueue<>(heapSize, Comparator.comparingInt(o->o));
+        int[] dataArr = new int[]{12, 6, 24, 8, 7, 10, 11, 15};
+        for(int i = 0; i < dataArr.length; i ++) {
+            if(queue.size() < heapSize) {
+                queue.add(dataArr[i]);
+            } else {
+                if(dataArr[i] > queue.peek()) {
+                    queue.poll();
+                    queue.add(dataArr[i]);
+                }
+            }
+        }
+        System.out.println("maxHeapTest()-->size=" + queue.size());
+        this.print(queue, heapSize); //输出8, 10, 11, 12, 15, 24
 
     }
 
     @Test
-    public void smallHeapTest() {
+    public void minHeapTest() {
         int heapSize = 6;
-        PriorityQueue<Integer> queue = new PriorityQueue<>(heapSize, new IntegerComparetor());
-        int dataCount = 100;
-        Random random = new Random();
-        for(int i = 0; i < dataCount; i ++) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(heapSize, Comparator.reverseOrder());
+        int[] dataArr = new int[]{12, 6, 24, 8, 7, 10, 11, 15};
+        for(int i = 0; i < dataArr.length; i ++) {
             if(queue.size() < heapSize) {
-                queue.add(i);
+                queue.add(dataArr[i]);
             } else {
-                if(i < queue.peek()) {
+                if(dataArr[i] < queue.peek()) {
                     queue.poll();
-                    queue.add(i);
+                    queue.add(dataArr[i]);
                 }
             }
         }
-
-        this.print(queue);
+        System.out.println("minHeapTest()-->size=" + queue.size());
+        this.print(queue, heapSize); //输出12, 11, 10, 8, 7, 6
 
     }
 
@@ -141,8 +147,22 @@ public class PriorityQueueTest {
     private void print(PriorityQueue<Integer> queue) {
         int size = queue.size();
         for(int i = 0; i < size; i ++) {
-            System.out.println(queue.poll());
+            System.out.print(queue.poll());
+            if(i != 0) {
+                System.out.print(", ");
+            }
         }
+        System.out.println();
+    }
+
+    private void print(PriorityQueue<Integer> queue, int size) {
+        for(int i = 0; i < size; i ++) {
+            if(i != 0) {
+                System.out.print(", ");
+            }
+            System.out.print(queue.poll());
+        }
+        System.out.println();
     }
 
 }
